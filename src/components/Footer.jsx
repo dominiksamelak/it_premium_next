@@ -17,7 +17,7 @@ export function Footer() {
         </div>
         <ul className="about-us">
           <div className="footer-titles">
-            <Link href="/aboutus"><span className="footer-bold">O Nas</span></Link>
+            <span className="footer-bold">O Nas</span>
           </div>
           <Link href="/contact">Kontakt</Link>
           <Link href="/contact">Recenzje klientów</Link>

@@ -1,11 +1,11 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+"use client"; // Mark this as a Client Component
+
+import { useParams } from "next/navigation";
 import { priceListData } from "./PricelistData";
 
-const PriceList = ({ subpage: propSubpage }) => { 
-  // Check for direct prop first, fallback to useParams for dynamic routes
-  const { subpage: paramSubpage } = useParams();
-  const subpage = propSubpage || paramSubpage;
+const PriceList = ({ subpage: propSubpage }) => {
+  const params = useParams();
+  const subpage = propSubpage || params?.subpage;
 
   // Retrieve data for the specific subpage
   const priceList = priceListData[subpage];
