@@ -1,0 +1,35 @@
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.printerfix-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  animation: fade-up 1s;
+}
+
+.printerfix-landing-photo {
+  display: block;
+  margin: 0;
+  align-items: center;
+  height: auto;
+  width: 100vw;
+  filter: brightness(0.5);
+}
+
+.pricelist-text {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 500px;
+  display: block;
+}

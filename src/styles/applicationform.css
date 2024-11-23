@@ -1,0 +1,120 @@
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 970px;
+  width: 100%;
+  margin-top: 124px;
+  animation: fade-up 1s;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1em;
+}
+
+.form-group-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.form-group-checkbox input[type="checkbox"] {
+  display: none; 
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-label:hover {
+  position: none;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #00ADFC;
+  border-color: #00ADFC;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px; 
+  margin-left: 20px; 
+  
+}
+
+.form-buttons button {
+  padding: 2px 26px;
+  font-size: 14px;
+  background: linear-gradient(to right, #3D4656,  #00cafc);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  justify-content: flex-end;
+  width: 100%;
+  font-weight: 600;
+}
+
+.form-buttons button:hover {
+  text-decoration: underline;
+}
+button:disabled {
+  background-color: #ccc; /* Light gray background */
+  color: #888; /* Lighter text color */
+  cursor: not-allowed; /* Change the cursor to indicate that the button is disabled */
+}
+
+button:disabled:hover {
+  text-decoration: none;
+}
+
+
+textarea {
+  resize: none;
+  height: 200px;
+}

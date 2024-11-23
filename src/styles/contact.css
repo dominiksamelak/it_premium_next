@@ -1,0 +1,91 @@
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: 124px;
+  margin-bottom: 20px;
+  max-width: 970px;
+  width: 100%;
+  align-items: top;
+  justify-content: space-between;
+  animation: fade-up 1s;
+}
+
+.line {
+  background-image: linear-gradient(to top, #00cafc, #67bbe6, 50%, #3d4656);
+  width: 10px;
+  height: 450px;
+}
+
+.contact-subcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-info,
+.contact-info-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-info {
+  margin-right: 200px;
+  height: 410px;
+  justify-content: space-evenly;
+}
+
+.contact-info-subcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contact-title {
+  margin-bottom: 20px;
+}
+
+.contact-title,
+.contact-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contact-address,
+.contact-support,
+.contact-social,
+.contact-time {
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.contact-address-location,
+.contact-mail,
+.contact-phone,
+.contact-name {
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact-mail,
+.contact-phone {
+  color: #62a2c3;
+}
+
+.map-pin,
+.phone-contact-icon,
+.mail-icon,
+.contact-logo {
+  margin-right: 8px;
+}

@@ -1,0 +1,23 @@
+.company-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.company-landing-photo {
+  display: block;  
+  margin: 0; 
+  align-items: center;
+  height: auto;  
+  width: 100vw;
+  filter: brightness(0.5);
+}
+
+.pricelist-text {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 500px;
+  display: block;
+}
