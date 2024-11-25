@@ -1,6 +1,6 @@
 import PrinterFix from "@/components/img/landing_photos/printerfix-main.png"
 import "@/styles/printerfix.css"
-import PriceList from "@/components/Pricelist.jsx";
+import PriceList from "@/components/Pricelist.js";
 import Image from "next/image"
 import "@/styles/pricelist.css";
 

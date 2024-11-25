@@ -1,10 +1,13 @@
 "use client"; 
 import '@/styles/applicationform.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function ApplicationForm() {
-  const [subject, setSubject] = useState('');
+  const router = useRouter();
+  const [orderNumber, setOrderNumber] = useState(null); // State to store order number
+  const [remainingCharacters, setRemainingCharacters] = useState(1000);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,80 +20,81 @@ export default function ApplicationForm() {
     model: '',
     serialnumber: '',
     details: '',
-    acceptedTerms: false, // tracks whether the checkbox is checked
+    acceptedTerms: false,
   });
 
+  useEffect(() => {
+    // Fetch order number when the component mounts
+    fetchOrderNumber();
+  }, []);
+
+  const fetchOrderNumber = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/getOrderNumber");
+      setOrderNumber(response.data.orderNumber); // Update state with the order number
+    } catch (error) {
+      console.error("Failed to fetch order number:", error);
+      setOrderNumber("Brak numeru zlecenia, ale zgłoszenie zostało przyjęte"); // Set fallback value in case of error
+    }
+  };
+
   const sendMail = (subject, message) => {
-    axios
-      .get("http://localhost:5000/", {
-        params: {
-          subject,
-          message,
-        },
-      })
-      .then(() => {
-        // success
-        console.log("Email sent successfully");
-      })
-      .catch(() => {
-        // failure
-        console.log("Failed to send email");
-      });
+    return axios.get("http://localhost:5000/", {
+      params: {
+        subject,
+        message,
+      },
+    });
   };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const updatedValue = type === 'checkbox' ? checked : value;
 
+     if (name === "details") {
+    setRemainingCharacters(1000 - value.length); // Calculate remaining characters
+  }
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: updatedValue,
     }));
-
-    if (name === "model") {
-      setSubject(value);
-    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Construct the email message
-    const emailMessage = `
-      <strong>Name:</strong> ${formData.name}<br>
-      <strong>Email:</strong> ${formData.email}<br>
-      <strong>Phone:</strong> ${formData.phone}<br>
-      <strong>Street:</strong> ${formData.street}<br>
-      <strong>Zipcode:</strong> ${formData.zipcode}<br>
-      <strong>City:</strong> ${formData.city}<br>
-      <strong>Equipment:</strong> ${formData.equipment}<br>
-      <strong>Manufacturer:</strong> ${formData.manufacturer}<br>
-      <strong>Model:</strong> ${formData.model}<br>
-      <strong>Serial Number:</strong> ${formData.serialnumber}<br>
-      <strong>Details:</strong><br>
-      ${formData.details}
-    `;
+  const emailMessage = `
+    <strong>Order Number:</strong> ${orderNumber}<br>
+    <strong>Name:</strong> ${formData.name}<br>
+    <strong>Email:</strong> ${formData.email}<br>
+    <strong>Phone:</strong> ${formData.phone}<br>
+    <strong>Street:</strong> ${formData.street}<br>
+    <strong>Zipcode:</strong> ${formData.zipcode}<br>
+    <strong>City:</strong> ${formData.city}<br>
+    <strong>Equipment:</strong> ${formData.equipment}<br>
+    <strong>Manufacturer:</strong> ${formData.manufacturer}<br>
+    <strong>Model:</strong> ${formData.model}<br>
+    <strong>Serial Number:</strong> ${formData.serialnumber}<br>
+    <strong>Details:</strong><br>
+    ${formData.details}
+  `;
 
-    setSubject(`${formData.model}`);
+  try {
+    await sendMail(`${formData.model}`, emailMessage);
+    console.log("Email sent successfully");
 
-    sendMail(`${formData.model}`, emailMessage);
+    // Store form data and order number in localStorage
+    const formDataWithOrder = { ...formData, orderNumber };
+    localStorage.setItem("formData", JSON.stringify(formDataWithOrder));
 
-    // Reset form data after submission
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      street: '',
-      zipcode: '',
-      city: '',
-      equipment: '',
-      manufacturer: '',
-      model: '',
-      serialnumber: '',
-      details: '',
-      acceptedTerms: false, // Reset acceptedTerms to false after submission
-    });
-  };
+    // Navigate to confirmation page
+    router.push("/confirmation");
+  } catch (error) {
+    console.error("Failed to send email:", error);
+  }
+};
+
 
   const handlePhoneChange = (e) => {
     const value = e.target.value.replace(/[^0-9]/g, '');
@@ -248,8 +252,10 @@ export default function ApplicationForm() {
             placeholder="Opis usterki*"
             value={formData.details}
             onChange={handleChange}
+            maxLength={1000} 
             required
           ></textarea>
+          <p>Pozostało {remainingCharacters} znaków</p> 
         </div>
 
         <div className="form-group-checkbox">

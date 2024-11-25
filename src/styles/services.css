@@ -142,13 +142,13 @@
 .services-contact-text {
   font-weight: 600;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .services-contact-button {
   background-image: linear-gradient(to right, #3d4656, #00adfc);
   padding: 6px 26px;
   border-radius: 25px;
-  margin-top: 4px;
   color: white;
   font-weight: 600;
 }

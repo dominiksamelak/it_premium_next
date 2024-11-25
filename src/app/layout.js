@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar.jsx"
+import { Navbar } from "@/components/Navbar.js"
 import { Footer } from "@/components/Footer"
 import { Raleway } from 'next/font/google'
 
@@ -16,7 +16,9 @@ export default function RootLayout({ children }) {
         <nav>
           <Navbar />
         </nav>
-        {children}
+        <main>
+          {children}
+        </main>
         <footer>
           <Footer />
         </footer>
@@ -24,3 +26,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

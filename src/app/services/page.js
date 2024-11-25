@@ -117,10 +117,13 @@ export default function  Services() {
         initial={{ y: -100, opacity: 0  }}
         whileInView={{ y:0, opacity: 1  }}
         transition={{ duration: 1 }}>
+
         <span className="services-contact-text">
           W razie jakichkolwiek pytań, zapraszamy do kontaktu
         </span>
-        <span className="services-contact-button">Kontakt</span>
+                 <Link href="/contact">
+          <span className="services-contact-button">Kontakt</span>
+         </Link> 
       </motion.div>
     </div>
   );

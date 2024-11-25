@@ -1,6 +1,6 @@
 import PhoneFix from "@/components/img/landing_photos/phonefix-main.png"
 import "@/styles/phonefix.css"
-import PriceList from "@/components/Pricelist.jsx";
+import PriceList from "@/components/Pricelist.js";
 import Image from "next/image"
 
 export default function Phone() {

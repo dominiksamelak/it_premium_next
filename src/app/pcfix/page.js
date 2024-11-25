@@ -1,6 +1,6 @@
 import PClanding from "@/components/img/landing_photos/pcfix-main.png"
 import "@/styles/pcfix.css"
-import PriceList from "@/components/Pricelist.jsx";
+import PriceList from "@/components/Pricelist.js";
 import "@/styles/pricelist.css";
 import Image from "next/image"
 

@@ -1,6 +1,6 @@
 import DataRec from "@/components/img/landing_photos/datarec-main.png"
 import "@/styles/datarec.css"
-import PriceList from "@/components/Pricelist.jsx";
+import PriceList from "@/components/Pricelist.js";
 import Image from "next/image"
 import "@/styles/pricelist.css";
 
