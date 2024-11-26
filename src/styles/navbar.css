@@ -194,10 +194,11 @@
   margin-left: 5px;
   display: flex;
   align-items: center;
+  
 }
 
 .navbar-phone-number span {
-  font-family: "Just", serif;
+  font-family: 'Jost', sans-serif;
   font-weight: 600;
 }
 

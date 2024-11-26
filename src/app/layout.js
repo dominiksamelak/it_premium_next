@@ -3,10 +3,16 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar.js"
 import { Footer } from "@/components/Footer"
 import { Raleway } from 'next/font/google'
+import { Jost } from 'next/font/google'
 
 const raleway_init = Raleway({
   subsets: ['latin'],
   variable: '--font-raleway'
+})
+
+const jost_init = Jost({
+  subsets: ['latin'],
+  variable: '--font-jost'
 })
 
 export default function RootLayout({ children }) {

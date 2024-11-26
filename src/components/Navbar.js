@@ -9,7 +9,12 @@ import phone from "@/components/img/icons/Phone.png";
 import facebook from "@/components/img/icons/social_icon.png";
 import logo from "@/components/img/icons/logo_navbar.png";
 
+
+
 export function Navbar({ isVisible }) {
+
+
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
