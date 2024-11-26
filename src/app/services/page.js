@@ -22,7 +22,7 @@ export default function  Services() {
         <span className="down-up"></span>
         <Image src={PC} alt="pc" className="pic-left"/>
         <div className="services-text">
-          <Link href="/pcfix" className="services-text-link">
+          <Link href="/services/computer-repair" className="services-text-link">
             <span className="services-text-title">Naprawa komputerów</span>
           </Link>
           <span className="services-text-desc">
@@ -34,9 +34,10 @@ export default function  Services() {
       <motion.div className="services-right"
         initial={{ x: 400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        >
         <div className="services-text-right">
-          <Link href="/phonefix" className="services-text-link">
+          <Link href="/services/phone-repair" className="services-text-link">
             <span className="services-text-title">Naprawa telefonów</span>
           </Link>
           <span className="services-text-desc">
@@ -50,11 +51,12 @@ export default function  Services() {
       <motion.div className="services-left"
               initial={{ x: -400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
         <span className="down-up"></span>
         <Image src={Printer} alt="printer" className="pic-left" />
         <div className="services-text">
-          <Link href="/printerfix" className="services-text-link">
+          <Link href="/services/printer-repair" className="services-text-link">
             <span className="services-text-title">Naprawa drukarek</span>
           </Link>
           <span className="services-text-desc">
@@ -68,7 +70,7 @@ export default function  Services() {
         whileInView={{ x:0, opacity: 1  }}
         transition={{ duration: 1 }}>
         <div className="services-text-right">
-          <Link href="/datarecovery" className="services-text-link">
+          <Link href="/services/data-recovery" className="services-text-link">
             <span className="services-text-title">Odzyskiwanie danych</span>
           </Link>
           <span className="services-text-desc">
@@ -86,7 +88,7 @@ export default function  Services() {
         <span className="down-up"></span>
         <Image src={Coop} alt="coop" className="pic-left" />
         <div className="services-text">
-          <Link href="/companiescoop" className="services-text-link">
+          <Link href="/services/business-support" className="services-text-link">
             <span className="services-text-title">Obsługa firm</span>
           </Link>
           <span className="services-text-desc">
@@ -100,7 +102,7 @@ export default function  Services() {
         whileInView={{ x:0, opacity: 1  }}
         transition={{ duration: 1 }}>
         <div className="services-text-right">
-          <Link href="/otherfix" className="services-text-link">
+          <Link href="/services/electronics-repair" className="services-text-link">
             <span className="services-text-title">
               Naprawa elektroniki użytkowej
             </span>

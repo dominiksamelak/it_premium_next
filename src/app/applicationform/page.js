@@ -197,7 +197,7 @@ const handleSubmit = async (e) => {
             onChange={handleChange}
             required
           >
-            <option value="">Wybierz typ sprzętu</option>
+            <option value="" disabled selected hidden>Typ sprzętu*</option>
             <option value="Laptop">Laptop</option>
             <option value="Komputer stacjonarny">Komputer stacjonarny</option>
             <option value="Nośnik danych">Nośnik danych</option>

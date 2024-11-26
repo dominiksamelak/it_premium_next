@@ -55,7 +55,7 @@ export function DescriptionSection() {
           priority
         />
         <div className="description-two-container">
-          <span className="description-text-one">testtesttesttesttest</span>
+          {/* <span className="description-text-one">testtesttesttesttest</span> */}
           <span className="description-text-two">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremqu

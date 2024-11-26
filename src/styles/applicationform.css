@@ -106,9 +106,9 @@ h2 {
   text-decoration: underline;
 }
 button:disabled {
-  background-color: #ccc; /* Light gray background */
-  color: #888; /* Lighter text color */
-  cursor: not-allowed; /* Change the cursor to indicate that the button is disabled */
+  background-color: #ccc; 
+  color: #888; 
+  cursor: not-allowed; 
 }
 
 button:disabled:hover {
@@ -119,4 +119,8 @@ button:disabled:hover {
 textarea {
   resize: none;
   height: 200px;
+}
+
+#equipment  {
+  background-color: white;
 }

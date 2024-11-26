@@ -82,10 +82,6 @@
   width: 288px !important;
 }
 
-.google-reviews-desc {
-  padding: 2px;
-}
-
 .google-reviews .slick-dots {
   display: none !important;
 }
@@ -94,6 +90,11 @@
   max-width: 970px;
   padding: 0;
   padding-top: 20px;
+}
+
+.google-reviews-desc .css-1uyvnff {
+  width: 205px;
+  margin: 0;
 }
 
 .google-reviews .css-hzpebr,

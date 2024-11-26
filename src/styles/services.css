@@ -87,23 +87,19 @@
 .services-text-title {
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 20px;
+
   text-align: left;
   display: block;
 }
 
 .services-text-title:hover {
   color: #00adfc;
+  text-decoration: underline;
 }
 
 .services-text-link {
   margin: 0;
   text-decoration: none;
-}
-
-.services-text-link:hover {
-  color: #00adfc;
-  text-decoration: underline;
 }
 
 .services-text-link:visited {
@@ -120,6 +116,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  margin-top: 20px;
 }
 
 .services-title {

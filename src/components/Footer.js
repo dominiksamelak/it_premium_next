@@ -30,12 +30,12 @@ export function Footer() {
           <div className="footer-titles">
             <Link href="/services"><span className="footer-bold">Usługi</span></Link>
           </div>
-          <Link href="/pcfix">Naprawa komputerów</Link>
-          <Link href="/phonefix">Naprawa telefonów</Link>
-          <Link href="/printerfix">Naprawa drukarek</Link>
-          <Link href="/datarecovery">Odzyskiwanie danych</Link>
-          <Link href="/companiescoop">Obsługa firm</Link>
-          <Link href="/otherfix">Naprawa elektroniki użytkowej</Link>
+          <Link href="/services/computer-repair">Naprawa komputerów</Link>
+          <Link href="/services/phone-repair">Naprawa telefonów</Link>
+          <Link href="/services/printer-repair">Naprawa drukarek</Link>
+          <Link href="/services/data-recovery">Odzyskiwanie danych</Link>
+          <Link href="/services/business-support">Obsługa firm</Link>
+          <Link href="/services/electronics-repair">Naprawa elektroniki użytkowej</Link>
         </ul>
         <div className="location">
           <iframe

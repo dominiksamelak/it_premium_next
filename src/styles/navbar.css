@@ -10,6 +10,7 @@
   z-index: 1000;
   transform: translateY(-100%);
   animation: slideIn 1s ease-out forwards;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); /* More visible, smoother shadow */
 }
 
 @keyframes slideIn {
@@ -98,27 +99,42 @@
 }
 
 .navbar-links-list {
-  margin-right: 20px;
   text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+  width: 120px;
+  text-align: center;
 }
 
 .navbar-links-list:hover {
-  text-decoration: underline;
+  transform: scale(1.1);
+  font-weight: 700;
 }
 .navbar-link-contact {
   background-image: linear-gradient(to right, #3d4656, #00adfc);
+  display: inline-block;
   padding: 6px 26px;
   border-radius: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  width: 110px;
+  text-align: center;
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+.navbar-link-contact:hover {
+  transform: scale(1.1);
+  /* padding: 8px 28px; */
+  font-weight: 700;
 }
 
 .navbar-link-text {
   color: black;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-link-text:hover {
   font-weight: 600;
-  /* margin-left: 54px;
-  margin-right: 54px; */
 }
 
 .navbar-links .navbar-link-contact {
@@ -126,9 +142,7 @@
   text-decoration: none;
 }
 
-.navbar-link-contact:hover {
-  text-decoration: underline;
-}
+
 
 .logo {
   z-index: 1;
@@ -185,4 +199,55 @@
 .navbar-phone-number span {
   font-family: "Just", serif;
   font-weight: 600;
+}
+
+
+/* Dropdown container */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-container:hover .dropdown-menu,
+.dropdown-container:has(:hover) .dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 22px; 
+  left: 14px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  min-width: 200px;
+  font-weight: 500;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  padding: 10px 20px;
+  text-align: left;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.dropdown-container {
+  padding-bottom: 10px; 
+  margin-bottom: -10px; 
 }
