@@ -32,12 +32,12 @@ export function Navbar({ isVisible }) {
       <div className="navbar-container">
 {/* Hamburger menu */}
     <div className="mobile-navbar">
-        <Image src={logo2} alt="logo" />
+        <Image src={logo2} alt="logo" className="logo2"/>
         <Image src={mobileITP} alt="itp" className="logo2" />
         <Image
           src={hamburger}
           alt="menu"
-          className="hamburger-menu"
+          className="hamburger-icon"
           onClick={handleClick}
         />
 </div>
