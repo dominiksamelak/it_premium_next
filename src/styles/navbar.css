@@ -267,6 +267,7 @@
     justify-content: space-between;
     width: 98%;
     align-items: center;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); 
   }
 
   .logo2 {
