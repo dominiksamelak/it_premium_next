@@ -78,6 +78,12 @@
   display: flex;
   justify-content: center;
   align-items: center; 
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
+.application-form-footer:hover {
+    transform: scale(1.1);
+  font-weight: 700;
 }
 
 .location iframe {
@@ -95,4 +101,12 @@
 .link {
   padding-top: 4px;
   padding-bottom: 4px;
+}
+
+
+@media (width < 640px) {
+  .footer-container {
+  display: none;
+  }
+
 }

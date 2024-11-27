@@ -23,7 +23,7 @@
 }
 
 .line {
-  background-image: linear-gradient(to top, #00cafc, #67bbe6, 50%, #3d4656);
+  background-image: linear-gradient(to top, #00cafc, #67bbe6, 60%, #3d4656);
   width: 10px;
   height: 450px;
 }
@@ -88,4 +88,9 @@
 .mail-icon,
 .contact-logo {
   margin-right: 8px;
+}
+
+
+.contact-phone {
+  font-family: 'Jost', sans-serif;
 }

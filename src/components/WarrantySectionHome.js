@@ -6,9 +6,10 @@
       <div className="warranty">
         <motion.div 
           className="color-updown-two-warranty"
-          initial={{ x: -400, opacity: 0  }}
-          whileInView={{ x:0, opacity: 1  }}
+          initial={{ y: -100, opacity: 0  }}
+          whileInView={{ y:0, opacity: 1  }}
           transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
         ></motion.div>
         <div className="warranty-desc">
           <span className="warranty-title">Gwarancja</span>
@@ -29,9 +30,10 @@
         </div>
         <motion.div 
           className="color-updown-warranty"
-          initial={{ x: 400, opacity: 0  }}
-          whileInView={{ x:0, opacity: 1  }}
+          initial={{ y: 100, opacity: 0  }}
+          whileInView={{ y:0, opacity: 1  }}
           transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
         ></motion.div>
       </div>
       )

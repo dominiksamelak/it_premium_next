@@ -15,6 +15,7 @@ export function DescriptionSection() {
         initial={{ x: -400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
         transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <span className="color-updown"></span>
         <div className="description-one-container" >
@@ -46,6 +47,7 @@ export function DescriptionSection() {
         initial={{ x: 400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <Image
           src={descPhotoTwo}

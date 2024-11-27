@@ -18,7 +18,8 @@ export default function  Services() {
         className="services-left"
         initial={{ x: -400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
         <span className="down-up"></span>
         <Image src={PC} alt="pc" className="pic-left"/>
         <div className="services-text">
@@ -35,6 +36,7 @@ export default function  Services() {
         initial={{ x: 400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
         transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
         >
         <div className="services-text-right">
           <Link href="/services/phone-repair" className="services-text-link">
@@ -68,7 +70,8 @@ export default function  Services() {
       <motion.div className="services-right"
         initial={{ x: 400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
         <div className="services-text-right">
           <Link href="/services/data-recovery" className="services-text-link">
             <span className="services-text-title">Odzyskiwanie danych</span>
@@ -84,7 +87,8 @@ export default function  Services() {
       <motion.div className="services-left"
         initial={{ x: -400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
         <span className="down-up"></span>
         <Image src={Coop} alt="coop" className="pic-left" />
         <div className="services-text">
@@ -100,7 +104,8 @@ export default function  Services() {
       <motion.div className="services-right"
         initial={{ x: 400, opacity: 0  }}
         whileInView={{ x:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
         <div className="services-text-right">
           <Link href="/services/electronics-repair" className="services-text-link">
             <span className="services-text-title">
@@ -118,7 +123,8 @@ export default function  Services() {
       <motion.div className="services-contact"
         initial={{ y: -100, opacity: 0  }}
         whileInView={{ y:0, opacity: 1  }}
-        transition={{ duration: 1 }}>
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}>
 
         <span className="services-contact-text">
           W razie jakichkolwiek pytań, zapraszamy do kontaktu
