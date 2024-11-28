@@ -1,6 +1,7 @@
 
 import Image from "next/image";
-import landingPhoto from "../components/img/landing_photos/landingpage-main.png";
+import landingPhoto from "@/components/img/landing_photos/landingpage-main.png";
+import mobileLanding from "@/components/img/landing_photos/mobile-landing.png"
 import "@/styles/landingsection.css";
 import Link from "next/link"
 
@@ -11,6 +12,13 @@ export function LandingSection() {
         src={landingPhoto}
         alt="main"
         className="landing-photo"
+        layout="responsive"
+        priority
+      />
+      <Image
+        src={mobileLanding}
+        alt="main"
+        className="mobile-landing"
         layout="responsive"
         priority
       />

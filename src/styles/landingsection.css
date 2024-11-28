@@ -81,9 +81,27 @@
   font-weight: 700;
 }
 
+.mobile-landing {
+  display: none;
+}
+
 @media (width < 640px) {
   .landing-photo-container {
     margin-top: 50px;
+  }
+
+  .landing-photo{
+    display: none;
+  }  
+
+  .mobile-landing {
+      display: block;
+  margin: 0;
+  align-items: center;
+  height: auto;
+  width: 100vw !important;
+  filter: brightness(0.5);
+  animation: fade-up 1s;
   }
 
   .text-title {
@@ -92,10 +110,12 @@
 
   .text-description {
     font-size: 12px;
+    width: 300px;
   }
 
   .text-subtitle {
     font-size: 14px;
+    width: 300px;
   }
 
   .application-form {
