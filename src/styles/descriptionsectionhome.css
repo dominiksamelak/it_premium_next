@@ -38,7 +38,7 @@
 .color-updown {
   /* min-height: 100% !important; */
   height: 340px;
-  width: 7px;
+  min-width: 7px;
   background-image: linear-gradient(to top, #3d4656, #00adfc);
   box-sizing: border-box;
   /* margin-right: 4px; */
@@ -47,7 +47,7 @@
 .color-updown-two {
   background-image: linear-gradient(to top, #00adfc, #3d4656);
   height: 310px;
-  width: 7px !important;
+  min-width: 7px !important;
   z-index: 1111;
 }
 
