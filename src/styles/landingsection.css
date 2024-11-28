@@ -95,7 +95,7 @@
   }  
 
   .mobile-landing {
-      display: block;
+  display: block;
   margin: 0;
   align-items: center;
   height: auto;
@@ -105,22 +105,22 @@
   }
 
   .text-title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .text-description {
-    font-size: 12px;
+    font-size: 16px;
     width: 300px;
   }
 
   .text-subtitle {
-    font-size: 14px;
+    font-size: 20px;
     width: 300px;
   }
 
   .application-form {
-    width: 140px;
-    height: 40px;
-    font-size: 14px;
+    width: 180px;
+    height: 60px;
+    font-size: 18px;
   }
 }

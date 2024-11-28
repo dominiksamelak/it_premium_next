@@ -44,3 +44,24 @@
 .appllication-link {
   text-decoration: none;
 }
+
+
+@media ( width < 640px) {
+  .warranty {
+    width: 100%;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  .warranty-desc {
+    max-width: 270px;
+    width: 100%;
+  }
+
+  .warranty-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+  .warranty-text {
+    font-size: 14px;
+  }
+}
