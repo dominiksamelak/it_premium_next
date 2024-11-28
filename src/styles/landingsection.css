@@ -80,3 +80,27 @@
    transform: scale(1.1);
   font-weight: 700;
 }
+
+@media (width < 640px) {
+  .landing-photo-container {
+    margin-top: 50px;
+  }
+
+  .text-title {
+    font-size: 20px;
+  }
+
+  .text-description {
+    font-size: 12px;
+  }
+
+  .text-subtitle {
+    font-size: 14px;
+  }
+
+  .application-form {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
