@@ -46,7 +46,7 @@
 .up-down,
 .down-up {
   height: 360px;
-  width: 10px;
+  min-width: 7px;
 }
 
 .text {
@@ -153,4 +153,54 @@
 .services-contact-button:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+
+@media (width < 970px) {
+  .services-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .services-title {
+    font-size: 22px;
+  }
+
+  .services-left, .services-right {
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .pic-left, .pic-right {
+    width: 90px !important;
+    height: 90px !important;
+    margin: 0;
+  }
+
+  .services-text-title {
+    font-size: 20px;
+  }
+
+  .services-text-desc {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .down-up, .up-down {
+    height: 200px;
+  }
+
+  .services-text-right {
+    margin: 0;
+  }
+
+  .services-container {
+    margin-top: 100px;
+  }
+
+  .services-contact {
+    animation: fade-up 1s;
+  }
+
 }

@@ -12,14 +12,14 @@
 
 .color-updown-warranty {
   height: 310px;
-  width: 10px;
+  min-width: 10px;
   background-image: linear-gradient(to top, #3d4656, #00adfc);
 }
 
 .color-updown-two-warranty {
   background-image: linear-gradient(to top, #00adfc, #3d4656);
   height: 310px;
-  width: 10px;
+  min-width: 10px;
 }
 
 .warranty-desc {
@@ -62,5 +62,13 @@
 }
   .warranty-text {
     font-size: 14px;
+  }
+
+  .color-updown-warranty, .color-updown-two-warranty {
+    min-width: 7px !important;
+  }
+
+  .warranty {
+    margin-bottom: 10px;
   }
 }

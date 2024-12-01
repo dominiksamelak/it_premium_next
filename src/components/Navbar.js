@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import "@/styles/navbar.css";
 import Link from "next/link";
@@ -8,80 +8,76 @@ import mapPin from "@/components/img/icons/Map_Pin.png";
 import phone from "@/components/img/icons/Phone.png";
 import facebook from "@/components/img/icons/social_icon.png";
 import logo from "@/components/img/icons/logo_navbar.png";
-import logo2 from "@/components/img/icons/logo_navbar_noname.png"
-import hamburger from "@/components/img/icons/hamburger_menu.png"
-import mobileITP from "@/components/img/icons/mobile-itp.png"
-
+import logo2 from "@/components/img/icons/logo_navbar_noname.png";
+import hamburger from "@/components/img/icons/hamburger_menu.png";
+import mobileITP from "@/components/img/icons/mobile-itp.png";
 
 export function Navbar({ isVisible }) {
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleClick = () => {
-      setIsOpen(!isOpen);
-      console.log(isOpen)
-  };
-
   return (
     <nav className={`navbar ${isVisible ? "visible" : ""}`}>
       <div className="navbar-container">
-{/* Hamburger menu */}
-    <div className="mobile-navbar">
-        <Image src={logo2} alt="logo" className="logo2"/>
-        <Image src={mobileITP} alt="itp" className="logo2" />
-        <Image
-          src={hamburger}
-          alt="menu"
-          className="hamburger-icon"
-          onClick={handleClick}
-        />
-</div>
-    <div className="mobile-menu-container">
-
-        {/* Mobile Menu */}
-
+        {/* Hamburger menu */}
+        <div className="mobile-navbar">
+          <Image src={logo2} alt="logo" className="logo2" />
+          <Image src={mobileITP} alt="itp" className="logo2" />
+          <Image
+            src={hamburger}
+            alt="menu"
+            className="hamburger-icon"
+            onClick={handleClick}
+          />
+        </div>
+        <div className="mobile-menu-container">
+          {/* Mobile Menu */}
           <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
             <ul>
               <li>
-                <Link href="/home" passHref>
+                <Link href="/home" passHref onClick={handleLinkClick}>
                   <span>Strona główna</span>
                 </Link>
               </li>
               <li>
-                <Link href="/services" passHref>
+                <Link href="/services" passHref onClick={handleLinkClick}>
                   <span>Usługi</span>
                 </Link>
               </li>
               <li>
-                <Link href="/realizations" passHref>
+                <Link href="/realizations" passHref onClick={handleLinkClick}>
                   <span>Realizacje</span>
                 </Link>
               </li>
               <li>
-                <Link href="/applicationform" passHref>
+                <Link href="/applicationform" passHref onClick={handleLinkClick}>
                   <span>Formularz zgłoszenia</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" passHref>
+                <Link href="/contact" passHref onClick={handleLinkClick}>
                   <span>Kontakt</span>
                 </Link>
               </li>
             </ul>
           </div>
-    </div>
+        </div>
 
-        
-    
-      
-
-
-
+        {/* Rest of Navbar */}
         <div className="navbar-left">
           <div className="navbar-left-top">
             <div className="navbar-phone-number">
@@ -104,40 +100,51 @@ export function Navbar({ isVisible }) {
                 onMouseEnter={toggleDropdown}
                 onMouseLeave={toggleDropdown}
               >
-                <Link href="/services" className="navbar-link-text">Usługi</Link>
+                <Link href="/services" className="navbar-link-text">
+                  Usługi
+                </Link>
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li className="dropdown-item">
-                      <Link href="/services/computer-repair">Naprawa komputerów</Link>
+                      <Link href="/services/computer-repair">
+                        Naprawa komputerów
+                      </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/phone-repair">Naprawa telefonów</Link>
+                      <Link href="/services/phone-repair">
+                        Naprawa telefonów
+                      </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/printer-repair">Naprawa drukarek</Link>
+                      <Link href="/services/printer-repair">
+                        Naprawa drukarek
+                      </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/data-recovery">Odzyskiwanie danych</Link>
+                      <Link href="/services/data-recovery">
+                        Odzyskiwanie danych
+                      </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/business-support">Obsługa firm</Link>
+                      <Link href="/services/business-support">
+                        Obsługa firm
+                      </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/electronics-repair">Naprawa elektroniki użytkowej</Link>
+                      <Link href="/services/electronics-repair">
+                        Naprawa elektroniki użytkowej
+                      </Link>
                     </li>
                   </ul>
                 )}
               </li>
-
             </ul>
           </div>
         </div>
         <div className="navbar-middle">
           <Link href="/home">
-          <Image src={logo} alt="logo" className="logo" />
-          
+            <Image src={logo} alt="logo" className="logo" />
           </Link>
-          
         </div>
         <div className="navbar-right">
           <div className="navbar-right-top">

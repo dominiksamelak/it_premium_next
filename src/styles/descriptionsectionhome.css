@@ -110,6 +110,27 @@
   display: none;
 }
 
+.application-link-mobile {
+  margin-top: 10px;
+}
+
+.application-form-mobile {
+  background-image: linear-gradient(to right, #3d4656, #00adfc);
+  font-weight: 600;
+  border-radius: 25px;
+  color: white;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-up-text 1.5s;
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
 @media (width < 640px) {
   .desc-photo {
     width: 159px !important;
@@ -191,5 +212,10 @@
     display: flex !important;
     margin: 0 auto;
     margin-top: 20px;
+
+  }
+
+  .google-reviews-desc-mobile .css-1uyvnff {
+    margin: 0;
   }
 }

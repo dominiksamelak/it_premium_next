@@ -1,11 +1,15 @@
 
+"use client"
 import Image from "next/image";
 import landingPhoto from "@/components/img/landing_photos/landingpage-main.png";
 import mobileLanding from "@/components/img/landing_photos/mobile-landing.png"
 import "@/styles/landingsection.css";
 import Link from "next/link"
+import { useIsMobile } from "@/components/useIsMobile"; 
 
 export function LandingSection() {
+
+    const isMobile = useIsMobile(); 
   return (
     <div className="landing-photo-container">
       <Image
@@ -28,9 +32,14 @@ export function LandingSection() {
         <p className="text-description">
           Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test
         </p>
+      {isMobile ? (<div></div>) : (
         <Link href="/applicationform" className="application-link">
           <span className="application-form">Formularz zgłoszenia</span>
-        </Link>
+        </Link>)
+      }
+
+
+
       </div>
     </div>
   );
