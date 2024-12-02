@@ -20,7 +20,7 @@ function sendEmail({subject, message }) {
   secure: true, // upgrade later with STARTTLS
   auth: {
     user: "d.samelak@it-premium.pl",
-    pass: "XD",
+    pass: "oa5CElJ51vp/7oVT@9V4",
   },
 });
 

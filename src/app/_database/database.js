@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/orders", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://localhost:27017/orders")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("Error connecting to MongoDB:", error));
 
 const orderSchema = new mongoose.Schema({
     orderNumber: { type: String, unique: true },

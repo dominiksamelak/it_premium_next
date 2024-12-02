@@ -8,5 +8,16 @@
 
 .form-details {
   margin-top: 10px;
-  text-align: ;
+}
+
+@media (width < 640px) {
+  .confirmation-container {
+    margin-top: 90px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .confirmation-title {
+    padding-bottom: 10px;
+  }
 }
