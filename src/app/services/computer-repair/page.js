@@ -3,12 +3,14 @@ import "@/styles/pcfix.css"
 import PriceList from "@/components/Pricelist.js";
 import "@/styles/pricelist.css";
 import Image from "next/image"
+import PClandingMobile from "@/components/img/landing_photos/pcfix-main-mobile.png"
 
 export default function PC() {
   return(
     <div className="pcfix-container">
       <div className="landing-photo-container">
         <Image src={PClanding} alt="pcifx" className='pcfix-landing-photo'/>
+        <Image src={PClandingMobile} alt="pcifx" className='pcfix-landing-photo-mobile'/>
         <div className="text">
         <span className="text-title">TEST</span>
         <span className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</span>

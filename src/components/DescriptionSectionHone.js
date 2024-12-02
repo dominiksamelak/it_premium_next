@@ -22,10 +22,10 @@ export function DescriptionSection() {
       }
       <motion.div 
         className="description-one"
-        initial={{ x: -400, opacity: 0 }}
+        initial={{ x: -200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: isMobile ? 0.5 : 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <span className="color-updown"></span>
         <div className="description-one-container">
@@ -37,8 +37,7 @@ export function DescriptionSection() {
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-            quia consequuntur magni
+           
           </span>
           {isMobile ? (
             <div className="description-text-three">
@@ -75,10 +74,10 @@ export function DescriptionSection() {
 
       <motion.div 
         className="description-two"
-        initial={{ x: -400, opacity: 0 }}
+        initial={{ x: -200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: isMobile ? 0.5 : 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         {!isMobile ? (
           <Image
@@ -89,7 +88,7 @@ export function DescriptionSection() {
             priority
           />
         ) : (
-          <div></div>  // Empty div for mobile, you can customize this if needed
+          <div></div>  
         )}
 
       <div className="description-two-container">

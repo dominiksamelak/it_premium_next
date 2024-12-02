@@ -49,3 +49,33 @@
   max-width: 500px;
   display: block;
 }
+
+.printerfix-landing-photo-mobile {
+  display: none;
+}
+
+@media (width < 640px) {
+
+  .landing-photo-container {
+    margin-top: 50px;
+  }
+
+  .printerfix-landing-photo {
+    display: none;
+  }
+
+  .printerfix-landing-photo-mobile {
+  display: block;
+  margin: 0;
+  align-items: center;
+  height: auto;
+  width: 100vw !important;
+  filter: brightness(0.5);
+  animation: fade-up 1s;
+  }
+
+    .pricelist-text {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

@@ -105,17 +105,15 @@
 @media (width < 970px) {
 
   .contact-container {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 14px;
+    padding-right: 14px;
     margin-top: 100px;
   }
   .contact-info-info {
     margin-right: 0;
   }
 
-  .contact-subcontainer {
-    margin-left: 14px;
-  }
+
   .line {
     min-width: 7px !important;
     height: 470px;
@@ -123,11 +121,13 @@
 
   .contact-subcontainer {
     align-items: center;
+
   }
 
   .caontact-map-mobile-container {
     margin: 0 auto;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 20px;
   }
 }
