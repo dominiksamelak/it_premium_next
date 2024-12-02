@@ -74,7 +74,7 @@ export function DescriptionSection() {
 
       <motion.div 
         className="description-two"
-        initial={{ x: -200, opacity: 0 }}
+        initial={{ x: 200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true, amount: 0.3 }}
