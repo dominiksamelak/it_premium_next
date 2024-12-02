@@ -18,7 +18,7 @@ export function DescriptionSection() {
       {isMobile ? (
         <Link href="/applicationform" className="application-link-mobile">
           <span className="application-form-mobile">Formularz zgłoszenia</span>
-        </Link>) : (<div>asd</div>) 
+        </Link>) : (<div></div>) 
       }
       <motion.div 
         className="description-one"
