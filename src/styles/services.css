@@ -158,8 +158,8 @@
 
 @media (width < 970px) {
   .services-container {
-    padding-left: 8px;
-    padding-right: 8px;
+        padding-left: 25px;
+    padding-right: 25px;
   }
 
   .services-title {

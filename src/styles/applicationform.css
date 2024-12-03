@@ -130,8 +130,8 @@ textarea {
 
 @media (width < 640px) {
   .form-container {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin-top: 100px;
   }
 

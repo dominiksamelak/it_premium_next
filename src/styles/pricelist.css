@@ -89,11 +89,14 @@
   .price {
     margin: 0;
     margin-right: 14px;
+     margin-left: 14px;
+     min-width: 60px;
   }
 
   .item-name {
     margin-left: 14px;
     max-width: 230px;
+    margin-right: 14px;
   }
 
   .price-list {

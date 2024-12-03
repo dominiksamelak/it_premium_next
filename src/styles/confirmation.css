@@ -13,8 +13,8 @@
 @media (width < 640px) {
   .confirmation-container {
     margin-top: 90px;
-    padding-left: 14px;
-    padding-right: 14px;
+        padding-left: 25px;
+    padding-right: 25px;
   }
 
   .confirmation-title {
