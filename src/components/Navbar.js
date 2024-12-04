@@ -11,6 +11,7 @@ import logo from "@/components/img/icons/logo_navbar.png";
 import logo2 from "@/components/img/icons/logo_navbar_noname.png";
 import hamburger from "@/components/img/icons/hamburger_menu.png";
 import mobileITP from "@/components/img/icons/mobile-itp.png";
+import ThemeSwitch from "@/components/ThemeSwitch.js"
 
 export function Navbar({ isVisible }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,18 +34,26 @@ export function Navbar({ isVisible }) {
   return (
     <nav className={`navbar ${isVisible ? "visible" : ""}`}>
       <div className="navbar-container">
+        
         {/* Hamburger menu */}
         <div className="mobile-navbar">
           <Image src={logo2} alt="logo" className="logo2" />
+          
           <Image src={mobileITP} alt="itp" className="logo2" />
+          <div className="darkmode">
+                <ThemeSwitch />
+              </div>
           <Image
             src={hamburger}
             alt="menu"
             className="hamburger-icon"
             onClick={handleClick}
           />
+          
         </div>
+        
         <div className="mobile-menu-container">
+          
           {/* Mobile Menu */}
           <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
             <ul>
@@ -149,6 +158,10 @@ export function Navbar({ isVisible }) {
         <div className="navbar-right">
           <div className="navbar-right-top">
             <div className="navbar-socials">
+              <div>
+                <ThemeSwitch />
+              </div>
+              
               <span>
                 <a
                   href="https://www.google.pl/maps/place/IT-PREMIUM+Centrum+Serwisowe+Serwis+laptop%C3%B3w,+telefon%C3%B3w,+drukarek%2FPROFESJONALNE+ODZYSKIWANIE+DANYCH"

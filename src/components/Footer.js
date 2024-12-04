@@ -3,6 +3,7 @@ import "@/styles/footer.css";
 import Link from "next/link"
 import Image from "next/image"
 
+
 export function Footer() {
   return (
     <div className="footer-container">
