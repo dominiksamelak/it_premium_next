@@ -68,6 +68,10 @@ html.dark .dropdown-item:hover {
 
 }
 
+.navbar-middle {
+  min-width: 61px !important;
+}
+
 .navbar-left, .navbar-right {
   height: 104px;
   justify-content: space-between;
@@ -194,7 +198,9 @@ html.dark .dropdown-item:hover {
   width: 68px !important;
   height: 76px !important;
   margin-top: 10px;
+
 }
+
 
 .mappin-icon,
 .mail-icon,
