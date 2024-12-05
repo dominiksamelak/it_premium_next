@@ -25,6 +25,10 @@
   background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
 }
 
+html.dark .highlight-item .price-item::after {
+    background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
+}
+
 .regular-item .price-item {
   position: relative; 
 }
@@ -37,6 +41,10 @@
   width: 90%;
   height: 1px;
   background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
+}
+
+html.dark .regular-item .price-item::after {
+    background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
 }
 
 .price-item {
@@ -81,6 +89,8 @@
   font-size: 14px;
 }
 
+
+
 @media (width < 640px) {
   .price-item {
     padding: 0;
@@ -123,6 +133,7 @@
   height: 1px;
   background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
 }
+
 
 .pricelist-text {
   padding-left: 14px;

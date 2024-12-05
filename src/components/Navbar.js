@@ -12,6 +12,14 @@ import logo2 from "@/components/img/icons/logo_navbar_noname.png";
 import hamburger from "@/components/img/icons/hamburger_menu.png";
 import mobileITP from "@/components/img/icons/mobile-itp.png";
 import ThemeSwitch from "@/components/ThemeSwitch.js"
+import logoDark from "@/components/img/icons/logo-navbar-dark.png"
+import phoneDark from "@/components/img/icons/Phone-dark.png"
+import mapPinDark from  "@/components/img/icons/Map_Pin_dark.png"
+import mailDark from  "@/components/img/icons/Mail-dark.png"
+import facebookDark from "@/components/img/icons/social-icon-dark.png"
+import logoMobileDark from "@/components/img/icons/logo-footer-dark.png"
+import mobileITPDark from "@/components/img/icons/mobile-itp-dark.png"
+import hamburgerDark from "@/components/img/icons/hamburger-dark.png"
 
 export function Navbar({ isVisible }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,16 +47,28 @@ export function Navbar({ isVisible }) {
         <div className="mobile-navbar">
           <Image src={logo2} alt="logo" className="logo2" />
           
-          <Image src={mobileITP} alt="itp" className="logo2" />
-          <div className="darkmode">
-                <ThemeSwitch />
-              </div>
-          <Image
-            src={hamburger}
-            alt="menu"
-            className="hamburger-icon"
-            onClick={handleClick}
-          />
+          <Image src={mobileITP} alt="itp" className="logo2-name" />
+          <Image src={logoMobileDark} alt="logo" className="logo-mobile-nav-dark" />
+          
+          <Image src={mobileITPDark} alt="itp" className="logo-name-mobile-nav-dark" />
+          <div className="dark-hamburger">
+            <div className="darkmode">
+                  <ThemeSwitch />
+                </div>
+            <Image
+              src={hamburger}
+              alt="menu"
+              className="hamburger-icon"
+              onClick={handleClick}
+            />
+            <Image
+              src={hamburgerDark}
+              alt="menu"
+              className="hamburger-icon-dark"
+              onClick={handleClick}
+            />
+          </div>
+
           
         </div>
         
@@ -91,7 +111,8 @@ export function Navbar({ isVisible }) {
           <div className="navbar-left-top">
             <div className="navbar-phone-number">
               <span className="phone-icon">
-                <Image src={phone} alt="phone" />
+                <Image src={phone} alt="phone" className="phone"/>
+                <Image src={phoneDark} alt="phone" className="phone-dark"/>
               </span>
               <span className="phone-number">+48 784 784 957</span>
             </div>
@@ -152,6 +173,7 @@ export function Navbar({ isVisible }) {
         </div>
         <div className="navbar-middle">
           <Link href="/home">
+            <Image src={logoDark} alt="logo" className="logo-dark" />
             <Image src={logo} alt="logo" className="logo" />
           </Link>
         </div>
@@ -168,11 +190,13 @@ export function Navbar({ isVisible }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src={mapPin} alt="pin" />
+                  <Image src={mapPin} alt="pin" className="map-pin"/>
+                  <Image src={mapPinDark} alt="pin" className="map-pin-dark"/>
                 </a>
               </span>
               <span>
-                <Image src={mail} alt="mail" />
+                <Image src={mail} alt="mail" className="mail-icon"/>
+                <Image src={mailDark} alt="mail" className="mail-icon-dark"/>
               </span>
               <span className="mail-adress">biuro@it-premium.pl</span>
               <span>
@@ -182,6 +206,7 @@ export function Navbar({ isVisible }) {
                   rel="noopener noreferrer"
                 >
                   <Image src={facebook} alt="facebook" className="facebook-icon" />
+                  <Image src={facebookDark} alt="facebook" className="facebook-icon-dark" />
                 </a>
               </span>
             </div>

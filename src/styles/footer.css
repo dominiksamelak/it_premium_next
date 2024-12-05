@@ -15,6 +15,10 @@
   margin-bottom: 20px;
 }
 
+html.dark .footer-line {
+    background-image: linear-gradient(to left, #00cafc, #67bbe6 50%, #ffffff);
+}
+
 .footer-items {
   display: flex;
   justify-content: space-evenly; 
@@ -35,6 +39,23 @@
 
 .footer-container .footer-items .logo-div {
   padding-top: 8px;
+}
+
+.logo-footer, .logo-footer-dark {
+  width: 85px;
+  height: 107px;
+}
+
+.logo-footer-dark {
+  display: none
+}
+
+html.dark .logo-footer {
+  display: none;
+}
+
+html.dark .logo-footer-dark {
+  display: block;
 }
 
 .about-us, .services {
@@ -66,6 +87,7 @@
   font-weight: 600;
 }
 
+
 .application-form-footer {
   background-image: linear-gradient(to right, #3D4656, #00ADFC);
   font-weight: 600;
@@ -79,6 +101,12 @@
   justify-content: center;
   align-items: center; 
   transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
+html.dark .application-form-footer {
+    background-image: none;
+    background-color: #33BFFF;
+    color: black;
 }
 
 .application-form-footer:hover {

@@ -8,9 +8,10 @@ import descPhotoTwo from "../components/img/home/desc-photo-two.png";
 import "../styles/descriptionsectionhome.css";
 import { useIsMobile } from "@/components/useIsMobile"; 
 import Link from "next/link"
-
+import { useTheme } from "next-themes"; 
 export function DescriptionSection() {
   const isMobile = useIsMobile(); 
+  const { resolvedTheme } = useTheme();
   
   return (
 
@@ -132,12 +133,14 @@ export function DescriptionSection() {
             <ReactGoogleReviews
               layout="badge"
               featurableId="f9a57238-df62-4c52-8448-6d9130fdedd3"
+              
             />
           </div>
           <div className="google-reviews">
             <ReactGoogleReviews
               layout="carousel"
               featurableId="f9a57238-df62-4c52-8448-6d9130fdedd3"
+              theme={resolvedTheme}
             />
           </div>
     </div>

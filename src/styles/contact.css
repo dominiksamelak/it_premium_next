@@ -34,7 +34,11 @@
 .line {
   background-image: linear-gradient(to top, #00cafc, #67bbe6, 60%, #3d4656);
   min-width: 10px;
-  height: 450px;
+  height: 470px;
+}
+
+html.dark .line {
+    background-image: linear-gradient(to top, #00cafc, #67bbe6, 60%, #ffffff);
 }
 
 .contact-subcontainer {
@@ -92,16 +96,59 @@
   color: #62a2c3;
 }
 
-.map-pin,
+.map-pin-contact,
 .phone-contact-icon,
 .mail-icon,
-.contact-logo {
+.contact-logo,
+.mail-icon-dark,
+.map-pin-dark-contact,
+.phone-contact-icon-dark {
   margin-right: 8px;
 }
 
+.contact-mail {
+  margin-bottom: 8px;
+}
+
+html.dark .phone-contact-icon {
+  display: none;
+}
+
+.map-pin-dark-contact {
+  display: none;
+}
+
+html.dark .map-pin-contact {
+  display: none;
+}
+
+html.dark .map-pin-dark-contact {
+  display: block;
+}
+
+html.dark .contact-phone {
+  color: #33BFFF;
+}
+
+html.dark .contact-mail {
+  color: #33BFFF;
+}
 
 .contact-phone {
   font-family: 'Jost', sans-serif;
+}
+
+.facebook-icon-contact-dark {
+  width: 24px;
+  display: none;
+}
+
+html.dark .facebook-icon-contact-dark {
+  display: block
+}
+
+html.dark .facebook-icon-contact {
+  display: none;
 }
 
 @media (width < 970px) {

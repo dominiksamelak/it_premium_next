@@ -37,29 +37,6 @@
   
 }
 
-html.dark .navbar-container {
-  background-color: #1a1a1a;
-  box-shadow: 0 14px 42px rgba(255, 255, 255, 0.15);
-}
-
-html.dark .navbar-link-text {
-  color: white;
-}
-
-html.dark .dropdown-menu {
-  background-color: black;
-}
-
-html.dark .dropdown-item {
-  color: white;
-}
-
-html.dark .dropdown-item:hover {
-  background-color: black; /* Change background to black */
-  color: white; /* Change text color to white */
-  font-weight: bold;
-  cursor: pointer;
-}
 
 
 .navbar-left, .navbar-right {
@@ -115,10 +92,18 @@ html.dark .dropdown-item:hover {
   background-image: linear-gradient(to left, #00cafc 50%, #3d4656);
 }
 
+html.dark .navbar-left-middle {
+  background-image: linear-gradient(to left, #00cafc 50%, #ffffff);
+}
+
 .navbar-right-middle {
   margin-left: auto; 
   margin-right: 0;
   background-image: linear-gradient(to right, #00cafc 50%, #3d4656);
+}
+
+html.dark .navbar-right-middle {
+    background-image: linear-gradient(to right, #00cafc 50%, #ffffff);
 }
 
 
@@ -170,6 +155,13 @@ html.dark .dropdown-item:hover {
   text-align: center;
   transition: transform 0.3s ease, font-weight 0.3s ease;
 }
+
+html.dark .navbar-link-contact {
+  background-image: none;
+  background-color: #33BFFF;
+  color: black;
+}
+
 .navbar-link-contact:hover {
   transform: scale(1.1);
   font-weight: 700;
@@ -202,14 +194,16 @@ html.dark .dropdown-item:hover {
 }
 
 
-.mappin-icon,
+.map-pin,
 .mail-icon,
-.phone-icon {
+.phone-icon,
+.map-pin-dark {
   margin-right: 6px;
 }
 
-.facebook-icon {
+.facebook-icon, .facebook-icon-dark {
   margin-left: 6px;
+  margin-right: 20px;
 }
 
 .navbar-phone-number,
@@ -225,20 +219,12 @@ html.dark .dropdown-item:hover {
   font-weight: 600;
 }
 
-.phone-icon,
-.mappin-icon,
-.mail-icon,
-.facebook-icon {
-  height: 24px;
-}
+
 
 .phone-icon {
   margin-left: 20px;
 }
 
-.facebook-icon {
-  margin-right: 20px;
-}
 
 .phone-number,
 .mail-adress {
@@ -304,13 +290,16 @@ html.dark .dropdown-item:hover {
   margin-bottom: -10px; 
 }
 
-
+.dark-hamburger {
+  display: flex;
+  flex-direction: row;
+}
 
 .mobile-navbar {
     display: flex;
     height: 50px;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: space-between !important;
     width: 98%;
     align-items: center;
     box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); 
@@ -328,12 +317,11 @@ html.dark .dropdown-item:hover {
 .darkmode {
   display: flex;
   align-items: center;  /* Align ThemeSwitch vertically */
-  margin-left: auto;  /* Push the dark mode toggle to the right */
   margin-right: 10px;  /* Add some space from the hamburger */
 }
 
 /* Hamburger icon for menu toggle */
-.hamburger-icon {
+.hamburger-icon, .hamburger-icon-dark {
   cursor: pointer;
   z-index: 1001; 
   position: relative;
@@ -364,6 +352,13 @@ html.dark .dropdown-item:hover {
   animation: slideDown 0.5s;
 }
 
+html.dark .mobile-menu.open {
+  background-color: black;
+}
+html.dark .mobile-menu.open li {
+  color: white;
+}
+
 .mobile-menu.open ul{
   /* list-style: circle; */
   padding: 0;
@@ -389,6 +384,21 @@ html.dark .dropdown-item:hover {
   padding-bottom: 40px; /* Adjust this to control the distance between content and border */
 }
 
+html.dark .mobile-menu li {
+  margin: 16px 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  /* Add the gradient as a border-bottom */
+  border-bottom: 2px solid; /* Make sure the border is visible */
+  border-image: linear-gradient(to right, #ffffff 10%, #00adfc );
+  border-image-slice: 1; /* Ensure the gradient is fully applied to the border */
+
+  /* Add equal spacing from the border and above/below the list item */
+  padding-bottom: 40px; /* Adjust this to control the distance between content and border */
+}
+
+
 .mobile-menu a {
   text-decoration: none;
   font-size: 1.5rem;
@@ -405,6 +415,113 @@ html.dark .dropdown-item:hover {
   display: flex;
 }
 
+.map-pin, .map-pin-dark {
+  margin-left: 8px;
+}
+
+
+.logo-dark, .phone-dark, .map-pin-dark, .mail-icon-dark, .facebook-icon-dark {
+  display: none;
+}
+
+html.dark .logo {
+  display: none;
+}
+
+html.dark .phone {
+  display: none;
+}
+
+html.dark .map-pin {
+  display: none;
+}
+
+html.dark .mail-icon {
+  display: none;
+}
+
+html.dark .facebook-icon {
+  display: none;
+}
+
+html.dark .phone-dark {
+  display: block;
+}
+
+html.dark .map-pin-dark {
+  display: block;
+}
+
+html.dark .mail-icon-dark {
+  display: block;
+}
+
+html.dark .facebook-icon-dark {
+  display: block;
+}
+
+
+html.dark .logo-dark {
+  display: block;
+  z-index: 1;
+  margin: 0;
+  width: 68px !important;
+  height: 76px !important;
+  margin-top: 10px;
+}
+
+
+
+html.dark .navbar-container {
+  background-color: #1a1a1a;
+  box-shadow: 0 14px 42px rgba(255, 255, 255, 0.15);
+}
+
+html.dark .navbar-link-text {
+  color: white;
+}
+
+html.dark .dropdown-menu {
+  background-color: black;
+}
+
+html.dark .dropdown-item {
+  color: white;
+}
+
+html.dark .dropdown-item:hover {
+  background-color: black; /* Change background to black */
+  color: white; /* Change text color to white */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo-mobile-nav-dark {
+  display: none;
+      margin-left: 10px;
+}
+
+.logo-name-mobile-nav-dark {
+  display: none;
+}
+
+.logo-mobile-nav-dark {
+  width: 31px;
+}
+
+.hamburger-icon-dark {
+  display: none;
+}
+
+.logo-name-mobile-nav-dark, .logo2-name{
+  width: 120px;
+  position: fixed; /* Remove it from the normal flow */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center */
+  z-index: 1001; /* Ensure it appears on top of other elements */
+}
+
 
 @media (width < 640px) {
   .navbar-left, .navbar-right, .logo {
@@ -415,10 +532,36 @@ html.dark .dropdown-item:hover {
     flex-direction: column;
   }
 
+  .logo-dark {
+    display: none !important;
+  }
+
+  html.dark .logo2 {
+    display: none;
+  }
+
+  html.dark .logo-mobile-nav-dark, .logo-name-mobile-nav-dark {
+  display: block;
+}
+
+html.dark .hamburger-icon {
+  display: none;
+}
+
+html.dark .hamburger-icon-dark {
+  display: block;
+}
+
+
+
+
 }
 
 @media (width >= 640px) {
   .mobile-navbar, .mobile-menu-container{
   display: none;
 }
+
+
+
 }

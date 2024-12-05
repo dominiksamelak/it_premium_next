@@ -6,6 +6,10 @@ import phone from "@/components/img/icons/Phone.png"
 import facebook from "@/components/img/icons/social_icon.png"
 import Image from "next/image"
 import { useIsMobile } from "@/components/useIsMobile";
+import facebookDark from "@/components/img/icons/social-icon-contact-dark.png"
+import mapPinDark from "@/components/img/icons/Map_Pin_dark.png"
+import phoneDark from "@/components/img/icons/Phone-dark.png"
+import mailDark from "@/components/img/icons/Mail-dark.png"
 
 export default function Contact() {
 
@@ -22,12 +26,30 @@ export default function Contact() {
               <div className="contact-info-info">
                 <span className="contact-name">IT-Premium Centrum Serwisowe</span>
                 <span className="contact-address">Adres</span>
-                <span className="contact-address-location"><Image src={mapPin} alt="pin" className="map-pin"></Image>Osiedle Jana III Sobieskiego 41F <br /> 60-688 Poznań</span>
+                <span className="contact-address-location">
+                  <Image src={mapPin} alt="pin" className="map-pin-contact"></Image>
+                  <Image src={mapPinDark} alt="pin" className="map-pin-dark-contact"></Image>
+                  Osiedle Jana III Sobieskiego 41F <br /> 60-688 Poznań</span>
                 <span className="contact-support">Wsparcie</span>
-                <span className="contact-mail"><Image src={mail} alt="mail" className="mail-icon"></Image>biuro@it-premium.pl</span>
-                <span className="contact-phone"><Image src={phone} alt="phone" className="phone-contact-icon"></Image>+48 784 784 957</span>
+                <span className="contact-mail">
+                  <Image src={mail} alt="mail" className="mail-icon"></Image>
+                  <Image src={mailDark} alt="mail" className="mail-icon-dark"></Image>
+                  biuro@it-premium.pl</span>
+                <span className="contact-phone">
+                  <Image src={phone} alt="phone" className="phone-contact-icon"></Image>
+                  <Image src={phoneDark} alt="phone" className="phone-contact-icon-dark"></Image>
+                  +48 784 784 957</span>
                 <span className="contact-social">Obserwuj nas</span>
-                <span className="contact-social-icon"><Image src={facebook} alt="facebook"></Image></span>
+                <span className="contact-social-icon">                
+                  <a
+                  href="https://www.facebook.com/ITPremiumCentrumSerwisowe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={facebook} alt="facebook" className="facebook-icon-contact"></Image>
+                  <Image src={facebookDark} alt="facebook" className="facebook-icon-contact-dark"></Image>
+                </a>
+                </span>
                 <span className="contact-time">Godziny otwarcia</span>
                 <span className="contact-open-day">Poniedziałek - Piątek</span>
                 <span className="contact-open-time">9:00 - 17:00</span>

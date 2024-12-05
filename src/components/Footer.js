@@ -2,6 +2,7 @@ import logo from "./img/icons/logo_footer.png";
 import "@/styles/footer.css";
 import Link from "next/link"
 import Image from "next/image"
+import logoDark from "@/components/img/icons/logo-navbar-dark.png"
 
 
 export function Footer() {
@@ -13,6 +14,12 @@ export function Footer() {
           <Image
             src={logo}
             alt="logo"
+            className="logo-footer"
+            />
+                      <Image
+            src={logoDark}
+            alt="logo"
+            className="logo-footer-dark"
             />
             
         </div>
@@ -48,6 +55,7 @@ export function Footer() {
             allowfullscreen=""
             aria-hidden="false"
             tabIndex="0"
+            
           />
         </div>
       </div>

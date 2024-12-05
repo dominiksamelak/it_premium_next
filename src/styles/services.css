@@ -32,15 +32,23 @@
 
 
 .services-title {
-   animation: fade-up 1s;
+  animation: fade-up 1s;
 }
 
 .down-up {
   background-image: linear-gradient(to top, #00adfc, #3d4656);
 }
 
+html.dark .down-up {
+  background-image: linear-gradient(to top, #00adfc, #ffffff);
+}
+
 .up-down {
   background-image: linear-gradient(to top, #3d4656, #00adfc);
+}
+
+html.dark .up-down {
+    background-image: linear-gradient(to top, #ffffff, #00adfc);
 }
 
 .up-down,
@@ -148,6 +156,12 @@
   border-radius: 25px;
   color: white;
   font-weight: 600;
+}
+
+html.dark .services-contact-button {
+  background-image: none;
+  background-color: #33BFFF;
+  color: black;
 }
 
 .services-contact-button:hover {
