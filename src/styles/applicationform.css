@@ -24,17 +24,54 @@ h2 {
   margin-bottom: 10px;
 }
 
+/* General Styles for Inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 10px; /* Inner padding */
   margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 12px;
   font-size: 1em;
+  border: 1px solid #ccc; /* Default light mode border */
+  border-radius: 12px;
+  background: white; /* Default light mode background */
+  color: #000; /* Default text color */
+  position: relative; /* For pseudo-element positioning */
+  z-index: 1; /* Ensure text is above pseudo-elements */
+  outline: none; /* Prevent double border on focus */
 }
+
+/* Dark Mode Styles */
+
+
+/* Create Gradient Border using ::before */
+ .form-group input::before,
+.form-group select::before,
+ .form-group textarea::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff !important;
+  border-radius: inherit; 
+  margin: 1px; 
+  z-index: -1;
+}
+html.dark .form-group input,
+html.dark .form-group select,
+html.dark .form-group textarea {
+  background: linear-gradient(to right, #2C497B, #00adfc);
+
+}
+html.dark .form-group input::before,
+html.dark.form-group select::before,
+ html.dark .form-group textarea::before  {
+   background: #171717 !important;
+ }
+
 
 .form-group-checkbox {
   display: flex;
@@ -101,6 +138,12 @@ h2 {
   width: 100%;
   font-weight: 600;
   transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
+html.dark .form-buttons button {
+  background: none;
+  background-color: #33BFFF !important;
+  color: black;
 }
 
 .form-buttons button:hover {

@@ -30,11 +30,10 @@
   margin: 0 auto;
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 5000;
   transform: translateY(-100%);
   animation: slideIn 1s ease-out forwards;
-  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); 
-  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -355,7 +354,7 @@ html.dark .navbar-link-contact {
 html.dark .mobile-menu.open {
   background-color: black;
 }
-html.dark .mobile-menu.open li {
+html.dark .mobile-menu a {
   color: white;
 }
 
@@ -474,7 +473,6 @@ html.dark .logo-dark {
 
 html.dark .navbar-container {
   background-color: #1a1a1a;
-  box-shadow: 0 14px 42px rgba(255, 255, 255, 0.15);
 }
 
 html.dark .navbar-link-text {

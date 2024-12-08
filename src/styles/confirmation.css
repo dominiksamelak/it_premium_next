@@ -1,13 +1,75 @@
 .confirmation-container {
-  max-width: 970px;
+  max-width: 500px;
+  width: 100%;
   height: auto;
   text-align: center;
   margin: 0 auto;
   margin-top: 124px;
+  text-align: left;
+  z-index: 2;
 }
 
 .form-details {
   margin-top: 10px;
+}
+
+.confirmation-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.order-number {
+  font-size: 24px;
+}
+
+.order-text {
+  font-size: 20px;
+}
+
+
+
+.form-details {
+  position: relative;
+  display: inline-block; 
+  padding: 14px; 
+  background: black;
+  border-radius: 30px; 
+  background-clip: border-box;
+  -webkit-background-clip: padding-box;
+  z-index: 1;
+  width: 100%;
+  outline: none;
+}
+
+
+
+.form-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-radius: inherit; 
+  margin: 1px; 
+  z-index: -1;
+}
+
+html.dark .form-details {
+  background: linear-gradient(to right, #ffffff, #00adfc); 
+   outline: none;
+}
+
+html.dark .form-details::before{
+    background: #171717;
+}
+
+
+.order-details {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 @media (width < 640px) {

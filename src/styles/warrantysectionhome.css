@@ -58,6 +58,7 @@ html.dark .color-updown-two-warranty {
   .warranty {
     margin-left: 6px;
     margin-right: 6px;
+    margin-top: 20px;
   }
   .warranty-desc {
     max-width: 270px;

@@ -75,6 +75,12 @@
   transition: transform 0.3s ease, font-weight 0.3s ease;
 }
 
+html.dark .application-form {
+  background-image: none;
+  background-color: #00adfc;
+  color: black;
+}
+
 .application-form:hover {
   /* text-decoration: underline; */
    transform: scale(1.1);

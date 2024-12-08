@@ -20,10 +20,10 @@ export default function Confirmation() {
   return (
     <div className="confirmation-container">
       <h1 className="confirmation-title">Dziękujemy za zamówienie!</h1>
-      <p>Twój numer zamówienia to: <strong>{formData.orderNumber}</strong></p>
-      <p>Wkrótce skontaktujemy się z Tobą w sprawie dalszych szczegółów.</p>
+      <p className="order-number">Twój numer zamówienia to: <strong>{formData.orderNumber}</strong></p>
+      <p className="order-text">Wkrótce skontaktujemy się z Tobą w sprawie dalszych szczegółów.</p>
       <div className="form-details">
-        <h2>Szczegóły zgłoszenia:</h2>
+        <h2 className="order-details">Szczegóły zgłoszenia:</h2>
         <p><strong>Imię i nazwisko:</strong> {formData.name}</p>
         <p><strong>Adres e-mail:</strong> {formData.email}</p>
         <p><strong>Numer telefonu:</strong> {formData.phone}</p>
