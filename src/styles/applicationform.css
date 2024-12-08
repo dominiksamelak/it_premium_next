@@ -24,28 +24,24 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* General Styles for Inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px; /* Inner padding */
+  padding: 10px; 
   margin: 5px 0;
   font-size: 1em;
-  border: 1px solid #ccc; /* Default light mode border */
+  border: 1px solid #ccc; 
   border-radius: 12px;
-  background: white; /* Default light mode background */
-  color: #000; /* Default text color */
-  position: relative; /* For pseudo-element positioning */
-  z-index: 1; /* Ensure text is above pseudo-elements */
-  outline: none; /* Prevent double border on focus */
+  background: white; 
+  color: #000; 
+  position: relative; 
+  z-index: 1; 
+  outline: none; 
 }
 
-/* Dark Mode Styles */
 
-
-/* Create Gradient Border using ::before */
  .form-group input::before,
 .form-group select::before,
  .form-group textarea::before {
