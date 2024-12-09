@@ -264,8 +264,9 @@ const handleSubmit = async (e) => {
               maxLength={1000}
               required
             ></textarea>
-            <p>Pozostało {remainingCharacters} znaków</p>
+            
           </div>
+          <p>Pozostało {remainingCharacters} znaków</p>
         </div>
 
         <div className="form-group-checkbox">

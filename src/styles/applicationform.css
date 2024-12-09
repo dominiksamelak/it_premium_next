@@ -24,50 +24,47 @@ h2 {
   margin-bottom: 10px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.form-group .input-wrapper {
+  position: relative;
   width: 100%;
-  box-sizing: border-box;
-  padding: 10px; 
-  margin: 5px 0;
+  border-radius: 12px; /* Match input border radius */
+  padding: 1px; /* Space for the border */
+  background: linear-gradient(to right, #2C497B , #00adfc 40%);/* Default border color for light mode */
+  display: flex;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+html.dark .form-group .input-wrapper {
+  background: linear-gradient(to right, #2C497B, #00adfc); /* Gradient border for dark mode */
+}
+
+.form-group .input-wrapper input,
+.form-group .input-wrapper select,
+.form-group .input-wrapper textarea {
+  width: 100%;
+  padding: 10px;
   font-size: 1em;
-  border: 1px solid #ccc; 
-  border-radius: 12px;
-  background: white; 
-  color: #000; 
-  position: relative; 
-  z-index: 1; 
-  outline: none; 
+  border: none; /* Remove default border */
+  border-radius: 12px; /* Match inner border radius */
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: white; /* Light mode inner background */
+  color: #000;
 }
 
 
- .form-group input::before,
-.form-group select::before,
- .form-group textarea::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #ffffff !important;
-  border-radius: inherit; 
-  margin: 1px; 
-  z-index: -1;
+html.dark .form-group .input-wrapper input,
+html.dark .form-group .input-wrapper select,
+html.dark .form-group .input-wrapper textarea {
+  background: #171717; /* Dark mode inner background */
+  color: #fff;
 }
-html.dark .form-group input,
-html.dark .form-group select,
-html.dark .form-group textarea {
-  background: linear-gradient(to right, #2C497B, #00adfc);
 
+html.dark #equipment {
+  background-color: #171717;
 }
-html.dark .form-group input::before,
-html.dark.form-group select::before,
- html.dark .form-group textarea::before  {
-   background: #171717 !important;
- }
-
 
 .form-group-checkbox {
   display: flex;

@@ -77,6 +77,10 @@ html.dark .price {
   font-size: 16px;
 }
 
+.price {
+  text-align: right;
+}
+
 .price-list-shadow {
   display: flex;
   flex-direction: column;
@@ -91,7 +95,12 @@ html.dark .price {
 
 .bold-text {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 20px !important;
+
+}
+
+html.dark .bold-text {
+  color: #00adfc;
 }
 
 
@@ -114,20 +123,25 @@ html.dark .price {
     margin-right: 14px;
   }
 
+.price-list-shadow {
+  margin: 0 auto;
+  margin-left: 14px;
+  margin-right: 14px;
+    margin-bottom: 20px !important;
+}
+
   .price-list {
   display: flex;
   flex-direction: column;
-  max-width: 80vw;
+  max-width: 90vw;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
   
 }
 
-.price-list-shadow {
-  max-width: 80vw !important;
-  margin-bottom: 20px !important;
-}
+
+
 
 .regular-item .price-item::after {
   content: "";
