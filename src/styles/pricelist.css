@@ -47,25 +47,40 @@ html.dark .regular-item .price-item::after {
     background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
 }
 
+html.dark .price-list-shadow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  position: relative;
+  padding: 2px; /* Creates space for the border effect */
+  background: linear-gradient(to right, #ffffff, #33BFFF);
+}
+
+html.dark .price-list-shadow > .price-list {
+  border-radius: 24px; /* Matches inner content's border radius */
+  background: #121212; /* Inner content background color */
+}
+
+html.dark .price-list {
+  padding: 0 !important;
+  margin-bottom: 0px !important;
+}
+
 .price-item {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Align text vertically */
   padding: 0 80px; 
+  margin-bottom: 10px;
 }
 
 .item-name {
   margin-left: 30px;
-  max-width: 500px;
   font-weight: 500;
   font-size: 16px !important;
+  max-width: 600px;
 }
 
-.price {
-  color: gray;
-  margin-right: 30px;
-  max-width: 300px;
-}
 
 html.dark .price {
   color: #33BFFF;
@@ -77,8 +92,17 @@ html.dark .price {
   font-size: 16px;
 }
 
+.bold-text {
+  text-wrap: wrap;
+  white-space: nowrap;
+
+}
+
 .price {
   text-align: right;
+    text-wrap: wrap;
+   color: gray;
+  margin-right: 30px;
 }
 
 .price-list-shadow {
@@ -106,6 +130,11 @@ html.dark .bold-text {
 
 
 @media (width < 640px) {
+
+  .bold-text {
+    text-wrap: wrap;
+    max-width: 400px !important;
+  }
   .price-item {
     padding: 0;
   }
@@ -113,19 +142,21 @@ html.dark .bold-text {
   .price {
     margin: 0;
     margin-right: 14px;
-    margin-left: 14px;
-  text-wrap: wrap;
+  text-wrap: wrap !important;
+  font-size: 14px !important;
   }
 
   .item-name {
     margin-left: 14px;
-    margin-right: 14px;
+    text-wrap: wrap;
+    max-width:240px;
+    font-size: 14px !important;
   }
 
 .price-list-shadow {
   margin: 0 auto !important;
   margin-left: 14px;
-  margin-right: 14px;
+  /* margin-right: 14px; */
   margin-bottom: 20px !important;
 }
 
@@ -155,7 +186,4 @@ html.dark .bold-text {
   padding-right: 14px;
 }
 
-  .item-name .bold-text {
-    max-width: 300px !important;
-  }
 }

@@ -1,0 +1,112 @@
+.footer-mobile-container  {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-mobile-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin-bottom: 10px;
+   position: relative;
+}
+
+.about-mobile-footer {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+   position: relative;
+}
+
+.about-mobile-footer a {
+  margin-bottom: 10px;
+  
+   padding: 0; 
+}
+
+.socials-mobile {
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+   position: absolute;
+   right: 0;
+}
+
+.phone-dark-footer, .map-pin-dark-footer, .mail-icon-dark-footer, .facebook-icon-dark-footer,.phone-footer, .map-pin-footer, .mail-icon-footer, .facebook-icon-footer{
+  margin-left: 6px;
+} 
+
+
+.phone-dark-footer, .map-pin-dark-footer, .mail-icon-dark-footer, .facebook-icon-dark-footer{
+  display: none;
+}
+
+html.dark .phone-footer{
+  display: none;
+}
+html.dark  .map-pin-footer {
+  display: none;
+}
+html.dark .mail-icon-footer{
+  display: none;
+}
+html.dark .facebook-icon-footer {
+  display: none;
+}
+
+html.dark .phone-dark-footer{
+  display: block;
+}
+html.dark  .map-pin-dark-footer {
+  display: block;
+}
+html.dark .mail-icon-dark-footer{
+  display: block;
+}
+html.dark .facebook-icon-dark-footer {
+  display: block;
+}
+
+
+.title-footer-mobile {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.application-form-footer-mobile {
+  background-image: linear-gradient(to right, #3d4656, #00adfc);
+  display: inline-block;
+  padding: 6px 26px !important;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  text-wrap: nowrap;
+  color: white;
+}
+
+html.dark .application-form-footer-mobile {
+    background-image: none;
+  background-color: #33BFFF;
+  color: black;
+}
+
+.footer-line-mobile {
+  width: 100vw;
+  background-image: linear-gradient(to left, #00cafc, #67bbe6 50%, #728097);
+  height: 2px;
+  margin-bottom: 20px;
+}
+
+html.dark .footer-line-mobile {
+    background-image: linear-gradient(to left, #00cafc, #67bbe6 50%, #ffffff);
+}
+
+@media (width >= 640px) {
+  .footer-mobile-container {
+    display: none;
+  }
+}

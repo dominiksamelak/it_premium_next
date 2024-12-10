@@ -1,10 +1,11 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar.js"
-import { Footer } from "@/components/Footer"
+import { Footer } from "@/components/Footer.js"
 import { Raleway } from 'next/font/google'
 import { Jost } from 'next/font/google'
 import { Providers } from '@/components/Providers.js'
+import { FooterMobile } from "@/components/FooterMobile.js";
 
 const raleway_init = Raleway({
   subsets: ['latin'],
@@ -29,9 +30,9 @@ export default function RootLayout({ children }) {
           </main>
           <footer>
             <Footer />
+            <FooterMobile />
           </footer>
         </Providers>
-
       </body>
     </html>
   );
