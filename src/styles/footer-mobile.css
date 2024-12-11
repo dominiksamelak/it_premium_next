@@ -32,6 +32,8 @@
   z-index: 2;
    position: absolute;
    right: 0;
+   align-items: center;
+   gap: 4px;
 }
 
 .phone-dark-footer, .map-pin-dark-footer, .mail-icon-dark-footer, .facebook-icon-dark-footer,.phone-footer, .map-pin-footer, .mail-icon-footer, .facebook-icon-footer{
@@ -106,7 +108,7 @@ html.dark .footer-line-mobile {
 }
 
 @media (width >= 640px) {
-  .footer-mobile-container {
+  .footer-mobile-container-main {
     display: none;
   }
 }

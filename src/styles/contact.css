@@ -114,6 +114,10 @@ html.dark .phone-contact-icon {
   display: none;
 }
 
+.phone-contact-icon-dark {
+  display: none;
+}
+
 .map-pin-dark-contact {
   display: none;
 }

@@ -11,10 +11,10 @@ import phone from "@/components/img/icons/Phone.png";
 import facebook from "@/components/img/icons/social_icon.png";
 
 export function FooterMobile() {
-    console.log("Rendering FooterMobile");
+
     return (
 <footer className="footer-mobile-container-main">
-      <div className="footer-line-mobile"></div>
+  <div className="footer-line-mobile"></div>
   <div className="footer-mobile-container">
 
       <div className="about-mobile-footer">
@@ -40,7 +40,7 @@ export function FooterMobile() {
         </a>
         <span>
           <a
-            href="https://www.google.pl/maps/place/IT-PREMIUM+Centrum+Serwisowe+Serwis+laptop%C3%B3w,+telefon%C3%B3w,+drukarek%2FPROFESJONALNE+ODZYSKIWANIE+DANYCH/@52.4606974,16.910462,17z/data=!4m8!3m7!1s0x4704436aa34834f1:0x72038cebaf375f7!8m2!3d52.4610142!4d16.909879!9m1!1b1!16s%2Fg%2F11cryfrr66?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.pl/maps/place/IT-PREMIUM+Centrum+Serwisowe+Serwis+laptop%C3%B3w,+telefon%C3%B3w,+drukarek%2FPROFESJONALNE+ODZYSKIWANIE+DANYCH/@52.4610174,16.9073041,17z/data=!3m1!4b1!4m6!3m5!1s0x4704436aa34834f1:0x72038cebaf375f7!8m2!3d52.4610142!4d16.909879!16s%2Fg%2F11cryfrr66?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
           >
