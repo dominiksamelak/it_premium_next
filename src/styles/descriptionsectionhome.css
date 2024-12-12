@@ -108,18 +108,13 @@ html.dark .color-updown-two {
 }
 
 
-.google-reviews .css-1en7e4i {
-  display: none;
-}
-
 .google-reviews .css-1en7e4i, .google-reviews .css-hzpebr, .google-reviews .css-kzqzfd, .google-reviews .css-dyvl56   {
   display: flex;
   margin-top: 180px;
-  
 }
 
-.google-reviews .css-1en7e4im, .google-reviews .css-kzqzfd {
-  margin-left: 420px;
+.google-reviews .css-1en7e4i, .google-reviews .css-kzqzfd {
+  margin-left: 420px !important;
 }
 
 .google-reviews .css-hzpebr, .google-reviews .css-dyvl56 {
@@ -256,11 +251,15 @@ html.dark .application-form-mobile {
 
 
 .google-reviews .css-1en7e4i,   .google-reviews .css-kzqzfd{
-  margin-left: 100px;
+  margin-left: 100px !important;
 }
 
 .google-reviews .css-hzpebr,  .google-reviews .css-dyvl56{
   margin-right: 100px;
+}
+
+.google-reviews .css-1en7e4i, .google-reviews .css-hzpebr, .google-reviews .css-kzqzfd, .google-reviews .css-dyvl56   {
+  margin-top: 180px;
 }
 
 }

@@ -6,6 +6,7 @@ import { Raleway } from 'next/font/google'
 import { Jost } from 'next/font/google'
 import { Providers } from '@/components/Providers.js'
 import { FooterMobile } from "@/components/FooterMobile.js";
+import { BackToTop } from "@/components/BackToTop.js"
 
 const raleway_init = Raleway({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           </nav>
           <main>
             {children}
+            <BackToTop />
           </main>
           <footer>
             <Footer />

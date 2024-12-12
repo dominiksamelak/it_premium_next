@@ -142,13 +142,18 @@ html.dark .contact-mail {
   font-family: 'Jost', sans-serif;
 }
 
+.facebook-icon-contact {
+  display: inline-block;
+}
+
 .facebook-icon-contact-dark {
   width: 24px;
   display: none;
+
 }
 
 html.dark .facebook-icon-contact-dark {
-  display: block
+  display: inline-block
 }
 
 html.dark .facebook-icon-contact {

@@ -36,7 +36,7 @@ h2 {
 }
 
 html.dark .form-group .input-wrapper {
-  background: linear-gradient(to right, #2C497B, #00adfc); /* Gradient border for dark mode */
+  background: linear-gradient(to right, #FFFFFF, #00adfc); /* Gradient border for dark mode */
 }
 
 .form-group .input-wrapper input,
