@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import "@/styles/back-to-top.css";
-import Arrow from "@/components/img/icons/arrow-top.svg";
+import Arrow from "@/components/img/icons/arrow-top.png";
+import arrowDark from "@/components/img/icons/arrow-top-dark.png";
 
 export function BackToTop() {
   const [showButton, setShowButton] = useState(false);
@@ -40,6 +41,12 @@ useEffect(() => {
         src={Arrow}
         onClick={scrollToTop}
         className={`back-to-top ${showButton ? "show" : ""}`}
+        alt="Back to Top Arrow"
+      />
+      <Image
+        src={arrowDark}
+        onClick={scrollToTop}
+        className={`back-to-top-dark ${showButton ? "show" : ""}`}
         alt="Back to Top Arrow"
       />
     </div>
