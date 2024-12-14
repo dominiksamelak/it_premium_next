@@ -19,6 +19,24 @@ const galleryData = [
     description: "A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.",
     width: 1440,
     height: 612,
+  },  {
+    src: "/gallery/3.png",
+    alt: "Image 3",
+    description: "A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.",
+    width: 1440,
+    height: 612,
+  },  {
+    src: "/gallery/3.png",
+    alt: "Image 3",
+    description: "A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.",
+    width: 1440,
+    height: 612,
+  },  {
+    src: "/gallery/3.png",
+    alt: "Image 3",
+    description: "A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.A vibrant cityscape at night.",
+    width: 1440,
+    height: 612,
   },
 ];
 

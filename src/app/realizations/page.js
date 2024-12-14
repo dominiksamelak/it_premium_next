@@ -38,7 +38,7 @@ export default function Realizations() {
 
   return (
 <div className="realizations-container">
-  <h1>Realizacje</h1>
+  <h1 className="realization-title">Nasze realizacje</h1>
   <div className="gallery">
     {galleryData.map((item, index) => (
       <div key={index} onClick={() => openModal(index)}>
