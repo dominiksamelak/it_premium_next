@@ -77,6 +77,9 @@ export default function Realizations() {
             <button className="close-button" onClick={closeModal}>
               Zamknij
             </button>
+            <button className="close-button-mobile" onClick={closeModal}>
+              X
+            </button>
           </div>
         </div>
       )}

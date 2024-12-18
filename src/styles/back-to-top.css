@@ -8,6 +8,7 @@
   z-index: 4000; 
   display: none; 
   transition: opacity 0.3s ease; 
+
 }
 
 .back-to-top.show {
@@ -18,6 +19,7 @@
 html.dark .back-to-top-dark.show{
   display: block; 
   opacity: 1;
+    margin-right: 0;
 }
 
 .back-to-top img, .back-to-top-dark img {
@@ -30,14 +32,9 @@ html.dark .back-to-top-dark.show{
   display: none;
 }
 
-html.dark .back-to-top .back-to-top.show{
-  display: none;
+html.dark .back-to-top.show{
+  display: none !important; 
 }
 
 
 
-@media (max-width: 970px) {
-  .back-to-top {
-    margin-right: 10px;
-  }
-}
