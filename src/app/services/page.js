@@ -18,10 +18,10 @@ export default function Services() {
       {/* Service 1: Computer Repair */}
       <motion.div
         className="services-left"
-        initial={{ x: -200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.1 }}
+        // initial={{ x: -200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.1 }}
       >
         <span className="down-up"></span>
         <Image src={PC} alt="pc" className="pic-left" />
@@ -38,10 +38,10 @@ export default function Services() {
       {/* Service 2: Phone Repair */}
       <motion.div
         className="services-right"
-        initial={{ x: 200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: 200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <div className="services-text-right">
           <Link href="/services/phone-repair" className="services-text-link">
@@ -58,10 +58,10 @@ export default function Services() {
       {/* Service 3: Printer Repair */}
       <motion.div
         className="services-left"
-        initial={{ x: -200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: -200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <span className="down-up"></span>
         <Image src={Printer} alt="printer" className="pic-left" />
@@ -78,10 +78,10 @@ export default function Services() {
       {/* Service 4: Data Recovery */}
       <motion.div
         className="services-right"
-        initial={{ x: 200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: 200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <div className="services-text-right">
           <Link href="/services/data-recovery" className="services-text-link">
@@ -98,10 +98,10 @@ export default function Services() {
       {/* Service 5: Business Support */}
       <motion.div
         className="services-left"
-        initial={{ x: -200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: -200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <span className="down-up"></span>
         <Image src={Coop} alt="coop" className="pic-left" />
@@ -118,10 +118,10 @@ export default function Services() {
       {/* Service 6: Electronics Repair */}
       <motion.div
         className="services-right"
-        initial={{ x: 200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: 200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <div className="services-text-right">
           <Link href="/services/electronics-repair" className="services-text-link">
@@ -140,10 +140,10 @@ export default function Services() {
       {/* Contact Section */}
       <motion.div
         className="services-contact"
-        initial={{ y: -100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ y: -100, opacity: 0 }}
+        // whileInView={{ y: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <span className="services-contact-text">
           W razie jakichkolwiek pytań, zapraszamy do kontaktu

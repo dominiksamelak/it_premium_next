@@ -68,6 +68,7 @@ export function DescriptionSection() {
           alt="photo"
           layout="responsive"
           priority
+          
         />
         ) : (<div></div>)
         }
