@@ -23,10 +23,10 @@ export function DescriptionSection() {
       }
       <motion.div 
         className="description-one"
-        initial={{ x: -200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: -200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <span className="color-updown"></span>
         <div className="description-one-container">
@@ -76,10 +76,10 @@ export function DescriptionSection() {
 
       <motion.div 
         className="description-two"
-        initial={{ x: 200, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // initial={{ x: 200, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         {!isMobile ? (
           <Image
