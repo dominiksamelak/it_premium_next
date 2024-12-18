@@ -19,8 +19,8 @@ html.dark .realizations-container {
 }
 
 .realization-subtitle {
- font-size: 24px;
- margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .gallery {
@@ -35,16 +35,16 @@ html.dark .realizations-container {
   width: 100%;
   align-items: center;
   padding: 15px 0;
-  position: relative; /* Ensures the pseudo-element is positioned correctly */
+  position: relative;
 }
 
 .gallery > div::before {
-  content: ""; /* Create an empty pseudo-element for the gradient border */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px; /* Height of the "border" */
+  height: 2px;
   background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
 }
 
@@ -55,16 +55,15 @@ html.dark .gallery > div::before {
 .gallery-item {
   display: flex;
   flex-direction: row;
-   align-items: center;
-   gap: 10px;
+  align-items: center;
+  gap: 10px;
 }
 
 .gallery-description {
-  flex: 1; 
-  padding-right: 20px; 
+  flex: 1;
+  padding-right: 20px;
   font-size: 16px;
   text-wrap: wrap;
-
 }
 
 .gallery-title {
@@ -73,33 +72,32 @@ html.dark .gallery > div::before {
 }
 
 .gallery-image-container {
-  flex: 1; 
+  flex: 1;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .gallery-image {
   border-radius: 25px;
   width: 50%;
 }
-/* Modal Styles */
-/* Fullscreen Modal Styles */
+
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the modal both vertically and horizontally */
+  transform: translate(-50%, -50%);
   width: 80%;
-  height: auto; /* Adjust height to fit content */
-  background: rgba(255, 255, 255, 0.95); /* Slightly darker overlay for better contrast */
+  height: auto;
+  background: rgba(255, 255, 255, 0.95);
   border: solid;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 5000;
-  padding: 20px; /* Add padding around content */
-  border-radius: 10px; /* Add subtle rounding to modal edges */
+  padding: 20px;
+  border-radius: 10px;
 }
 
 html.dark .modal {
@@ -108,7 +106,7 @@ html.dark .modal {
 }
 
 .modal-content {
-  background: none; /* Remove background of the modal content */
+  background: none;
   width: 100%;
   text-align: center;
   position: relative;
@@ -117,17 +115,17 @@ html.dark .modal {
 }
 
 .modal .gallery-image {
-  width: 100%; /* Make the image take the full width */
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 auto; /* Center the image */
-  border-radius: 10px; /* Add subtle rounding to image edges */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .modal .gallery-title {
   font-size: 24px;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  margin: 20px 0 10px; /* Spacing around the title */
+  margin: 20px 0 10px;
 }
 
 html.dark .modal .gallery-title {
@@ -137,20 +135,20 @@ html.dark .modal .gallery-title {
 .modal-description {
   font-size: 18px;
   color: white;
-  padding: 0 20px; /* Add some side padding for better readability */
-  margin-bottom: 20px; /* Spacing below the description */
+  padding: 0 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
-  gap: 10px; /* Add spacing between buttons */
-  margin: 20px 0; /* Add spacing above and below the buttons */
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .navigation-buttons button {
-background-image: linear-gradient(to right, #3d4656, #00adfc);
+  background-image: linear-gradient(to right, #3d4656, #00adfc);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -166,7 +164,7 @@ html.dark .navigation-buttons button {
 }
 
 html.dark .navigation-buttons button:hover {
-  background-color: #007ab8; 
+  background-color: #007ab8;
 }
 
 .close-button {
@@ -180,15 +178,15 @@ html.dark .navigation-buttons button:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  z-index: 1001; /* Ensure it's above the modal content */
+  z-index: 1001;
 }
 
 .close-button:hover {
-    background-image: linear-gradient(to right, #3d4656, #00adfc);
+  background-image: linear-gradient(to right, #3d4656, #00adfc);
 }
 
 html.dark .close-button {
-   background-image: none;
+  background-image: none;
   background-color: #00adfc !important;
   color: black;
 }
@@ -201,57 +199,54 @@ html.dark .close-button:hover {
   display: none;
 }
 
-
 @media (width < 640px) {
+  .close-button {
+    display: none;
+  }
 
-    .close-button {
-      display: none;
-    }
-    .modal {
+  .modal {
     position: fixed;
-    /* top: 0;
-    left: 0; */
     max-width: 100%;
-    width: 100%; /* Full width for mobile screens */
-    height: 100%; /* Full height for mobile screens */
+    width: 100%;
+    height: 100%;
     background: rgba(255, 255, 255, 0.95);
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Remove padding */
+    padding: 0;
     z-index: 5000;
-    overflow-y: auto; /* Allow scrolling for tall content */
+    overflow-y: auto;
     align-items: center;
   }
 
   .modal-content {
-    background: none; /* Transparent background */
-    width: 100%; /* Full width */
-    padding: 0; /* Remove padding */
-    border-radius: 0; /* Remove rounded corners */
+    background: none;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
   }
 
   .modal .gallery-image {
-    width: 100%; /* Full width image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 0; /* No rounded corners */
-    margin: 0; /* Remove margin */
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    margin: 0;
   }
 
   .modal .gallery-title {
     font-size: 20px;
     font-weight: bold;
     color: black;
-    margin: 10px 0; /* Spacing around the title */
+    margin: 10px 0;
     text-align: center;
   }
 
   .modal .gallery-description {
     font-size: 16px;
     color: black;
-    padding: 0 10px; /* Add padding for readability */
-    margin: 10px 0; /* Spacing below the description */
+    padding: 0 10px;
+    margin: 10px 0;
     text-align: left;
   }
 
@@ -259,36 +254,36 @@ html.dark .close-button:hover {
     color: white;
   }
 
-    .close-button-mobile {
+  .close-button-mobile {
     display: inline-block;
     background-image: linear-gradient(to right, #3d4656, #00adfc);
     position: absolute;
     top: 10px;
     right: 10px;
-    color: white; /* White "X" */
+    color: white;
     border: none;
     padding-left: 4px;
     padding-right: 4px;
-    font-size: 20px; /* Larger font size for the "X" */
+    font-size: 20px;
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above all other content */
-    }
+    z-index: 1001;
+  }
 
-    html.dark .close-button-mobile{
-      background-image: none;
-      background-color: #00adfc;
-      color: black;
-    }
+  html.dark .close-button-mobile {
+    background-image: none;
+    background-color: #00adfc;
+    color: black;
+  }
 
   .navigation-buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px; /* Add spacing */
+    padding: 10px;
   }
 
   .navigation-buttons button {
-    background-color: #00adfc; /* Button background color */
+    background-color: #00adfc;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -297,45 +292,37 @@ html.dark .close-button:hover {
     font-size: 16px;
   }
 
-
-
   .realizations-container {
-    padding-top: 70px ;
+    padding-top: 70px;
   }
 
   .gallery > div {
-    flex-direction: column; /* Stack image and description vertically */
-    align-items: center; /* Center content horizontally */
-
+    flex-direction: column;
+    align-items: center;
   }
 
   .gallery-item {
-    flex-direction: column; /* Stack image and description vertically */
-    text-align: center; /* Center align the text */
-    width: 100%; /* Ensure the container takes full width */
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
     text-align: left;
   }
 
   .gallery-image-container {
-    width: 100%; /* Make the image container take full width */
-    margin-bottom: 10px; /* Add spacing between image and description */
-    
+    width: 100%;
+    margin-bottom: 10px;
   }
 
-
-
   .gallery-image {
-    width: 100%; /* Make the image take full width */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
     border-radius: 25px;
   }
 
   .gallery-description {
-    margin-top: 10px; /* Space between the image and description */
-    text-align: center; /* Center the text */
-    order: 2; /* Ensure description is below the image */
-        text-align: left;
-
+    margin-top: 10px;
+    text-align: center;
+    order: 2;
+    text-align: left;
   }
 }
-
