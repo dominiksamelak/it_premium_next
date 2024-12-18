@@ -38,14 +38,18 @@ export default function Realizations() {
 
   return (
 <div className="realizations-container">
-  <h1 className="realization-title">Nasze realizacje</h1>
+  <p className="realization-title">Nasze realizacje</p>
+  <p className="realization-subtitle">Nasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacje
+    Nasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacje
+  </p>
   <div className="gallery">
     {galleryData.map((item, index) => (
       <div key={index} onClick={() => openModal(index)}>
         <GalleryItem
-          src={item.src}
-          alt={item.alt}
           description={item.description}
+          src={item.src}
+          alt={item.alt}  
+          title={item.title}
           width={item.width}
           height={item.height}
         />
@@ -64,6 +68,7 @@ export default function Realizations() {
               width={selectedImage.width}
               height={selectedImage.height}
             />
+            <p className="gallery-title">{selectedImage.title}</p>
             <p className="gallery-description">{selectedImage.description}</p>
             <div className="navigation-buttons">
               <button onClick={handlePrev}>Poprzednie</button>
