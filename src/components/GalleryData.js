@@ -11,7 +11,7 @@ const galleryData = [
     src: "/gallery/2.png",
     alt: "Image 2",
      title: "asdasdd",
-    description: "A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.",
+    description: "A calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A caA calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.A calm lake surrounded by forest.",
     width: 1440,
     height: 612,
   },

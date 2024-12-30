@@ -59,12 +59,7 @@ html.dark .gallery > div::before {
   gap: 10px;
 }
 
-.gallery-description {
-  flex: 1;
-  padding-right: 20px;
-  font-size: 16px;
-  text-wrap: wrap;
-}
+
 
 .gallery-title {
   font-weight: bold;
@@ -84,34 +79,29 @@ html.dark .gallery > div::before {
 
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: auto;
-  background: rgba(255, 255, 255, 0.95);
-  border: solid;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 5000;
   padding: 20px;
-  border-radius: 10px;
-}
-
-html.dark .modal {
-  background: black;
-  border: none;
+  border-radius: 0;
+  overflow-y: auto;
 }
 
 .modal-content {
   background: none;
   width: 100%;
+  max-width: 1300px;
   text-align: center;
   position: relative;
-  padding: 0;
-  overflow: hidden;
+  padding: 20px;
+  overflow: auto;
 }
 
 .modal .gallery-image {
@@ -124,15 +114,11 @@ html.dark .modal {
 .modal .gallery-title {
   font-size: 24px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
+  color: white;
   margin: 20px 0 10px;
 }
 
-html.dark .modal .gallery-title {
-  color: white;
-}
-
-.modal-description {
+.modal .gallery-description {
   font-size: 18px;
   color: white;
   padding: 0 20px;
@@ -140,16 +126,52 @@ html.dark .modal .gallery-title {
   text-align: center;
 }
 
+.gallery-description.collapsed {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show only 3 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  padding-right: 20px;
+  margin: 0; /* Ensure no margin affects layout */
+  border: none; /* Remove border to avoid showing overflow */
+  padding-bottom: 0px !important;
+}
+
+.gallery-description.expanded {
+  overflow: visible;
+  -webkit-line-clamp: unset; /* Show full text */
+  font-size: 16px;
+  padding-right: 20px;
+}
+
+.expand-description-button {
+  margin-top: 10px;
+  background-color: #00adfc;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.expand-description-button:hover {
+  background-color: #007ab8;
+}
+
 .navigation-buttons {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .navigation-buttons button {
-  background-image: linear-gradient(to right, #3d4656, #00adfc);
-  color: white;
+  background-color: #00adfc;
+  color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -157,22 +179,16 @@ html.dark .modal .gallery-title {
   font-size: 16px;
 }
 
-html.dark .navigation-buttons button {
-  background-image: none;
-  background-color: #00adfc;
-  color: black;
-}
-
-html.dark .navigation-buttons button:hover {
-  background-color: #007ab8;
+.navigation-buttons button:hover {
+  background-color: #00acfc93;
 }
 
 .close-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-image: linear-gradient(to right, #3d4656, #00adfc);
-  color: white;
+  background-color: #00adfc;
+  color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -182,17 +198,7 @@ html.dark .navigation-buttons button:hover {
 }
 
 .close-button:hover {
-  background-image: linear-gradient(to right, #3d4656, #00adfc);
-}
-
-html.dark .close-button {
-  background-image: none;
-  background-color: #00adfc !important;
-  color: black;
-}
-
-html.dark .close-button:hover {
-  background-color: #007ab8;
+  background-color: #00acfc93;
 }
 
 .close-button-mobile {
@@ -209,7 +215,7 @@ html.dark .close-button:hover {
     max-width: 100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -217,7 +223,6 @@ html.dark .close-button:hover {
     padding: 0;
     z-index: 5000;
     overflow-y: auto;
-    align-items: center;
   }
 
   .modal-content {
@@ -237,26 +242,24 @@ html.dark .close-button:hover {
   .modal .gallery-title {
     font-size: 20px;
     font-weight: bold;
-    color: black;
+    color: white;
     margin: 10px 0;
     text-align: center;
   }
 
   .modal .gallery-description {
-    font-size: 16px;
-    color: black;
-    padding: 0 10px;
-    margin: 10px 0;
-    text-align: left;
-  }
-
-  html.dark .modal .gallery-description {
+    font-size: 18px;
     color: white;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    line-height: 1.5;
+    
   }
 
   .close-button-mobile {
     display: inline-block;
-    background-image: linear-gradient(to right, #3d4656, #00adfc);
+    /* background-color: #00adfc; */
     position: absolute;
     top: 10px;
     right: 10px;
@@ -269,12 +272,6 @@ html.dark .close-button:hover {
     z-index: 1001;
   }
 
-  html.dark .close-button-mobile {
-    background-image: none;
-    background-color: #00adfc;
-    color: black;
-  }
-
   .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -284,7 +281,7 @@ html.dark .close-button:hover {
 
   .navigation-buttons button {
     background-color: #00adfc;
-    color: white;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -303,9 +300,8 @@ html.dark .close-button:hover {
 
   .gallery-item {
     flex-direction: column;
-    text-align: center;
-    width: 100%;
     text-align: left;
+    width: 100%;
   }
 
   .gallery-image-container {
@@ -321,8 +317,10 @@ html.dark .close-button:hover {
 
   .gallery-description {
     margin-top: 10px;
-    text-align: center;
-    order: 2;
     text-align: left;
+    order: 2;
+      border-bottom: 0px !important;
   }
+
+
 }

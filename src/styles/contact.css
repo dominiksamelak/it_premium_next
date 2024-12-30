@@ -165,8 +165,13 @@ html.dark .facebook-icon-contact {
   .contact-container {
     padding-left: 25px;
     padding-right: 25px;
-    margin-top: 100px;
+    margin-top: 80px;
   }
+
+  .contact-info{ 
+    padding-right: 40px;
+  }
+
   .contact-info-info {
     margin-right: 0;
   }
@@ -180,7 +185,6 @@ html.dark .facebook-icon-contact {
   .contact-subcontainer {
     align-items: center;
     padding-left: 14px;
-
   }
 
   .caontact-map-mobile-container {

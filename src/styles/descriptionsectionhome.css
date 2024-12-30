@@ -23,17 +23,6 @@
   overflow: hidden;
 }
 
-/* .description-one {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 35%;
-}
-
-.description-two {
-  animation: appear-two linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 35%;
-} */
 
 .color-updown {
   height: 340px;

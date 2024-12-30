@@ -33,7 +33,7 @@
   z-index: 5000;
   transform: translateY(-100%);
   animation: slideIn 1s ease-out forwards;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 40px rgba(105, 105, 105, 0.45);
 }
 
 
@@ -528,6 +528,7 @@ html.dark .dropdown-item:hover {
   .navbar-container {
     height: 50px;
     flex-direction: column;
+    box-shadow: 0 1px 4px rgba(105, 105, 105, 0.45);
   }
 
   .logo-dark {
