@@ -1,0 +1,47 @@
+.FAQ-container {
+  max-width: 970px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.FAQ-button {
+  font-size: 20px ;
+  font-weight: bold ;
+}
+
+.FAQ-list {
+  margin-top: 10px;
+  
+}
+
+.FAQ-item {
+  margin-bottom: 20px; /* Add space for the gradient line */
+}
+
+.FAQ-question {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.FAQ-answer {
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.FAQ-question:hover {
+  color: #00adfc;
+}
+
+/* Linear gradient line after each FAQ item */
+.FAQ-item::after {
+  content: "";
+  display: block;
+  height: 2px; 
+  background: linear-gradient(to right, #3d4656, #00adfc 50%);
+  margin-top: 10px;
+}
+
+html.dark .FAQ-item::after {
+  background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
+}

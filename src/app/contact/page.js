@@ -10,6 +10,7 @@ import facebookDark from "@/components/img/icons/social-icon-contact-dark.png"
 import mapPinDark from "@/components/img/icons/Map_Pin_dark.png"
 import phoneDark from "@/components/img/icons/Phone-dark.png"
 import mailDark from "@/components/img/icons/Mail-dark.png"
+import FAQ from "@/components/FAQ.js"
 
 export default function Contact() {
 
@@ -89,6 +90,7 @@ export default function Contact() {
           <div></div>
         }
       </div>
+      <FAQ />
     </div>
 
 
