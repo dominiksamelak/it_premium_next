@@ -31,6 +31,43 @@ html.dark .color-updown-two-warranty {
     background-image: linear-gradient(to top, #00adfc, #ffffff);
 }
 
+.warranty-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;      /* center all icons */
+  gap: 40px;                    /* space between each icon */
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;             /* prevent them from stretching too far */
+  /* flex-wrap: wrap;           */
+}
+
+.icons-desc, .icons-desc-dark {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 200px;          /* allows equal space and prevents early wrapping */
+  min-width: 180px;         /* prevents icons from getting too narrow */
+}
+
+.icon-dark, .icon-light {
+  margin-bottom: 10px;
+}
+
+.icons-desc-dark {
+  display: none;
+}
+
+html.dark .icons-desc {
+  display: none;
+}
+
+html.dark .icons-desc-dark {
+  display: flex;
+}
+
 .warranty-desc {
   max-width: 500px;
   display: flex;
@@ -66,19 +103,31 @@ html.dark .color-updown-two-warranty {
     width: 100%;
   }
 
+  .warranty-icons {
+  flex-direction: column;
+   gap: 0px;
+  }
+
+  .icons-desc-dark, .icons-desc {
+    margin-top: 0;
+    margin-bottom: -20px;
+  }
+
   .warranty-title {
   font-size: 18px;
   font-weight: bold;
 }
   .warranty-text {
     font-size: 14px;
+    margin-bottom: 30px;
   }
 
   .color-updown-warranty, .color-updown-two-warranty {
     min-width: 7px !important;
+    height: 780px;
   }
 
   .warranty {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
 }
