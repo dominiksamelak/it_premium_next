@@ -12,13 +12,14 @@ export default function PC() {
         <Image src={PClanding} alt="pcifx" className='pcfix-landing-photo'/>
         <Image src={PClandingMobile} alt="pcifx" className='pcfix-landing-photo-mobile'/>
         <div className="text">
-        <span className="text-title">TEST</span>
-        <span className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</span>
+        <span className="text-title">Odzyskaj pełną sprawność swojego sprzętu komputerowego</span>
+        <span className="text-subtitle">Diagnoza, naprawa i optymalizacja – wszystko, czego potrzebuje <br />Twój laptop lub komputer stacjonarny</span>
       </div>
     </div>
       <span className='pricelist-text'>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-        eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Z Twoim komputerem lub laptopem jest coś nie tak? <br /><br />  <strong>Bezpłatnie zdiagnozujemy</strong> problem, 
+        więc zanim podejmiesz decyzję o naprawie, poznasz jej zakres i koszt. Dzięki <strong>12-miesięcznej gwarancji</strong> na usługi masz pewność,
+        że Twoje urządzenie wróci do pełnej sprawności na długi czas.<br /><br /> A <strong>sprzęt zastępczy</strong>, który otrzymasz w trakcie serwisowania, pozwoli Ci kontynuować codzienne działania bez nieplanowanych przerw! 
       </span>
       <PriceList subpage="pcfix" />
     </div>

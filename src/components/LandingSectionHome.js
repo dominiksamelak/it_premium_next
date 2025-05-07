@@ -27,14 +27,15 @@ export function LandingSection() {
         priority
       />
       <div className="text">
-        <h1 className="text-title">TEST</h1>
-        <p className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</p>
-        <p className="text-description">
+        <h1 className="text-title">Przywołujemy zbuntowaną elektronikę do porządku!</h1>
+        <p className="text-subtitle">Odwiedź nasz serwis w Poznaniu osobiście lub wyślij nam swoje urządzenie, a otrzymasz
+           je z powrotem w wersji premium – w pełni sprawne i gotowe go działania.</p>
+        {/* <p className="text-description">
           Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test
-        </p>
+        </p> */}
       {isMobile ? (<div></div>) : (
         <Link href="/applicationform" className="application-link">
-          <span className="application-form">Formularz zgłoszenia</span>
+          <span className="application-form">Nadaj sprzęt do naprawy</span>
         </Link>)
       }
 

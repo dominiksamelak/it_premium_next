@@ -30,21 +30,19 @@ export function DescriptionSection() {
       >
         <span className="color-updown"></span>
         <div className="description-one-container">
-          <span className="description-text-one">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            
-            quia consequuntur magni</span>
+          <span className="description-text-one">Naprawiamy laptopy, komputery stacjonarne, 
+            wszystkie modele telefonów komórkowych, drukarki oraz elektronikę użytkową. Szybko postawimy Twoje urządzenie na nogi. </span>
           <span className="description-text-two">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            Odzyskujemy dane za pomocą najnowocześniejszych technologii. 
+            To znacznie zwiększa szansę na to, że przywrócimy pliki, nawet gdy w pierwszej chwili wydaje Ci się to niemożliwe. 
            
           </span>
           {isMobile ? (
             <div className="description-text-three">
 
               <span className="description-text-three-content">
-                Excepteur sint occaecat cupidatat non deserunt mollit anim id est laborum! 
+                Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy dokumentację do audytów, zabezpieczamy dane i
+                 dbamy o sprawne funkcjonowanie wszystkich urządzeń elektronicznych, aby technologia wspierała rozwój Twojego biznesu.
               </span>
               <Image
                 src={descPhotoOne}
@@ -56,7 +54,8 @@ export function DescriptionSection() {
             </div>
           ) : (
             <span className="description-text-three">
-              Excepteur sint occaecat cupidatat non deserunt mollit anim id est laborum!
+              Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy dokumentację do audytów, zabezpieczamy dane
+               i dbamy o sprawne funkcjonowanie wszystkich urządzeń elektronicznych, aby technologia wspierała rozwój Twojego biznesu.
             </span>
           )}
         </div>
@@ -104,17 +103,17 @@ export function DescriptionSection() {
               priority
             />
             <span className="description-text-three-content">
-              Excepteur sint occaecat cupidatat non deserunt mollit anim id est laborum!
+              Sprawdź, jak radzimy sobie z wyzwaniami, jakie stawiają przed nami klienci! 
             </span>
           </div>
         ) : (
           <div className="description-text-three">
-            Excepteur sint occaecat cupidatat non deserunt mollit anim id est laborum!
+            Sprawdź, jak radzimy sobie z wyzwaniami, jakie stawiają przed nami klienci! 
           </div>
         )}
 
         <span className="description-text-two">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremqu
+          I co sprawia, że średnia naszych ocen to 5 gwiazdek. 😉
         </span>
 
         {/* Google Reviews for non-mobile */}

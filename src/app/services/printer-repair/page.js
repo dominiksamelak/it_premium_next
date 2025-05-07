@@ -12,13 +12,14 @@ export default function Printers() {
         <Image src={PrinterFix} alt="printerifx" className='printerfix-landing-photo'/>
         <Image src={PrinterFixMobile} alt="printerifx" className='printerfix-landing-photo-mobile'/>
         <div className="text">
-        <span className="text-title">TEST</span>
-        <span className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</span>
+        <span className="text-title">Zadbaj o nieprzerwaną pracę swojego sprzętu biurowego</span>
+        <span className="text-subtitle">Otoczymy Twoją drukarkę profesjonalną opieką: od konserwacji po zaawansowaną diagnostykę</span>
       </div>
     </div>
       <span className='pricelist-text'>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-        eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        W najmniej odpowiednim momencie Twoja drukarka przestała drukować, zacina papier lub wyświetla błędy? <br/><br/>Pomożemy! 
+        Wykonamy <strong>darmową diagnozę</strong>, by dokładnie określić źródło problemu, a następnie skutecznie je wyeliminujemy. Trwałość naprawy zapewni <strong>12-miesięczna gwarancja</strong> na nasze usługi.<br/><br/>
+        Dodatkowo oferujemy <strong>drukarkę zastępczą</strong> na czas realizacji zlecenia, aby Twoje codzienne obowiązki przebiegały bez zakłóceń.
       </span>
       <PriceList subpage="printerfix"/>
     </div>

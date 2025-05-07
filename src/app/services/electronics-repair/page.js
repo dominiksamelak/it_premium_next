@@ -10,13 +10,13 @@ export default function OtherElectronics() {
           <Image src={OtherFix} alt="otherfix" className='otherfix-landing-photo'/>
           <Image src={OtherFixMobile} alt="otherfix" className='otherfix-landing-photo-mobile'/>
           <div className="text">
-          <span className="text-title">TEST</span>
-          <span className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</span>
+          <span className="text-title">Pomóż swojej konsoli wrócić do gry</span>
+          <span className="text-subtitle">Serwisujemy konsole wszystkich marek: PlayStation, Xbox, Nintendo i inne</span>
         </div>
       </div>
         <span className='pricelist-text'>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-          eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+          Twoja konsola potrzebuje szybkiej reanimacji? Podczas <strong>darmowej diagnozy</strong> błyskawicznie namierzymy problem i przedstawimy koszt jego rozwiązania. <br/><br/>
+          Trudne przypadki to nasza specjalność – nieważne, czy Twoje PS5 ma problemy z zasilaniem, Xbox cierpi na niedziałające porty, czy Nintendo wyłącza się bez ostrzeżenia. Zyskaj dodatkowe życie dla swojego sprzętu – na każdą usługę dajemy aż <strong>12 miesięcy gwarancji</strong>. 
         </span>
         {/* <PriceList /> */}
     </div>

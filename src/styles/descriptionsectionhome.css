@@ -25,7 +25,7 @@
 
 
 .color-updown {
-  height: 340px;
+  height: 400px;
   min-width: 7px;
   background-image: linear-gradient(to top, #3d4656, #00adfc);
   box-sizing: border-box;
@@ -37,7 +37,7 @@ html.dark .color-updown {
 
 .color-updown-two {
   background-image: linear-gradient(to top, #00adfc, #3d4656);
-  height: 310px;
+  height: 400px;
   min-width: 7px !important;
   z-index: 1111;
 }
@@ -211,7 +211,7 @@ html.dark .application-form-mobile {
 
   .color-updown {
     margin-right: 14px;
-    height: 450px !important;
+    height: 480px !important;
   }
 
   .color-updown-two {

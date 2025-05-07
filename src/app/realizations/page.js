@@ -57,9 +57,9 @@ export default function Realizations() {
 
   return (
     <div className="realizations-container">
-      <p className="realization-title">Nasze realizacje</p>
+      <p className="realization-title">Historie naszych serwisowych sukcesów</p>
       <p className="realization-subtitle">
-        Nasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacjeNasze realizacje
+        Poznaj losy urządzeń, które wróciły do swoich właścicieli nieraz w dużo lepszym stanie niż były przed awarią. Twój sprzęt może być następny!
       </p>
       <div className="gallery">
         {galleryData.map((item, index) => (

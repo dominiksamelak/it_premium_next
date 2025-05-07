@@ -13,13 +13,14 @@ export default function DataRecovery() {
           <Image src={DataRec} alt="datarec" className='datarec-landing-photo'/>
           <Image src={DataRecMobile} alt="datarec" className='datarec-landing-photo-mobile'/>
           <div className="text">
-          <span className="text-title">TEST</span>
-          <span className="text-subtitle">Test Test Test Test Test Test Test Test Test Test</span>
+          <span className="text-title">Zabezpiecz to, co trzymasz w bezcennej pamięci</span>
+          <span className="text-subtitle">Niezależnie od awarii, znajdziemy sposób, by przywrócić Twoje pliki</span>
         </div>
       </div>
         <span className='pricelist-text'>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-          eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+          Zżera Cię stres, że pliki z Twojego sprzętu zostały utracone na zawsze?<br/> <br/> Przy pomocy zaawansowanego 
+          sprzętu odzyskujemy dane z dysków twardych, dysków SSD, płyt CD/DVD, kart pamięci czy telefonów. W trybie standardowym zaczynamy od <strong>darmowej diagnozy</strong>, aby ocenić możliwość i koszty realizacji zlecenia. <br/> <br/> Potrzebujesz ważnych dokumentów na już? 
+          Oferujemy usługę w trybie <strong>przyspieszonym i ekspresowym</strong> (wtedy jednak diagnoza jest odpłatna).
         </span>
         <PriceList subpage='datarecovery'/>
     </div>
