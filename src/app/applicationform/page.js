@@ -38,14 +38,11 @@ export default function ApplicationForm() {
     }
   };
 
-  const sendMail = (subject, message) => {
-    return axios.get("http://localhost:5000/", {
-      params: {
-        subject,
-        message,
-      },
-    });
-  };
+const sendMail = (subject, message) => {
+  return axios.get("http://localhost:5000/", {
+    params: { subject, message },
+  });
+};
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -64,34 +61,33 @@ export default function ApplicationForm() {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const emailMessage = `
-    <strong>Order Number:</strong> ${orderNumber}<br>
-    <strong>Name:</strong> ${formData.name}<br>
-    <strong>Email:</strong> ${formData.email}<br>
-    <strong>Phone:</strong> ${formData.phone}<br>
-    <strong>Street:</strong> ${formData.street}<br>
-    <strong>Zipcode:</strong> ${formData.zipcode}<br>
-    <strong>City:</strong> ${formData.city}<br>
-    <strong>Equipment:</strong> ${formData.equipment}<br>
-    <strong>Manufacturer:</strong> ${formData.manufacturer}<br>
-    <strong>Model:</strong> ${formData.model}<br>
-    <strong>Serial Number:</strong> ${formData.serialnumber}<br>
-    <strong>Details:</strong><br>
-    ${formData.details}
-  `;
-
   try {
-    await sendMail(`${formData.model}`, emailMessage);
-    console.log("Email sent successfully");
+    // Submit to backend
+    const response = await axios.post("http://localhost:4000/submitOrder", formData);
+    const orderNum = response.data.orderNumber;
 
-    // Store form data and order number in localStorage
-    const formDataWithOrder = { ...formData, orderNumber };
-    localStorage.setItem("formData", JSON.stringify(formDataWithOrder));
+    const emailMessage = `
+      <strong>Order Number:</strong> ${orderNum}<br>
+      <strong>Name:</strong> ${formData.name}<br>
+      <strong>Email:</strong> ${formData.email}<br>
+      <strong>Phone:</strong> ${formData.phone}<br>
+      <strong>Street:</strong> ${formData.street}<br>
+      <strong>Zipcode:</strong> ${formData.zipcode}<br>
+      <strong>City:</strong> ${formData.city}<br>
+      <strong>Equipment:</strong> ${formData.equipment}<br>
+      <strong>Manufacturer:</strong> ${formData.manufacturer}<br>
+      <strong>Model:</strong> ${formData.model}<br>
+      <strong>Serial Number:</strong> ${formData.serialnumber}<br>
+      <strong>Details:</strong><br>
+      ${formData.details}
+    `;
 
-    // Navigate to confirmation page
+    await sendMail(formData.model, emailMessage);
+
+    localStorage.setItem("formData", JSON.stringify({ ...formData, orderNumber: orderNum }));
     router.push("/confirmation");
   } catch (error) {
-    console.error("Failed to send email:", error);
+    console.error("Submission failed:", error);
   }
 };
 
