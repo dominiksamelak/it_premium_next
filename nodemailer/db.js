@@ -1,10 +1,10 @@
 const mysql = require("mysql2/promise");
 
 const pool = mysql.createPool({
-  host: "your-sql-host.com",   // ✅ your SQL server host
-  user: "youruser",            // ✅ your SQL username
-  password: "yourpassword",    // ✅ your SQL password
-  database: "yourdatabase",    // ✅ your SQL database name
+  host: "mariadb8.iq.pl", // ✅ your SQL server host
+  user: "itpremium_next", // ✅ your SQL username
+  password: "xxxxxx", // ✅ your SQL password
+  database: "itpremium_next", // ✅ your SQL database name
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

@@ -1,7 +1,8 @@
 // server.js
 const express = require("express");
 const cors = require("cors");
-const pool = require("./db"); // import db.js
+const pool = require("./db");
+const sendEmail = require("./mailer");
 
 const app = express();
 const PORT = 4000;
@@ -9,6 +10,7 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+// POST /submitOrder - save order to database
 app.post("/submitOrder", async (req, res) => {
   try {
     const formData = req.body;
@@ -58,6 +60,18 @@ app.post("/submitOrder", async (req, res) => {
   }
 });
 
-app.listen(PORT, () =>
-  console.log(`Server running at http://localhost:${PORT}`)
-);
+// POST /sendEmail - send email with nodemailer
+app.post("/sendEmail", async (req, res) => {
+  const { subject, message } = req.body;
+  try {
+    await sendEmail({ subject, message });
+    res.json({ message: "Email sent successfully" });
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    res.status(500).json({ error: "Failed to send email" });
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});

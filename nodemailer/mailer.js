@@ -9,7 +9,7 @@ function sendEmail({ subject, message }) {
       secure: true,
       auth: {
         user: "d.samelak@it-premium.pl",
-        pass: "testpassword",
+        pass: "xxxxxx",
       },
     });
 

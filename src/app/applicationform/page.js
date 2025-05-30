@@ -1,5 +1,5 @@
-"use client"; 
-import '@/styles/applicationform.css';
+"use client";
+import "@/styles/applicationform.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -9,17 +9,17 @@ export default function ApplicationForm() {
   const [orderNumber, setOrderNumber] = useState(null); // State to store order number
   const [remainingCharacters, setRemainingCharacters] = useState(1000);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    street: '',
-    zipcode: '',
-    city: '',
-    equipment: '',
-    manufacturer: '',
-    model: '',
-    serialnumber: '',
-    details: '',
+    name: "",
+    email: "",
+    phone: "",
+    street: "",
+    zipcode: "",
+    city: "",
+    equipment: "",
+    manufacturer: "",
+    model: "",
+    serialnumber: "",
+    details: "",
     acceptedTerms: false,
   });
 
@@ -38,19 +38,17 @@ export default function ApplicationForm() {
     }
   };
 
-const sendMail = (subject, message) => {
-  return axios.get("http://localhost:5000/", {
-    params: { subject, message },
-  });
-};
+  const sendMail = (subject, message) => {
+    return axios.post("http://localhost:4000/sendEmail", { subject, message });
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const updatedValue = type === 'checkbox' ? checked : value;
+    const updatedValue = type === "checkbox" ? checked : value;
 
-     if (name === "details") {
-    setRemainingCharacters(1000 - value.length); // Calculate remaining characters
-  }
+    if (name === "details") {
+      setRemainingCharacters(1000 - value.length); // Calculate remaining characters
+    }
 
     setFormData((prevData) => ({
       ...prevData,
@@ -58,15 +56,18 @@ const sendMail = (subject, message) => {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    // Submit to backend
-    const response = await axios.post("http://localhost:4000/submitOrder", formData);
-    const orderNum = response.data.orderNumber;
+    try {
+      // Submit to backend
+      const response = await axios.post(
+        "http://localhost:4000/submitOrder",
+        formData
+      );
+      const orderNum = response.data.orderNumber;
 
-    const emailMessage = `
+      const emailMessage = `
       <strong>Order Number:</strong> ${orderNum}<br>
       <strong>Name:</strong> ${formData.name}<br>
       <strong>Email:</strong> ${formData.email}<br>
@@ -82,23 +83,25 @@ const handleSubmit = async (e) => {
       ${formData.details}
     `;
 
-    await sendMail(formData.model, emailMessage);
+      await sendMail(formData.model, emailMessage);
 
-    localStorage.setItem("formData", JSON.stringify({ ...formData, orderNumber: orderNum }));
-    router.push("/confirmation");
-  } catch (error) {
-    console.error("Submission failed:", error);
-  }
-};
-
+      localStorage.setItem(
+        "formData",
+        JSON.stringify({ ...formData, orderNumber: orderNum })
+      );
+      router.push("/confirmation");
+    } catch (error) {
+      console.error("Submission failed:", error);
+    }
+  };
 
   const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, '');
+    const value = e.target.value.replace(/[^0-9]/g, "");
     setFormData({ ...formData, phone: value });
   };
 
   return (
-     <div className="form-container">
+    <div className="form-container">
       <h2>Formularz wysyłkowy</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -198,7 +201,9 @@ const handleSubmit = async (e) => {
               onChange={handleChange}
               required
             >
-              <option value="" disabled selected hidden>Typ sprzętu*</option>
+              <option value="" disabled selected hidden>
+                Typ sprzętu*
+              </option>
               <option value="Laptop">Laptop</option>
               <option value="Komputer stacjonarny">Komputer stacjonarny</option>
               <option value="Nośnik danych">Nośnik danych</option>
@@ -260,7 +265,6 @@ const handleSubmit = async (e) => {
               maxLength={1000}
               required
             ></textarea>
-            
           </div>
           <p>Pozostało {remainingCharacters} znaków</p>
         </div>
