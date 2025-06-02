@@ -11,15 +11,15 @@ import logo from "@/components/img/icons/logo_navbar.png";
 import logo2 from "@/components/img/icons/logo_navbar_noname.png";
 import hamburger from "@/components/img/icons/hamburger_menu.png";
 import mobileITP from "@/components/img/icons/mobile-itp.png";
-import ThemeSwitch from "@/components/ThemeSwitch.js"
-import logoDark from "@/components/img/icons/logo-navbar-dark.png"
-import phoneDark from "@/components/img/icons/Phone-dark.png"
-import mapPinDark from  "@/components/img/icons/Map_Pin_dark.png"
-import mailDark from  "@/components/img/icons/Mail-dark.png"
-import facebookDark from "@/components/img/icons/social-icon-dark.png"
-import logoMobileDark from "@/components/img/icons/logo-footer-dark.png"
-import mobileITPDark from "@/components/img/icons/mobile-itp-dark.png"
-import hamburgerDark from "@/components/img/icons/hamburger-dark.png"
+import ThemeSwitch from "@/components/ThemeSwitch.js";
+import logoDark from "@/components/img/icons/logo-navbar-dark.png";
+import phoneDark from "@/components/img/icons/Phone-dark.png";
+import mapPinDark from "@/components/img/icons/Map_Pin_dark.png";
+import mailDark from "@/components/img/icons/Mail-dark.png";
+import facebookDark from "@/components/img/icons/social-icon-dark.png";
+import logoMobileDark from "@/components/img/icons/logo-footer-dark.png";
+import mobileITPDark from "@/components/img/icons/mobile-itp-dark.png";
+import hamburgerDark from "@/components/img/icons/hamburger-dark.png";
 
 export function Navbar({ isVisible }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,19 +42,26 @@ export function Navbar({ isVisible }) {
   return (
     <nav className={`navbar ${isVisible ? "visible" : ""}`}>
       <div className="navbar-container">
-        
         {/* Hamburger menu */}
         <div className="mobile-navbar">
           <Image src={logo2} alt="logo" className="logo2" />
-          
+
           <Image src={mobileITP} alt="itp" className="logo2-name" />
-          <Image src={logoMobileDark} alt="logo" className="logo-mobile-nav-dark" />
-          
-          <Image src={mobileITPDark} alt="itp" className="logo-name-mobile-nav-dark" />
+          <Image
+            src={logoMobileDark}
+            alt="logo"
+            className="logo-mobile-nav-dark"
+          />
+
+          <Image
+            src={mobileITPDark}
+            alt="itp"
+            className="logo-name-mobile-nav-dark"
+          />
           <div className="dark-hamburger">
             <div className="darkmode">
-                  <ThemeSwitch />
-                </div>
+              <ThemeSwitch />
+            </div>
             <Image
               src={hamburger}
               alt="menu"
@@ -68,12 +75,9 @@ export function Navbar({ isVisible }) {
               onClick={handleClick}
             />
           </div>
-
-          
         </div>
-        
+
         <div className="mobile-menu-container">
-          
           {/* Mobile Menu */}
           <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
             <ul>
@@ -93,7 +97,11 @@ export function Navbar({ isVisible }) {
                 </Link>
               </li>
               <li>
-                <Link href="/applicationform" passHref onClick={handleLinkClick}>
+                <Link
+                  href="/applicationform"
+                  passHref
+                  onClick={handleLinkClick}
+                >
                   <span>Formularz zgłoszenia</span>
                 </Link>
               </li>
@@ -111,8 +119,8 @@ export function Navbar({ isVisible }) {
           <div className="navbar-left-top">
             <div className="navbar-phone-number">
               <span className="phone-icon">
-                <Image src={phone} alt="phone" className="phone"/>
-                <Image src={phoneDark} alt="phone" className="phone-dark"/>
+                <Image src={phone} alt="phone" className="phone" />
+                <Image src={phoneDark} alt="phone" className="phone-dark" />
               </span>
               <span className="phone-number">+48 784 784 957</span>
             </div>
@@ -161,9 +169,7 @@ export function Navbar({ isVisible }) {
                       </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/electronics-repair">
-                        Naprawa elektroniki użytkowej
-                      </Link>
+                      <Link href="/services/consol-repair">Naprawa konsol</Link>
                     </li>
                   </ul>
                 )}
@@ -183,20 +189,20 @@ export function Navbar({ isVisible }) {
               <div>
                 <ThemeSwitch />
               </div>
-              
+
               <span>
                 <a
                   href="https://www.google.pl/maps/place/IT-PREMIUM+Centrum+Serwisowe+Serwis+laptop%C3%B3w,+telefon%C3%B3w,+drukarek%2FPROFESJONALNE+ODZYSKIWANIE+DANYCH/@52.4610174,16.9073041,17z/data=!3m1!4b1!4m6!3m5!1s0x4704436aa34834f1:0x72038cebaf375f7!8m2!3d52.4610142!4d16.909879!16s%2Fg%2F11cryfrr66?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src={mapPin} alt="pin" className="map-pin"/>
-                  <Image src={mapPinDark} alt="pin" className="map-pin-dark"/>
+                  <Image src={mapPin} alt="pin" className="map-pin" />
+                  <Image src={mapPinDark} alt="pin" className="map-pin-dark" />
                 </a>
               </span>
               <span>
-                <Image src={mail} alt="mail" className="mail-icon"/>
-                <Image src={mailDark} alt="mail" className="mail-icon-dark"/>
+                <Image src={mail} alt="mail" className="mail-icon" />
+                <Image src={mailDark} alt="mail" className="mail-icon-dark" />
               </span>
               <span className="mail-adress">biuro@it-premium.pl</span>
               <span>
@@ -205,8 +211,16 @@ export function Navbar({ isVisible }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src={facebook} alt="facebook" className="facebook-icon" />
-                  <Image src={facebookDark} alt="facebook" className="facebook-icon-dark" />
+                  <Image
+                    src={facebook}
+                    alt="facebook"
+                    className="facebook-icon"
+                  />
+                  <Image
+                    src={facebookDark}
+                    alt="facebook"
+                    className="facebook-icon-dark"
+                  />
                 </a>
               </span>
             </div>

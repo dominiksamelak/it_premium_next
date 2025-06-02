@@ -20,7 +20,7 @@ const FAQ = () => {
   return (
     <div className="FAQ-container">
       <button className="FAQ-button" onClick={toggleFAQ}>
-        FAQ {visible ? "▼" : "▶"}
+        Często zadawane pytania {visible ? "▼" : "▶"}
       </button>
       {visible && (
         <div className="FAQ-list">
