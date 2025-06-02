@@ -169,7 +169,9 @@ export function Navbar({ isVisible }) {
                       </Link>
                     </li>
                     <li className="dropdown-item">
-                      <Link href="/services/consol-repair">Naprawa konsol</Link>
+                      <Link href="/services/console-repair">
+                        Naprawa konsol
+                      </Link>
                     </li>
                   </ul>
                 )}
