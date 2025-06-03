@@ -1,4 +1,5 @@
-// mailer.js
+require("dotenv").config();
+
 const nodemailer = require("nodemailer");
 
 function sendEmail({ subject, message }) {
@@ -8,13 +9,13 @@ function sendEmail({ subject, message }) {
       port: 465,
       secure: true,
       auth: {
-        user: "d.samelak@it-premium.pl",
-        pass: "xxxxxx",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     const mailOptions = {
-      from: "d.samelak@it-premium.pl",
+      from: process.env.SMTP_USER,
       to: "domcio145@wp.pl",
       subject,
       html: `<p>${message}</p>`,
