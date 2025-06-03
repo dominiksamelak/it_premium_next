@@ -23,20 +23,15 @@ export default function ApplicationForm() {
     acceptedTerms: false,
   });
 
-  useEffect(() => {
-    // Fetch order number when the component mounts
-    fetchOrderNumber();
-  }, []);
-
-  const fetchOrderNumber = async () => {
-    try {
-      const response = await axios.get("http://localhost:4000/getOrderNumber");
-      setOrderNumber(response.data.orderNumber); // Update state with the order number
-    } catch (error) {
-      console.error("Failed to fetch order number:", error);
-      setOrderNumber("Brak numeru zlecenia, ale zgłoszenie zostało przyjęte"); // Set fallback value in case of error
-    }
-  };
+  // const fetchOrderNumber = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:4000/getOrderNumber");
+  //     setOrderNumber(response.data.orderNumber); // Update state with the order number
+  //   } catch (error) {
+  //     console.error("Failed to fetch order number:", error);
+  //     setOrderNumber("Brak numeru zlecenia, ale zgłoszenie zostało przyjęte"); // Set fallback value in case of error
+  //   }
+  // };
 
   const sendMail = (subject, message) => {
     return axios.post("http://localhost:4000/sendEmail", { subject, message });
@@ -58,32 +53,12 @@ export default function ApplicationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // Submit to backend
       const response = await axios.post(
         "http://localhost:4000/submitOrder",
         formData
       );
       const orderNum = response.data.orderNumber;
-
-      const emailMessage = `
-      <strong>Order Number:</strong> ${orderNum}<br>
-      <strong>Name:</strong> ${formData.name}<br>
-      <strong>Email:</strong> ${formData.email}<br>
-      <strong>Phone:</strong> ${formData.phone}<br>
-      <strong>Street:</strong> ${formData.street}<br>
-      <strong>Zipcode:</strong> ${formData.zipcode}<br>
-      <strong>City:</strong> ${formData.city}<br>
-      <strong>Equipment:</strong> ${formData.equipment}<br>
-      <strong>Manufacturer:</strong> ${formData.manufacturer}<br>
-      <strong>Model:</strong> ${formData.model}<br>
-      <strong>Serial Number:</strong> ${formData.serialnumber}<br>
-      <strong>Details:</strong><br>
-      ${formData.details}
-    `;
-
-      await sendMail(formData.model, emailMessage);
 
       localStorage.setItem(
         "formData",

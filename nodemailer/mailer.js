@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../mail.env" });
 
 const nodemailer = require("nodemailer");
 
