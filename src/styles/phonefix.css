@@ -16,24 +16,40 @@
   animation: fade-up 1s;
 }
 
-.phonefix-landing-photo {
-  display: block;
-  margin: 0;
-  align-items: center;
-  height: auto;
+/* Fullscreen image setup for desktop */
+.phonefix-landing-photo,
+.phonefix-landing-photo-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
+  height: 100vh;
+  object-fit: cover;
   filter: brightness(0.5);
+  z-index: 0;
+  display: block;
 }
 
+/* Container for the landing section */
+.landing-photo-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Pricing text content above image */
 .pricelist-text {
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
   text-align: center;
   max-width: 500px;
+  padding: 0 20px;
   display: block;
+  z-index: 2;
+  position: relative;
 }
 
+/* Shadow wrapper for pricing list */
 .price-list-shadow {
   display: flex;
   flex-direction: column;
@@ -41,36 +57,34 @@
   width: 100%;
   margin: 0 auto;
   border-radius: 24px;
-  box-shadow: 0 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  z-index: 2;
+  position: relative;
 }
 
-
+/* Hide mobile image by default */
 .phonefix-landing-photo-mobile {
   display: none;
 }
 
+/* ✅ Mobile adjustments */
 @media (width < 640px) {
-
   .landing-photo-container {
-    margin-top: 50px;
+    height: 100vh;
+    margin-top: 0;
   }
 
+  /* Hide desktop image */
   .phonefix-landing-photo {
     display: none;
   }
 
+  /* Show mobile image */
   .phonefix-landing-photo-mobile {
-  display: block;
-  margin: 0;
-  align-items: center;
-  height: auto;
-  width: 100vw !important;
-  filter: brightness(0.5);
-  animation: fade-up 1s;
+    display: block;
   }
 
-    .pricelist-text {
-        padding-left: 25px;
-    padding-right: 25px;
+  .pricelist-text {
+    padding: 0 25px;
   }
 }

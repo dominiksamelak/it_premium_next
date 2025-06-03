@@ -1,5 +1,3 @@
-
-
 .warranty {
   display: flex;
   margin: 0 auto;
@@ -7,7 +5,7 @@
   max-width: 970px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -28,31 +26,33 @@ html.dark .color-updown-warranty {
 }
 
 html.dark .color-updown-two-warranty {
-    background-image: linear-gradient(to top, #00adfc, #ffffff);
+  background-image: linear-gradient(to top, #00adfc, #ffffff);
 }
 
 .warranty-icons {
   display: flex;
   flex-direction: row;
-  justify-content: center;      /* center all icons */
-  gap: 40px;                    /* space between each icon */
+  justify-content: center; /* center all icons */
+  gap: 40px; /* space between each icon */
   margin: 0 auto;
   width: 100%;
-  max-width: 800px;             /* prevent them from stretching too far */
+  max-width: 800px; /* prevent them from stretching too far */
   /* flex-wrap: wrap;           */
 }
 
-.icons-desc, .icons-desc-dark {
+.icons-desc,
+.icons-desc-dark {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   align-items: center;
   text-align: center;
-  flex: 1 1 200px;          /* allows equal space and prevents early wrapping */
-  min-width: 180px;         /* prevents icons from getting too narrow */
+  flex: 1 1 200px; /* allows equal space and prevents early wrapping */
+  min-width: 180px; /* prevents icons from getting too narrow */
 }
 
-.icon-dark, .icon-light {
+.icon-dark,
+.icon-light {
   margin-bottom: 10px;
 }
 
@@ -91,12 +91,11 @@ html.dark .icons-desc-dark {
   text-decoration: none;
 }
 
-
-@media ( width < 640px) {
+@media (width < 640px) {
   .warranty {
     margin-left: 6px;
     margin-right: 6px;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .warranty-desc {
     max-width: 270px;
@@ -104,25 +103,27 @@ html.dark .icons-desc-dark {
   }
 
   .warranty-icons {
-  flex-direction: column;
-   gap: 0px;
+    flex-direction: column;
+    gap: 0px;
   }
 
-  .icons-desc-dark, .icons-desc {
+  .icons-desc-dark,
+  .icons-desc {
     margin-top: 0;
     margin-bottom: -20px;
   }
 
   .warranty-title {
-  font-size: 18px;
-  font-weight: bold;
-}
+    font-size: 18px;
+    font-weight: bold;
+  }
   .warranty-text {
     font-size: 14px;
     margin-bottom: 30px;
   }
 
-  .color-updown-warranty, .color-updown-two-warranty {
+  .color-updown-warranty,
+  .color-updown-two-warranty {
     min-width: 7px !important;
     height: 780px;
   }

@@ -9,55 +9,71 @@
   }
 }
 
+/* Fullscreen container with no extra height */
 .landing-photo-container {
-  position: relative; /* Parent container for positioning */
-  width: 100vw; /* Ensure it spans the full width */
-  height: auto;
-  margin-top: 104px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0; /* REMOVE top margin */
+  padding: 0;
   animation: fade-up 1s;
 }
 
-.printerfix-landing-photo {
-  height: auto; /* Maintain aspect ratio */
+/* Background image setup */
+.printerfix-landing-photo,
+.printerfix-landing-photo-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
-  display: block; /* Ensure it stays within the container */
+  height: 100vh;
+  object-fit: cover;
   filter: brightness(0.5);
+  z-index: 0;
+  display: block;
 }
 
+/* Centered text overlay */
 .text {
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  color: white; 
-  text-align: center; 
-  z-index: 1; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  /* animation: fade-up 1s; */
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .text-title {
   font-weight: 600;
   margin-bottom: 14px;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .pricelist-text {
-  margin: 20px auto;
+  margin: 40px auto 0 auto;
   text-align: center;
   max-width: 500px;
   display: block;
+  position: relative;
+  z-index: 2;
 }
 
+/* Hide mobile version by default */
 .printerfix-landing-photo-mobile {
   display: none;
 }
 
+/* Mobile layout adjustments */
 @media (width < 640px) {
-
   .landing-photo-container {
-    margin-top: 50px;
+    height: 100vh;
   }
 
   .printerfix-landing-photo {
@@ -65,17 +81,14 @@
   }
 
   .printerfix-landing-photo-mobile {
-  display: block;
-  margin: 0;
-  align-items: center;
-  height: auto;
-  width: 100vw !important;
-  filter: brightness(0.5);
-  animation: fade-up 1s;
+    display: block;
   }
 
-    .pricelist-text {
-        padding-left: 25px;
-    padding-right: 25px;
+  .text-title {
+    font-size: 1.5rem;
+  }
+
+  .pricelist-text {
+    padding: 0 25px;
   }
 }

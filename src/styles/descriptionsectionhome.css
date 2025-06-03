@@ -1,4 +1,3 @@
-
 .description {
   display: flex;
   justify-content: center;
@@ -23,7 +22,6 @@
   overflow: hidden;
 }
 
-
 .color-updown {
   height: 400px;
   min-width: 7px;
@@ -43,10 +41,10 @@ html.dark .color-updown {
 }
 
 html.dark .color-updown-two {
-    background-image: linear-gradient(to top, #00adfc, #ffffff);
+  background-image: linear-gradient(to top, #00adfc, #ffffff);
 }
 
-.description-one-container{
+.description-one-container {
   display: flex;
   flex-direction: column;
   margin-left: 46px;
@@ -57,7 +55,7 @@ html.dark .color-updown-two {
   display: flex;
   flex-direction: column;
   margin-right: 50px;
-   margin-top: 20px;
+  margin-top: 20px;
 }
 
 .description-text-one,
@@ -65,7 +63,7 @@ html.dark .color-updown-two {
 .description-text-three {
   white-space: normal;
   word-wrap: break-word;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
   margin-bottom: 10px;
   width: 100%;
 }
@@ -82,7 +80,7 @@ html.dark .color-updown-two {
 }
 
 .google-reviews .slick-dots li {
-    display: none; 
+  display: none;
 }
 
 .google-reviews .css-2xmatf {
@@ -96,25 +94,32 @@ html.dark .color-updown-two {
   margin: 0;
 }
 
-
-.google-reviews .css-1en7e4i, .google-reviews .css-hzpebr, .google-reviews .css-kzqzfd, .google-reviews .css-dyvl56   {
+.google-reviews .css-1en7e4i,
+.google-reviews .css-hzpebr,
+.google-reviews .css-kzqzfd,
+.google-reviews .css-dyvl56 {
   display: flex;
-  margin-top: 180px;
+  margin-top: 194px;
 }
 
-.google-reviews .css-1en7e4i, .google-reviews .css-kzqzfd {
+.google-reviews .css-1en7e4i,
+.google-reviews .css-kzqzfd {
   margin-left: 420px !important;
 }
 
-.google-reviews .css-hzpebr, .google-reviews .css-dyvl56 {
+.google-reviews .css-hzpebr,
+.google-reviews .css-dyvl56 {
   margin-right: 420px;
 }
-
-
 
 .description-text-three {
   font-weight: bold;
   font-size: 20px;
+}
+
+html.dark .css-dyvl56,
+html.dark .css-kzqzfd {
+  background: #00adfc;
 }
 
 .google-reviews-desc-mobile {
@@ -148,7 +153,6 @@ html.dark .application-form-mobile {
   color: white;
 }
 
-
 @media (width < 640px) {
   .desc-photo {
     width: 159px !important;
@@ -156,7 +160,6 @@ html.dark .application-form-mobile {
     margin: 0;
     bottom: 0;
   }
-
 
   .description-one,
   .description-two {
@@ -168,24 +171,22 @@ html.dark .application-form-mobile {
   .description-one-container,
   .description-two-container {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 10px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100vw !important;
     padding: 0 !important;
   }
 
-
   .description-text-one,
   .description-text-two,
   .description-text-three {
-    font-size: 16px;    
+    font-size: 16px;
     max-width: none !important;
     width: 100% !important;
   }
-
 
   .google-reviews-desc {
     display: none;
@@ -193,21 +194,20 @@ html.dark .application-form-mobile {
 
   .description-text-one,
   .description-text-two {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
   }
 
-    .description-text-three {
+  .description-text-three {
     font-weight: bold;
-    font-size: 16px; 
-    display: flex; 
-    flex-direction: row; 
-    align-items: center; 
-    gap: 10px; 
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     width: 100vw;
-    text-align: left; 
+    text-align: left;
     margin-top: 10px;
   }
-
 
   .color-updown {
     margin-right: 14px;
@@ -231,24 +231,26 @@ html.dark .application-form-mobile {
     display: flex !important;
     margin: 0 auto;
     margin-top: 20px;
-
   }
 
   .google-reviews-desc-mobile .css-1uyvnff {
     margin: 0;
   }
 
+  .google-reviews .css-1en7e4i,
+  .google-reviews .css-kzqzfd {
+    margin-left: 100px !important;
+  }
 
-.google-reviews .css-1en7e4i,   .google-reviews .css-kzqzfd{
-  margin-left: 100px !important;
-}
+  .google-reviews .css-hzpebr,
+  .google-reviews .css-dyvl56 {
+    margin-right: 100px;
+  }
 
-.google-reviews .css-hzpebr,  .google-reviews .css-dyvl56{
-  margin-right: 100px;
-}
-
-.google-reviews .css-1en7e4i, .google-reviews .css-hzpebr, .google-reviews .css-kzqzfd, .google-reviews .css-dyvl56   {
-  margin-top: 180px;
-}
-
+  .google-reviews .css-1en7e4i,
+  .google-reviews .css-hzpebr,
+  .google-reviews .css-kzqzfd,
+  .google-reviews .css-dyvl56 {
+    margin-top: 206px;
+  }
 }

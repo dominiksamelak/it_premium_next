@@ -203,8 +203,13 @@ export function Navbar({ isVisible }) {
                 </a>
               </span>
               <span>
-                <Image src={mail} alt="mail" className="mail-icon" />
-                <Image src={mailDark} alt="mail" className="mail-icon-dark" />
+                <a
+                  href="mailto:biuro@it-premium.pl"
+                  aria-label="Send us an email"
+                >
+                  <Image src={mail} alt="mail" className="mail-icon" />
+                  <Image src={mailDark} alt="mail" className="mail-icon-dark" />
+                </a>
               </span>
               <span className="mail-adress">biuro@it-premium.pl</span>
               <span>

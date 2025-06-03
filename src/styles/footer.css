@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 20px;
   max-width: 970px;
   width: 100%;
   align-items: center;
@@ -16,13 +16,13 @@
 }
 
 html.dark .footer-line {
-    background-image: linear-gradient(to left, #00cafc, #67bbe6 50%, #ffffff);
+  background-image: linear-gradient(to left, #00cafc, #67bbe6 50%, #ffffff);
 }
 
 .footer-items {
   display: flex;
-  justify-content: space-evenly; 
-  align-items: flex-start; 
+  justify-content: space-evenly;
+  align-items: flex-start;
   margin-bottom: 20px;
   width: 100%;
   max-width: 970px;
@@ -41,13 +41,14 @@ html.dark .footer-line {
   padding-top: 8px;
 }
 
-.logo-footer, .logo-footer-dark {
+.logo-footer,
+.logo-footer-dark {
   width: 85px;
   height: 107px;
 }
 
 .logo-footer-dark {
-  display: none
+  display: none;
 }
 
 html.dark .logo-footer {
@@ -58,7 +59,8 @@ html.dark .logo-footer-dark {
   display: block;
 }
 
-.about-us, .services {
+.about-us,
+.services {
   display: flex;
   flex-direction: column;
   margin-left: 60px;
@@ -74,12 +76,14 @@ html.dark .logo-footer-dark {
   padding-bottom: 2px;
 }
 
-.about-us a, .services a {
+.about-us a,
+.services a {
   text-decoration: none;
   margin-bottom: 16px;
 }
 
-.about-us a:hover, .services a:hover {
+.about-us a:hover,
+.services a:hover {
   text-decoration: underline;
 }
 
@@ -87,9 +91,8 @@ html.dark .logo-footer-dark {
   font-weight: 600;
 }
 
-
 .application-form-footer {
-  background-image: linear-gradient(to right, #3D4656, #00ADFC);
+  background-image: linear-gradient(to right, #3d4656, #00adfc);
   font-weight: 600;
   border-radius: 25px;
   color: white;
@@ -99,18 +102,18 @@ html.dark .logo-footer-dark {
   margin: none !important;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   transition: transform 0.3s ease, font-weight 0.3s ease;
 }
 
 html.dark .application-form-footer {
-    background-image: none;
-    background-color: #33BFFF;
-    color: black;
+  background-image: none;
+  background-color: #33bfff;
+  color: black;
 }
 
 .application-form-footer:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
   font-weight: 700;
 }
 
@@ -131,10 +134,8 @@ html.dark .application-form-footer {
   padding-bottom: 4px;
 }
 
-
 @media (width < 640px) {
   .footer-container {
-  display: none;
+    display: none;
   }
-
 }
