@@ -1,9 +1,8 @@
-import logo from "./img/icons/logo_footer.png";
+import logo from "./img/icons/logo-footer.png";
 import "@/styles/footer.css";
-import Link from "next/link"
-import Image from "next/image"
-import logoDark from "@/components/img/icons/logo-navbar-dark.png"
-
+import Link from "next/link";
+import Image from "next/image";
+import logoDark from "@/components/img/icons/logo-footer-dark.png";
 
 export function Footer() {
   return (
@@ -11,17 +10,8 @@ export function Footer() {
       <div className="footer-line"></div>
       <div className="footer-items">
         <div className="logo-div">
-          <Image
-            src={logo}
-            alt="logo"
-            className="logo-footer"
-            />
-                      <Image
-            src={logoDark}
-            alt="logo"
-            className="logo-footer-dark"
-            />
-            
+          <Image src={logo} alt="logo" className="logo-footer" />
+          <Image src={logoDark} alt="logo" className="logo-footer-dark" />
         </div>
         <ul className="about-us">
           <div className="footer-titles">
@@ -36,14 +26,18 @@ export function Footer() {
         </ul>
         <ul className="services">
           <div className="footer-titles">
-            <Link href="/services"><span className="footer-bold">Usługi</span></Link>
+            <Link href="/services">
+              <span className="footer-bold">Usługi</span>
+            </Link>
           </div>
           <Link href="/services/computer-repair">Naprawa komputerów</Link>
           <Link href="/services/phone-repair">Naprawa telefonów</Link>
           <Link href="/services/printer-repair">Naprawa drukarek</Link>
           <Link href="/services/data-recovery">Odzyskiwanie danych</Link>
           <Link href="/services/business-support">Obsługa firm</Link>
-          <Link href="/services/electronics-repair">Naprawa elektroniki użytkowej</Link>
+          <Link href="/services/electronics-repair">
+            Naprawa elektroniki użytkowej
+          </Link>
         </ul>
         <div className="location">
           <iframe
@@ -55,7 +49,6 @@ export function Footer() {
             allowfullscreen=""
             aria-hidden="false"
             tabIndex="0"
-            
           />
         </div>
       </div>

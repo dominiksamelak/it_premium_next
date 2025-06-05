@@ -123,6 +123,17 @@ html.dark .application-form {
 
   .mobile-landing {
     display: block;
+    margin: 0;
+    align-items: center;
+    height: 100vh !important; /* Changed from auto to 100vh for full screen */
+    width: 100vw !important;
+    object-fit: cover; /* Added for proper scaling */
+    filter: brightness(0.5);
+    animation: fade-up 1s;
+    position: absolute; /* Added absolute positioning */
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
 
   .text {

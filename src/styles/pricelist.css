@@ -7,8 +7,6 @@
   margin-bottom: 20px;
 }
 
-
-
 .highlight-item .price-item {
   position: relative;
   margin-bottom: 16px;
@@ -26,25 +24,25 @@
 }
 
 html.dark .highlight-item .price-item::after {
-    background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
+  background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
 }
 
 .regular-item .price-item {
-  position: relative; 
+  position: relative;
 }
 
 .regular-item .price-item::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 5%; 
+  left: 5%;
   width: 90%;
   height: 1px;
   background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
 }
 
 html.dark .regular-item .price-item::after {
-    background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
+  background-image: linear-gradient(to right, #ffffff, #00adfc 50%);
 }
 
 html.dark .price-list-shadow {
@@ -53,7 +51,7 @@ html.dark .price-list-shadow {
   border-radius: 24px;
   position: relative;
   padding: 2px; /* Creates space for the border effect */
-  background: linear-gradient(to right, #ffffff, #33BFFF);
+  background: linear-gradient(to right, #ffffff, #33bfff);
 }
 
 html.dark .price-list-shadow > .price-list {
@@ -70,7 +68,7 @@ html.dark .price-list {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Align text vertically */
-  padding: 0 80px; 
+  padding: 0 80px;
   margin-bottom: 10px;
 }
 
@@ -81,12 +79,12 @@ html.dark .price-list {
   max-width: 600px;
 }
 
-
 html.dark .price {
-  color: #33BFFF;
+  color: #33bfff;
 }
 
-.item-name, .price {
+.item-name,
+.price {
   margin-top: 14px;
   margin-bottom: 14px;
   font-size: 16px;
@@ -95,13 +93,12 @@ html.dark .price {
 .bold-text {
   text-wrap: wrap;
   white-space: nowrap;
-
 }
 
 .price {
   text-align: right;
-    text-wrap: wrap;
-   color: gray;
+  text-wrap: wrap;
+  color: gray;
   margin-right: 30px;
 }
 
@@ -116,21 +113,16 @@ html.dark .price {
   position: relative;
 }
 
-
 .bold-text {
   font-weight: bold;
   font-size: 20px !important;
-
 }
 
 html.dark .bold-text {
   color: #00adfc;
 }
 
-
-
 @media (width < 640px) {
-
   .bold-text {
     text-wrap: wrap;
     max-width: 400px !important;
@@ -142,48 +134,46 @@ html.dark .bold-text {
   .price {
     margin: 0;
     margin-right: 14px;
-  text-wrap: wrap !important;
-  font-size: 14px !important;
+    text-wrap: wrap !important;
+    font-size: 14px !important;
   }
 
   .item-name {
     margin-left: 14px;
     text-wrap: wrap;
-    max-width:240px;
+    max-width: 240px;
     font-size: 14px !important;
   }
 
-.price-list-shadow {
-  margin: 0 auto !important;
-  margin-left: 14px;
-  /* margin-right: 14px; */
-  margin-bottom: 20px !important;
-}
+  .price-list-shadow {
+    margin: 0 auto !important;
+    margin-left: 14px;
+    /* margin-right: 14px; */
+    margin-bottom: 20px !important;
+  }
 
   .price-list {
-  display: flex;
-  flex-direction: column;
-  max-width: 98vw;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  
-}
+    display: flex;
+    flex-direction: column;
+    max-width: 98vw;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 
-.regular-item .price-item::after {
-  content: "";
-  position: absolute;
-  /* bottom: 0; */
-  left: 0 !important;
-  width: 100%;
-  height: 1px;
-  background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
-}
+  .regular-item .price-item::after {
+    content: "";
+    position: absolute;
+    /* bottom: 0; */
+    left: 0 !important;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, #3d4656, #00adfc 50%);
+  }
 
-
-.pricelist-text {
-  padding-left: 14px;
-  padding-right: 14px;
-}
-
+  .pricelist-text {
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 20px;
+  }
 }

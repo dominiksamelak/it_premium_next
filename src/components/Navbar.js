@@ -7,7 +7,7 @@ import mail from "@/components/img/icons/Mail.png";
 import mapPin from "@/components/img/icons/Map_Pin.png";
 import phone from "@/components/img/icons/Phone.png";
 import facebook from "@/components/img/icons/social_icon.png";
-import logo from "@/components/img/icons/logo_navbar.png";
+import logo from "@/components/img/icons/logo-navbar.png";
 import logo2 from "@/components/img/icons/logo_navbar_noname.png";
 import hamburger from "@/components/img/icons/hamburger_menu.png";
 import mobileITP from "@/components/img/icons/mobile-itp.png";
