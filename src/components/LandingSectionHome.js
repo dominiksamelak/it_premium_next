@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import landingPhoto from "@/components/img/landing_photos/landingpage-main.jpg";
+import landingPhoto from "@/components/img/landing_photos/landingpage-main.png";
 import mobileLanding from "@/components/img/landing_photos/mobile-landing.jpg";
 import "@/styles/landingsection.css";
 import Link from "next/link";
@@ -17,13 +17,13 @@ export function LandingSection() {
         layout="responsive"
         priority
       />
-      <Image
+      {/* <Image
         src={mobileLanding}
         alt="main"
         className="mobile-landing"
         layout="responsive"
         priority
-      />
+      /> */}
       <div className="text">
         <h1 className="text-title">
           Przywołujemy zbuntowaną elektronikę do porządku!
