@@ -30,7 +30,8 @@ export default function Services() {
             <span className="services-text-title">Naprawa komputerów</span>
           </Link>
           <span className="services-text-desc">
-            Naprawiamy komputery z najwyższą precyzją. Profesjonalny serwis dla Ciebie.
+            Naprawiamy komputery z najwyższą precyzją. Profesjonalny serwis dla
+            Ciebie.
           </span>
         </div>
       </motion.div>
@@ -106,7 +107,10 @@ export default function Services() {
         <span className="down-up"></span>
         <Image src={Coop} alt="coop" className="pic-left" />
         <div className="services-text">
-          <Link href="/services/business-support" className="services-text-link">
+          <Link
+            href="/services/business-support"
+            className="services-text-link"
+          >
             <span className="services-text-title">Obsługa firm</span>
           </Link>
           <span className="services-text-desc">
@@ -124,13 +128,12 @@ export default function Services() {
         // viewport={{ once: true, amount: 0.3 }}
       >
         <div className="services-text-right">
-          <Link href="/services/electronics-repair" className="services-text-link">
-            <span className="services-text-title">
-              Naprawa elektroniki użytkowej
-            </span>
+          <Link href="/services/console-repair" className="services-text-link">
+            <span className="services-text-title">Naprawa konsol</span>
           </Link>
           <span className="services-text-desc">
-            Naprawa wszelkiego rodzaju urządzeń elektronicznych.
+            Serwisujemy konsole wszystkich marek: PlayStation, Xbox, Nintendo i
+            inne.
           </span>
         </div>
         <Image src={Other} alt="other" className="pic-right" />

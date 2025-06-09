@@ -255,7 +255,14 @@ export default function ApplicationForm() {
               required
             />
             <span className="custom-checkbox"></span>
-            Zapoznałem i zgadzam się z regulaminem IT-Premium Centrum Serwisowe
+
+            <a
+              href="https://drive.google.com/file/d/1mBFIYIlnMhH3YcbUOwoK84c7DmLAbWL9/view?usp=sharing"
+              download
+            >
+              Zapoznałem i zgadzam się z regulaminem IT-Premium Centrum
+              Serwisowe
+            </a>
           </label>
 
           <div className="form-buttons">

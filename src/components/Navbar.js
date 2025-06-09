@@ -98,7 +98,7 @@ export function Navbar({ isVisible }) {
               </li>
               <li>
                 <Link
-                  href="/applicationform"
+                  href="/application-form"
                   passHref
                   onClick={handleLinkClick}
                 >

@@ -1,3 +1,11 @@
+/* Add this to prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -11,25 +19,24 @@
 
 .landing-photo-container {
   position: relative;
-  width: 100vw;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Hide overflow to prevent scrolling */
-  margin: 0; /* Remove default margin */
+  width: 100%;
+  height: 100vh;
+  margin-top: 104px;
   animation: fade-up 1s;
-  box-sizing: border-box; /* Safe sizing */
+  overflow: hidden;
+  max-height: calc(100vh - 104px);
 }
 
-.otherfix-landing-photo,
-.otherfix-landing-photo-mobile {
+.otherfix-landing-photo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw; /* Use viewport width */
-  height: 100vh; /* Use viewport height */
-  object-fit: cover; /* Cover container without distortion */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   filter: brightness(0.5);
   z-index: 0;
-  display: block;
 }
 
 .text {
@@ -42,16 +49,15 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 20px;
   width: 80%;
-  padding: 0 10px; /* Padding for small screens */
+  max-width: 800px;
 }
 
 .text-title {
   font-weight: 600;
   margin-bottom: 14px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .pricelist-text {
@@ -63,23 +69,28 @@
   z-index: 1;
 }
 
-.otherfix-landing-photo-mobile {
-  display: none;
-}
-
-@media (max-width: 640px) {
+@media (width < 640px) {
   .landing-photo-container {
-    height: 100vh; /* Maintain full viewport height */
+    margin-top: 50px;
+    max-height: calc(100vh - 50px);
   }
 
   .otherfix-landing-photo {
-    display: none;
+    width: 100%;
+    height: 100%;
   }
 
-  .otherfix-landing-photo-mobile {
-    display: block;
+  .text {
+    width: 90%;
   }
 
+  .pricelist-text {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media (max-width: 640px) {
   .text-title {
     font-size: 20px;
   }

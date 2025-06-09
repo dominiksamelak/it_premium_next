@@ -17,7 +17,6 @@
   margin: 0 auto;
   margin-top: 124px;
   animation: fade-up 1s;
-
 }
 
 h2 {
@@ -29,14 +28,22 @@ h2 {
   width: 100%;
   border-radius: 12px; /* Match input border radius */
   padding: 1px; /* Space for the border */
-  background: linear-gradient(to right, #2C497B , #00adfc 40%);/* Default border color for light mode */
+  background: linear-gradient(
+    to right,
+    #2c497b,
+    #00adfc 40%
+  ); /* Default border color for light mode */
   display: flex;
   margin-bottom: 4px;
   overflow: hidden;
 }
 
 html.dark .form-group .input-wrapper {
-  background: linear-gradient(to right, #FFFFFF, #00adfc); /* Gradient border for dark mode */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #00adfc
+  ); /* Gradient border for dark mode */
 }
 
 .form-group .input-wrapper input,
@@ -54,7 +61,6 @@ html.dark .form-group .input-wrapper {
   color: #000;
 }
 
-
 html.dark .form-group .input-wrapper input,
 html.dark .form-group .input-wrapper select,
 html.dark .form-group .input-wrapper textarea {
@@ -71,19 +77,22 @@ html.dark #equipment {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 10px;
+  height: 32px;
 }
 
 .checkbox-label {
-  display: flex;
+  font-size: 14px;
+  color: #333;
+  display: inline-flex;
   align-items: center;
-  margin-bottom: 20px; 
+  cursor: default;
 }
 
-.form-group-checkbox input[type="checkbox"] {
-  display: none; 
+.checkbox-label input[type="checkbox"] {
+  display: none;
 }
 
-.custom-checkbox {
+.checkbox-label .custom-checkbox {
   width: 20px;
   height: 20px;
   border: 2px solid #ccc;
@@ -93,36 +102,30 @@ html.dark #equipment {
   vertical-align: middle;
   background-color: white;
   transition: background-color 0.3s, border-color 0.3s;
-}
-
-.custom-label:hover {
-  position: none;
-}
-
-.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: #00ADFC;
-  border-color: #00ADFC;
-}
-
-.checkbox-label {
-  font-size: 14px;
-  color: #333;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
+}
+
+.checkbox-label a {
+  color: #00adfc;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.checkbox-label a:hover {
+  text-decoration: underline;
 }
 
 .form-buttons {
   display: flex;
-  gap: 15px; 
-  margin-left: 20px; 
-  
+  gap: 15px;
+  margin-left: 20px;
 }
 
 .form-buttons button {
   padding: 2px 26px;
   font-size: 14px;
-  background: linear-gradient(to right, #3D4656,  #00cafc);
+  background: linear-gradient(to right, #3d4656, #00cafc);
   color: white;
   border: none;
   border-radius: 25px;
@@ -135,7 +138,7 @@ html.dark #equipment {
 
 html.dark .form-buttons button {
   background: none;
-  background-color: #33BFFF !important;
+  background-color: #33bfff !important;
   color: black;
 }
 
@@ -145,22 +148,21 @@ html.dark .form-buttons button {
   font-weight: 700;
 }
 button:disabled {
-  background-color: #ccc; 
-  color: #888; 
-  cursor: not-allowed; 
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
 }
 
 button:disabled:hover {
   text-decoration: none;
 }
 
-
 textarea {
   resize: none;
   height: 200px;
 }
 
-#equipment  {
+#equipment {
   background-color: white;
 }
 
@@ -169,18 +171,38 @@ textarea {
     padding-left: 25px;
     padding-right: 25px;
     margin-top: 100px;
+    margin-bottom: 20px;
   }
 
   .form-buttons button {
-      height: 40px;
+    height: 40px;
   }
 
   .custom-checkbox {
     min-width: 20px !important;
   }
 
-
   .form-container h2 {
     text-align: center;
+  }
+
+  .form-group-checkbox {
+    flex-direction: column;
+    height: auto;
+    /* margin-bottom: 30px; */
+  }
+
+  .checkbox-label {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .form-buttons {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .form-buttons button {
+    width: 100%;
   }
 }

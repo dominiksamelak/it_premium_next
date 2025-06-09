@@ -35,9 +35,7 @@ export function Footer() {
           <Link href="/services/printer-repair">Naprawa drukarek</Link>
           <Link href="/services/data-recovery">Odzyskiwanie danych</Link>
           <Link href="/services/business-support">Obsługa firm</Link>
-          <Link href="/services/electronics-repair">
-            Naprawa elektroniki użytkowej
-          </Link>
+          <Link href="/services/console-repair">Naprawa konsol</Link>
         </ul>
         <div className="location">
           <iframe

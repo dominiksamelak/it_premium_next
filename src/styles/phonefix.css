@@ -1,3 +1,11 @@
+/* Add this to prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -9,33 +17,47 @@
   }
 }
 
-.phone-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+.landing-photo-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 104px;
   animation: fade-up 1s;
+  overflow: hidden;
+  max-height: calc(100vh - 104px);
 }
 
-/* Fullscreen image setup for desktop */
-.phonefix-landing-photo,
-.phonefix-landing-photo-mobile {
+.phonefix-landing-photo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
   filter: brightness(0.5);
   z-index: 0;
-  display: block;
 }
 
-/* Container for the landing section */
-.landing-photo-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.text-title {
+  font-weight: 600;
+  margin-bottom: 14px;
+  font-size: 20px;
 }
 
 /* Pricing text content above image */
@@ -70,14 +92,23 @@
 /* ✅ Mobile adjustments */
 @media (width < 640px) {
   .landing-photo-container {
-    height: 100vh;
-    margin-top: 0;
+    margin-top: 50px;
+    max-height: calc(100vh - 50px);
+  }
+
+  .phonefix-landing-photo {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    width: 90%;
   }
 
   /* Hide desktop image */
-  .phonefix-landing-photo {
+  /* .phonefix-landing-photo {
     display: none;
-  }
+  } */
 
   /* Show mobile image */
   .phonefix-landing-photo-mobile {

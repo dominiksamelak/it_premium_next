@@ -1,25 +1,20 @@
 import Company from "@/components/img/landing_photos/company-main.png";
 import "@/styles/company.css";
+import PriceList from "@/components/Pricelist.js";
+import "@/styles/pricelist.css";
 import Image from "next/image";
-import CompanyMobile from "@/components/img/landing_photos/company-main-mobile.png";
 
-export default function CompaniesCoop() {
+export default function Business() {
   return (
     <div className="company-container">
       <div className="landing-photo-container">
         <Image src={Company} alt="company" className="company-landing-photo" />
-        <Image
-          src={CompanyMobile}
-          alt="company"
-          className="company-landing-photo-mobile"
-        />
         <div className="text">
           <span className="text-title">
-            Pozwól, aby technologia stała się siłą napędową Twojego biznesu
+            Wsparcie IT dla firm i przedsiębiorstw
           </span>
           <span className="text-subtitle">
-            Oferujemy kompleksową obsługę techniczną oraz serwisową dla małych i
-            średnich przedsiębiorstw
+            Profesjonalne usługi IT – wspieramy rozwój Twojej firmy
           </span>
         </div>
       </div>
