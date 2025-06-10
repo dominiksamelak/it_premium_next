@@ -22,7 +22,7 @@ export default function Printer() {
           </span>
         </div>
       </div>
-      <span className="pricelist-text">
+      <span className="pricelist-text-printer">
         W najmniej odpowiednim momencie Twoja drukarka przestała drukować,
         zacina papier lub wyświetla błędy? <br />
         <br />

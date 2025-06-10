@@ -44,6 +44,15 @@ const galleryData = [
     width: 1440,
     height: 612,
   },
+
+  {
+    src: "/gallery/test.jpg",
+    alt: "Image 3",
+     title: "Bloodborne",
+    description: "The hunt.",
+    width: 1440,
+    height: 612,
+  },
 ];
 
 export default galleryData;

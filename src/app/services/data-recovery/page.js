@@ -18,7 +18,7 @@ export default function DataRecovery() {
           </span>
         </div>
       </div>
-      <span className="pricelist-text">
+      <span className="pricelist-text-data-rec">
         Zżera Cię stres, że pliki z Twojego sprzętu zostały utracone na zawsze?
         <br /> <br /> Przy pomocy zaawansowanego sprzętu odzyskujemy dane z
         dysków twardych, dysków SSD, płyt CD/DVD, kart pamięci czy telefonów. W

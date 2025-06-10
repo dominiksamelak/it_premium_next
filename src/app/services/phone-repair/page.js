@@ -22,7 +22,7 @@ export default function Phone() {
           </span>
         </div>
       </div>
-      <span className="pricelist-text">
+      <span className="pricelist-text-phone">
         Twój smartfon odmówił posłuszeństwa?
         <br /> <br /> Doskonale wiemy, jak ważne jest szybkie przywrócenie go do
         użytku, dlatego błyskawicznie zajmiemy się nim nienależnie od rodzaju
