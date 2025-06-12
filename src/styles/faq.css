@@ -5,13 +5,12 @@
 }
 
 .FAQ-button {
-  font-size: 20px ;
-  font-weight: bold ;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .FAQ-list {
   margin-top: 10px;
-  
 }
 
 .FAQ-item {
@@ -29,6 +28,10 @@
   color: #555;
 }
 
+html.dark .FAQ-answer {
+  color: white;
+}
+
 .FAQ-question:hover {
   color: #00adfc;
 }
@@ -37,7 +40,7 @@
 .FAQ-item::after {
   content: "";
   display: block;
-  height: 2px; 
+  height: 2px;
   background: linear-gradient(to right, #3d4656, #00adfc 50%);
   margin-top: 10px;
 }

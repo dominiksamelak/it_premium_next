@@ -35,3 +35,5 @@ export default function OtherElectronics() {
     </div>
   );
 }
+
+  )}
