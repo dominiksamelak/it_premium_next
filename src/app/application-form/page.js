@@ -3,6 +3,7 @@ import "@/styles/applicationform.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import FAQ from "@/components/FAQ.js";
 
 export default function ApplicationForm() {
   const router = useRouter();
@@ -76,76 +77,129 @@ export default function ApplicationForm() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Formularz wysyłkowy</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Imię i nazwisko*"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Adres e-mail*"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Numer telefonu*"
-              value={formData.phone}
-              onChange={handlePhoneChange}
-              pattern="[0-9]*"
-              inputMode="numeric"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="street"
-              name="street"
-              placeholder="Ulica*"
-              value={formData.street}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-group-row">
+    <div>
+      <div className="form-container">
+        <h2>Formularz wysyłkowy</h2>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <div className="input-wrapper">
               <input
                 type="text"
-                id="city"
-                name="city"
-                placeholder="Miasto*"
-                value={formData.city}
+                id="name"
+                name="name"
+                placeholder="Imię i nazwisko*"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-wrapper">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Adres e-mail*"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-wrapper">
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Numer telefonu*"
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                pattern="[0-9]*"
+                inputMode="numeric"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                id="street"
+                name="street"
+                placeholder="Ulica*"
+                value={formData.street}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group-row">
+            <div className="form-group">
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Miasto*"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  id="zipcode"
+                  name="zipcode"
+                  placeholder="Kod pocztowy*"
+                  value={formData.zipcode}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-wrapper">
+              <select
+                id="equipment"
+                name="equipment"
+                value={formData.equipment}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled hidden>
+                  Typ sprzętu*
+                </option>
+                <option value="Laptop">Laptop</option>
+                <option value="Komputer stacjonarny">
+                  Komputer stacjonarny
+                </option>
+                <option value="Nośnik danych">Nośnik danych</option>
+                <option value="Drukarka">Drukarka</option>
+                <option value="Inny sprzęt">Inny sprzęt</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                id="manufacturer"
+                name="manufacturer"
+                placeholder="Producent*"
+                value={formData.manufacturer}
                 onChange={handleChange}
                 required
               />
@@ -156,122 +210,75 @@ export default function ApplicationForm() {
             <div className="input-wrapper">
               <input
                 type="text"
-                id="zipcode"
-                name="zipcode"
-                placeholder="Kod pocztowy*"
-                value={formData.zipcode}
+                id="model"
+                name="model"
+                placeholder="Model*"
+                value={formData.model}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
-        </div>
 
-        <div className="form-group">
-          <div className="input-wrapper">
-            <select
-              id="equipment"
-              name="equipment"
-              value={formData.equipment}
-              onChange={handleChange}
-              required
-            >
-              <option value="" disabled selected hidden>
-                Typ sprzętu*
-              </option>
-              <option value="Laptop">Laptop</option>
-              <option value="Komputer stacjonarny">Komputer stacjonarny</option>
-              <option value="Nośnik danych">Nośnik danych</option>
-              <option value="Drukarka">Drukarka</option>
-              <option value="Inny sprzęt">Inny sprzęt</option>
-            </select>
+          <div className="form-group">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                id="serialnumber"
+                name="serialnumber"
+                placeholder="Numer seryjny"
+                value={formData.serialnumber}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="manufacturer"
-              name="manufacturer"
-              placeholder="Producent*"
-              value={formData.manufacturer}
-              onChange={handleChange}
-              required
-            />
+          <div className="form-group">
+            <div className="input-wrapper">
+              <textarea
+                id="details"
+                name="details"
+                placeholder="Opis usterki*"
+                value={formData.details}
+                onChange={handleChange}
+                maxLength={1000}
+                required
+              ></textarea>
+            </div>
+            <p>Pozostało {remainingCharacters} znaków</p>
           </div>
-        </div>
 
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="model"
-              name="model"
-              placeholder="Model*"
-              value={formData.model}
-              onChange={handleChange}
-              required
-            />
+          <div className="form-group-checkbox">
+            <label htmlFor="acceptedTerms" className="checkbox-label">
+              <input
+                type="checkbox"
+                id="acceptedTerms"
+                name="acceptedTerms"
+                checked={formData.acceptedTerms}
+                onChange={handleChange}
+                required
+              />
+              <span className="custom-checkbox"></span>
+              <span>
+                <a
+                  href="https://drive.google.com/file/d/1mBFIYIlnMhH3YcbUOwoK84c7DmLAbWL9/view?usp=sharing"
+                  download
+                >
+                  Zapoznałem i zgadzam się z regulaminem IT-Premium Centrum
+                  Serwisowe
+                </a>
+              </span>
+            </label>
+
+            <div className="form-buttons">
+              <button type="submit" disabled={!formData.acceptedTerms}>
+                Wyślij
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="form-group">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="serialnumber"
-              name="serialnumber"
-              placeholder="Numer seryjny"
-              value={formData.serialnumber}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <div className="input-wrapper">
-            <textarea
-              id="details"
-              name="details"
-              placeholder="Opis usterki*"
-              value={formData.details}
-              onChange={handleChange}
-              maxLength={1000}
-              required
-            ></textarea>
-          </div>
-          <p>Pozostało {remainingCharacters} znaków</p>
-        </div>
-
-        <div className="form-group-checkbox">
-          <label htmlFor="acceptedTerms" className="checkbox-label">
-            <input
-              type="checkbox"
-              id="acceptedTerms"
-              name="acceptedTerms"
-              checked={formData.acceptedTerms}
-              onChange={handleChange}
-              required
-            />
-            <span className="custom-checkbox"></span>
-
-            <a
-              href="https://drive.google.com/file/d/1mBFIYIlnMhH3YcbUOwoK84c7DmLAbWL9/view?usp=sharing"
-              download
-            >
-              Zapoznałem i zgadzam się z regulaminem IT-Premium Centrum
-              Serwisowe
-            </a>
-          </label>
-
-          <div className="form-buttons">
-            <button type="submit" disabled={!formData.acceptedTerms}>
-              Wyślij
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <FAQ />
     </div>
   );
 }

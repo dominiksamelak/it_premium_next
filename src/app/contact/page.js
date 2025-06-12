@@ -1,22 +1,21 @@
-"use client"
-import "@/styles/contact.css"
-import mail from "@/components/img/icons/Mail.png"
-import mapPin from "@/components/img/icons/Map_Pin.png"
-import phone from "@/components/img/icons/Phone.png"
-import facebook from "@/components/img/icons/social_icon.png"
-import Image from "next/image"
+"use client";
+import "@/styles/contact.css";
+import mail from "@/components/img/icons/Mail.png";
+import mapPin from "@/components/img/icons/Map_Pin.png";
+import phone from "@/components/img/icons/Phone.png";
+import facebook from "@/components/img/icons/social_icon.png";
+import Image from "next/image";
 import { useIsMobile } from "@/components/useIsMobile";
-import facebookDark from "@/components/img/icons/social-icon-contact-dark.png"
-import mapPinDark from "@/components/img/icons/Map_Pin_dark.png"
-import phoneDark from "@/components/img/icons/Phone-dark.png"
-import mailDark from "@/components/img/icons/Mail-dark.png"
-import FAQ from "@/components/FAQ.js"
+import facebookDark from "@/components/img/icons/social-icon-contact-dark.png";
+import mapPinDark from "@/components/img/icons/Map_Pin_dark.png";
+import phoneDark from "@/components/img/icons/Phone-dark.png";
+import mailDark from "@/components/img/icons/Mail-dark.png";
+import FAQ from "@/components/FAQ.js";
 
 export default function Contact() {
-
   const isMobile = useIsMobile();
 
-  return(
+  return (
     <div className="contact-main-container">
       <div className="contact-container">
         <div className="line"></div>
@@ -25,74 +24,108 @@ export default function Contact() {
             <span className="contact-title">Skontaktuj się z nami</span>
             <div className="contact-info-subcontainer">
               <div className="contact-info-info">
-                <span className="contact-name">IT-Premium Centrum Serwisowe</span>
+                <span className="contact-name">
+                  IT-Premium Centrum Serwisowe
+                </span>
                 <span className="contact-address">Adres</span>
                 <span className="contact-address-location">
-                  <Image src={mapPin} alt="pin" className="map-pin-contact"></Image>
-                  <Image src={mapPinDark} alt="pin" className="map-pin-dark-contact"></Image>
-                  Osiedle Jana III Sobieskiego 41F <br /> 60-688 Poznań</span>
+                  <Image
+                    src={mapPin}
+                    alt="pin"
+                    className="map-pin-contact"
+                  ></Image>
+                  <Image
+                    src={mapPinDark}
+                    alt="pin"
+                    className="map-pin-dark-contact"
+                  ></Image>
+                  Osiedle Jana III Sobieskiego 41F <br /> 60-688 Poznań
+                </span>
                 <span className="contact-support">Wsparcie</span>
                 <span className="contact-mail">
                   <Image src={mail} alt="mail" className="mail-icon"></Image>
-                  <Image src={mailDark} alt="mail" className="mail-icon-dark"></Image>
-                  biuro@it-premium.pl</span>
+                  <Image
+                    src={mailDark}
+                    alt="mail"
+                    className="mail-icon-dark"
+                  ></Image>
+                  biuro@it-premium.pl
+                </span>
                 <span className="contact-phone">
-                  <Image src={phone} alt="phone" className="phone-contact-icon"></Image>
-                  <Image src={phoneDark} alt="phone" className="phone-contact-icon-dark"></Image>
-                  +48 784 784 957</span>
+                  <Image
+                    src={phone}
+                    alt="phone"
+                    className="phone-contact-icon"
+                  ></Image>
+                  <Image
+                    src={phoneDark}
+                    alt="phone"
+                    className="phone-contact-icon-dark"
+                  ></Image>
+                  +48 784 784 957
+                </span>
                 <span className="contact-social">Obserwuj nas</span>
-                <span className="contact-social-icon">                
+                <span className="contact-social-icon">
                   <a
-                  href="https://www.facebook.com/ITPremiumCentrumSerwisowe/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src={facebook} alt="facebook" className="facebook-icon-contact"></Image>
-                  <Image src={facebookDark} alt="facebook" className="facebook-icon-contact-dark"></Image>
-                </a>
+                    href="https://www.facebook.com/ITPremiumCentrumSerwisowe/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src={facebook}
+                      alt="facebook"
+                      className="facebook-icon-contact"
+                    ></Image>
+                    <Image
+                      src={facebookDark}
+                      alt="facebook"
+                      className="facebook-icon-contact-dark"
+                    ></Image>
+                  </a>
                 </span>
                 <span className="contact-time">Godziny otwarcia</span>
                 <span className="contact-open-day">Poniedziałek - Piątek</span>
                 <span className="contact-open-time">9:00 - 17:00</span>
               </div>
-              {isMobile ? (<div></div>) : 
-              (            <div className="contact-map">
-                <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.0005519890888!2d16.90730407762662!3d52.46101744059361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704436aa34834f1%3A0x72038cebaf375f7!2sIT-PREMIUM%20Centrum%20Serwisowe%20Serwis%20laptop%C3%B3w%2C%20telefon%C3%B3w%2C%20drukarek%2FPROFESJONALNE%20ODZYSKIWANIE%20DANYCH!5e0!3m2!1spl!2spl!4v1730674451313!5m2!1spl!2spl"
-                            width="400"
-                            height="400"
-                            frameBorder="0"
-                            style={{ border: 0 }}
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            tabIndex="0"
+              {isMobile ? (
+                <div></div>
+              ) : (
+                <div className="contact-map">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.0005519890888!2d16.90730407762662!3d52.46101744059361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704436aa34834f1%3A0x72038cebaf375f7!2sIT-PREMIUM%20Centrum%20Serwisowe%20Serwis%20laptop%C3%B3w%2C%20telefon%C3%B3w%2C%20drukarek%2FPROFESJONALNE%20ODZYSKIWANIE%20DANYCH!5e0!3m2!1spl!2spl!4v1730674451313!5m2!1spl!2spl"
+                    width="400"
+                    height="400"
+                    frameBorder="0"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    aria-hidden="false"
+                    tabIndex="0"
                   />
-              </div>)
-              }
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
       <div className="caontact-map-mobile-container">
-        {isMobile ? (  
+        {isMobile ? (
           <div className="contatct-map-mobile">
-                <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.0005519890888!2d16.90730407762662!3d52.46101744059361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704436aa34834f1%3A0x72038cebaf375f7!2sIT-PREMIUM%20Centrum%20Serwisowe%20Serwis%20laptop%C3%B3w%2C%20telefon%C3%B3w%2C%20drukarek%2FPROFESJONALNE%20ODZYSKIWANIE%20DANYCH!5e0!3m2!1spl!2spl!4v1730674451313!5m2!1spl!2spl"
-                            width="300"
-                            height="300"
-                            frameBorder="0"
-                            style={{ border: 0 }}
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            tabIndex="0"
-                  />
-          </div>) :
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.0005519890888!2d16.90730407762662!3d52.46101744059361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704436aa34834f1%3A0x72038cebaf375f7!2sIT-PREMIUM%20Centrum%20Serwisowe%20Serwis%20laptop%C3%B3w%2C%20telefon%C3%B3w%2C%20drukarek%2FPROFESJONALNE%20ODZYSKIWANIE%20DANYCH!5e0!3m2!1spl!2spl!4v1730674451313!5m2!1spl!2spl"
+              width="300"
+              height="300"
+              frameBorder="0"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              aria-hidden="false"
+              tabIndex="0"
+            />
+          </div>
+        ) : (
           <div></div>
-        }
+        )}
       </div>
       <FAQ />
     </div>
-
-
-  )
+  );
 }

@@ -26,7 +26,6 @@
   font-size: 20px;
 }
 
-
 .form-details {
   position: relative;
   display: inline-block;
@@ -35,53 +34,51 @@
   width: 100%;
   color: rgb(0, 0, 0);
   overflow: hidden;
-  background: white; 
+  background: white;
   z-index: 1;
   margin-bottom: 20px;
 }
 
 .form-details::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, #3d4656, #00adfc); /* Gradient border effect */
+  background: linear-gradient(
+    to right,
+    #3d4656,
+    #00adfc
+  ); /* Gradient border effect */
   border-radius: inherit;
   z-index: -2;
 }
 
 .form-details::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 2px; 
+  top: 2px;
   left: 2px;
   right: 2px;
   bottom: 2px;
   background: white; /* Inner layer background */
   border-radius: inherit;
-   z-index: -1;
+  z-index: -1;
 }
 
-
 html.dark .form-details {
-      color: white !important;
+  color: white !important;
 }
 
 /* Dark Mode Styles */
 html.dark .form-details::before {
-  background: linear-gradient(to right, #ffffff, #00adfc); 
-
+  background: linear-gradient(to right, #ffffff, #00adfc);
 }
 
 html.dark .form-details::after {
-  background: #171717; 
-
+  background: #171717;
 }
-
-
-
 
 .order-details {
   font-size: 24px;
@@ -92,7 +89,7 @@ html.dark .form-details::after {
 @media (width < 640px) {
   .confirmation-container {
     margin-top: 90px;
-        padding-left: 25px;
+    padding-left: 25px;
     padding-right: 25px;
   }
 

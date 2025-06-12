@@ -85,7 +85,7 @@ html.dark #equipment {
   color: #333;
   display: inline-flex;
   align-items: center;
-  cursor: default;
+  cursor: pointer;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -103,6 +103,36 @@ html.dark #equipment {
   background-color: white;
   transition: background-color 0.3s, border-color 0.3s;
   cursor: pointer;
+  position: relative;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #00adfc;
+  border-color: #00adfc;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+}
+
+html.dark .checkbox-label {
+  color: white;
+}
+
+html.dark .checkbox-label .custom-checkbox {
+  background-color: #171717;
+  border-color: #333;
+}
+
+html.dark .checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #33bfff;
+  border-color: #33bfff;
 }
 
 .checkbox-label a {

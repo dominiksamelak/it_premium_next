@@ -39,7 +39,7 @@ export function LandingSection() {
         {isMobile ? (
           <div></div>
         ) : (
-          <Link href="/applicationform" className="application-link">
+          <Link href="/application-form" className="application-link">
             <span className="application-form">Nadaj sprzęt do naprawy</span>
           </Link>
         )}
