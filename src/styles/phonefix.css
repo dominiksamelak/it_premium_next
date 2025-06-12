@@ -61,7 +61,7 @@ body {
 }
 
 /* Pricing text content above image */
-.pricelist-text {
+.pricelist-text-phone {
   margin: 20px auto;
   text-align: center;
   max-width: 500px;
@@ -69,6 +69,7 @@ body {
   display: block;
   z-index: 2;
   position: relative;
+    margin-bottom: 20px !important;
 }
 
 /* Shadow wrapper for pricing list */

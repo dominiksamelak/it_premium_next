@@ -1,4 +1,4 @@
-import OtherFix from "@/components/img/landing_photos/otherfix-main.png";
+import OtherFix from "@/components/img/landing_photos/console.png";
 import "@/styles/otherfix.css";
 import PriceList from "@/components/Pricelist.js";
 import "@/styles/pricelist.css";

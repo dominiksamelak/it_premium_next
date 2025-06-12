@@ -52,11 +52,18 @@ html.dark .gallery > div::before {
   background-image: linear-gradient(to right, #ffffff, #00adfc 70%);
 }
 
+.gallery-texts {
+  width: 45%;
+  
+}
+
 .gallery-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 
@@ -321,6 +328,9 @@ html.dark .gallery > div::before {
     order: 2;
       border-bottom: 0px !important;
   }
-
+  
+  .gallery-texts {
+    width: 100%;
+  }
 
 }
