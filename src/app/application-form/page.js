@@ -2,12 +2,19 @@
 import "@/styles/applicationform.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import { supabase } from "@/lib/supabaseClient";
 import FAQ from "@/components/FAQ.js";
+
+// Temporary debug log
+console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
+console.log(
+  "Supabase Key exists:",
+  !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
 
 export default function ApplicationForm() {
   const router = useRouter();
-  const [orderNumber, setOrderNumber] = useState(null); // State to store order number
+  const [orderNumber, setOrderNumber] = useState(null);
   const [remainingCharacters, setRemainingCharacters] = useState(1000);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,18 +31,32 @@ export default function ApplicationForm() {
     acceptedTerms: false,
   });
 
-  // const fetchOrderNumber = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:4000/getOrderNumber");
-  //     setOrderNumber(response.data.orderNumber); // Update state with the order number
-  //   } catch (error) {
-  //     console.error("Failed to fetch order number:", error);
-  //     setOrderNumber("Brak numeru zlecenia, ale zgłoszenie zostało przyjęte"); // Set fallback value in case of error
-  //   }
-  // };
+  const generateOrderNumber = async () => {
+    const now = new Date();
+    const currentMonth = now.getMonth() + 1; // JavaScript months are 0-based
+    const currentYear = now.getFullYear();
 
-  const sendMail = (subject, message) => {
-    return axios.post("http://localhost:4000/sendEmail", { subject, message });
+    // Get the count of orders for the current month
+    const { count, error } = await supabase
+      .from("orders")
+      .select("*", { count: "exact", head: true })
+      .gte(
+        "created_at",
+        new Date(currentYear, currentMonth - 1, 1).toISOString()
+      )
+      .lt("created_at", new Date(currentYear, currentMonth, 1).toISOString());
+
+    if (error) {
+      console.error("Error getting order count:", error);
+      return null;
+    }
+
+    // Generate the order number
+    const orderCount = (count || 0) + 1;
+    const paddedOrderCount = orderCount.toString().padStart(2, "0");
+    const paddedMonth = currentMonth.toString().padStart(2, "0");
+
+    return `${paddedOrderCount}/${paddedMonth}/${currentYear}`;
   };
 
   const handleChange = (e) => {
@@ -43,7 +64,7 @@ export default function ApplicationForm() {
     const updatedValue = type === "checkbox" ? checked : value;
 
     if (name === "details") {
-      setRemainingCharacters(1000 - value.length); // Calculate remaining characters
+      setRemainingCharacters(1000 - value.length);
     }
 
     setFormData((prevData) => ({
@@ -55,19 +76,45 @@ export default function ApplicationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/submitOrder",
-        formData
-      );
-      const orderNum = response.data.orderNumber;
+      const newOrderNumber = await generateOrderNumber();
 
+      if (!newOrderNumber) {
+        throw new Error("Failed to generate order number");
+      }
+
+      // Insert the form data into Supabase
+      const { data, error } = await supabase
+        .from("orders")
+        .insert([
+          {
+            order_number: newOrderNumber,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            street: formData.street,
+            zipcode: formData.zipcode,
+            city: formData.city,
+            equipment: formData.equipment,
+            manufacturer: formData.manufacturer,
+            model: formData.model,
+            serialnumber: formData.serialnumber,
+            details: formData.details,
+          },
+        ])
+        .select();
+
+      if (error) throw error;
+
+      // Store the order data in localStorage
       localStorage.setItem(
         "formData",
-        JSON.stringify({ ...formData, orderNumber: orderNum })
+        JSON.stringify({ ...formData, orderNumber: newOrderNumber })
       );
+
       router.push("/confirmation");
     } catch (error) {
       console.error("Submission failed:", error);
+      // You might want to show an error message to the user here
     }
   };
 
