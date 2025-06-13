@@ -1,7 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import nodemailer from "npm:nodemailer@6.9.0";
-
-Deno.serve(async (req) => {
+Deno.serve(async (req)=>{
   if (req.method === "OPTIONS") {
     return new Response("ok", {
       headers: {
@@ -10,17 +9,18 @@ Deno.serve(async (req) => {
       }
     });
   }
-
   const { orderData } = await req.json();
-
   // Validate required fields
   if (!orderData || !orderData.email || !orderData.order_number) {
-    return new Response(JSON.stringify({ error: "Missing required order data." }), {
-      headers: { "Content-Type": "application/json" },
+    return new Response(JSON.stringify({
+      error: "Missing required order data."
+    }), {
+      headers: {
+        "Content-Type": "application/json"
+      },
       status: 400
     });
   }
-
   const transporter = nodemailer.createTransport({
     host: Deno.env.get("SMTP_HOSTNAME"),
     port: Number(Deno.env.get("SMTP_PORT")),
@@ -30,10 +30,10 @@ Deno.serve(async (req) => {
       pass: Deno.env.get("SMTP_PASSWORD")
     }
   });
-
   const mailOptions = {
     from: `"IT-Premium" <${Deno.env.get("SMTP_USERNAME")}>`,
     to: orderData.email,
+    bcc: Deno.env.get("SMTP_TO"),
     subject: `Potwierdzenie zgłoszenia ${orderData.order_number}`,
     text: `
       Numer zgłoszenia: ${orderData.order_number}
@@ -63,10 +63,11 @@ Deno.serve(async (req) => {
       </ul>
     `.trim()
   };
-
   try {
     await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({ message: "Email sent successfully!" }), {
+    return new Response(JSON.stringify({
+      message: "Email sent successfully!"
+    }), {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
@@ -75,7 +76,9 @@ Deno.serve(async (req) => {
     });
   } catch (error) {
     console.error("Error sending email:", error);
-    return new Response(JSON.stringify({ error: "Failed to send email." }), {
+    return new Response(JSON.stringify({
+      error: "Failed to send email."
+    }), {
       headers: {
         "Content-Type": "application/json"
       },
