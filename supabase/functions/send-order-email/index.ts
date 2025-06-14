@@ -1,26 +1,32 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import nodemailer from "npm:nodemailer@6.9.0";
-Deno.serve(async (req)=>{
+
+Deno.serve(async (req) => {
+  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response("ok", {
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS"
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
       }
     });
   }
+
   const { orderData } = await req.json();
-  // Validate required fields
+
   if (!orderData || !orderData.email || !orderData.order_number) {
-    return new Response(JSON.stringify({
-      error: "Missing required order data."
-    }), {
+    return new Response(JSON.stringify({ error: "Missing required order data." }), {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
       },
       status: 400
     });
   }
+
   const transporter = nodemailer.createTransport({
     host: Deno.env.get("SMTP_HOSTNAME"),
     port: Number(Deno.env.get("SMTP_PORT")),
@@ -30,6 +36,7 @@ Deno.serve(async (req)=>{
       pass: Deno.env.get("SMTP_PASSWORD")
     }
   });
+
   const mailOptions = {
     from: `"IT-Premium" <${Deno.env.get("SMTP_USERNAME")}>`,
     to: orderData.email,
@@ -63,24 +70,26 @@ Deno.serve(async (req)=>{
       </ul>
     `.trim()
   };
+
   try {
     await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({
-      message: "Email sent successfully!"
-    }), {
+    return new Response(JSON.stringify({ message: "Email sent successfully!" }), {
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
       },
       status: 200
     });
   } catch (error) {
     console.error("Error sending email:", error);
-    return new Response(JSON.stringify({
-      error: "Failed to send email."
-    }), {
+    return new Response(JSON.stringify({ error: "Failed to send email." }), {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
       },
       status: 500
     });
