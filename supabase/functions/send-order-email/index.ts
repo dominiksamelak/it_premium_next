@@ -13,16 +13,6 @@ serve(async (req) => {
     return new Response("OK", { headers: corsHeaders });
   }
 
-  // Check for authorization header
-  const authHeader = req.headers.get("Authorization");
-  if (!authHeader) {
-    console.error("Missing authorization header");
-    return new Response(JSON.stringify({ error: "Missing authorization header" }), {
-      status: 401,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-
   try {
     const contentType = req.headers.get("content-type") || "";
     if (!contentType.includes("application/json")) {
@@ -49,35 +39,62 @@ serve(async (req) => {
     const { orderData } = json;
     console.log("Received order data:", orderData);
 
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-    if (!RESEND_API_KEY) {
-      console.error("Missing RESEND_API_KEY in env");
+    const MAILJET_API_KEY = Deno.env.get("MAILJET_API_KEY");
+    const MAILJET_API_SECRET = Deno.env.get("MAILJET_API_SECRET");
+
+    if (!MAILJET_API_KEY || !MAILJET_API_SECRET) {
+      console.error("Missing Mailjet API credentials");
       return new Response(JSON.stringify({ error: "Server misconfiguration" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
+    // Verify the email addresses
+    if (!orderData.email || !orderData.email.includes('@')) {
+      console.error("Invalid recipient email:", orderData.email);
+      return new Response(JSON.stringify({ error: "Invalid recipient email" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const emailPayload = {
-      from: "d.samelak@it-premium.pl",
-      to: [orderData.email, "domcio145@wp.pl"],
-      subject: `Nowe zgłoszenie: ${orderData.order_number}`,
-      text: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`,
+      Messages: [
+        {
+          From: {
+            Email: "d.samelak@it-premium.pl",
+            Name: "IT Premium"
+          },
+          To: [
+            {
+              Email: orderData.email,
+              Name: orderData.name || ""
+            },
+            {
+              Email: "domcio145@wp.pl",
+              Name: "IT Premium"
+            }
+          ],
+          Subject: `Nowe zgłoszenie: ${orderData.order_number}`,
+          TextPart: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`,
+        }
+      ]
     };
 
     console.log("Sending email with payload:", emailPayload);
 
-    const response = await fetch("https://api.resend.com/emails", {
+    const response = await fetch("https://api.mailjet.com/v3.1/send", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Authorization": "Basic " + btoa(`${MAILJET_API_KEY}:${MAILJET_API_SECRET}`),
         "Content-Type": "application/json",
       },
       body: JSON.stringify(emailPayload),
     });
 
-    const responseData = await response.text();
-    console.log("Resend API response:", response.status, responseData);
+    const responseData = await response.json();
+    console.log("Mailjet API response:", response.status, responseData);
 
     if (!response.ok) {
       console.error("Email sending failed:", responseData);

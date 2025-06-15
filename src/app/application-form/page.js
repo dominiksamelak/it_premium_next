@@ -125,7 +125,8 @@ export default function ApplicationForm() {
 
       if (emailError) {
         console.error("Failed to send email:", emailError);
-        // Continue with the form submission even if email fails
+        // Show error to user but continue with form submission
+        alert("Zgłoszenie zostało przyjęte, ale wystąpił problem z wysłaniem potwierdzenia email. Prosimy o kontakt telefoniczny.");
       } else {
         console.log("Email sent successfully:", emailData);
       }
