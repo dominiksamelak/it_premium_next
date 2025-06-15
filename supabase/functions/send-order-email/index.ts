@@ -1,77 +1,82 @@
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
+import { verify } from "https://deno.land/x/djwt@v2.8/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-auth, x-supabase-client, x-supabase-anon-key",
-  "Access-Control-Allow-Methods": "POST, OPTIONS, GET",
+  "Access-Control-Allow-Headers": "authorization, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Max-Age": "86400",
 };
 
-// Replace this with your actual Supabase anon key
-const STATIC_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2dHZkZHhseHdtcmVxdHZtc3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4MTAwNTEsImV4cCI6MjA2NTM4NjA1MX0.dXsfAQl3935mdYgShZe30DXfm64hGxwrsfHsMMsjyho";
-
 serve(async (req) => {
-  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response("OK", { headers: corsHeaders });
   }
 
-  // Log request headers for debugging
-  console.log("Request headers:", Object.fromEntries(req.headers.entries()));
-
-  // Check auth header
+  // Check Authorization header presence and format
   const authHeader = req.headers.get("Authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return new Response(JSON.stringify({ error: "Missing or malformed Authorization header" }), {
-      status: 401,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Missing or malformed Authorization header" }),
+      { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
-  const token = authHeader.slice(7); // removes "Bearer "
-  if (token !== STATIC_TOKEN) {
-    return new Response(JSON.stringify({ error: "Invalid token" }), {
-      status: 403,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+  const token = authHeader.slice(7);
+
+  const SUPA_JWT_SECRET = Deno.env.get("SUPA_JWT_SECRET");
+  if (!SUPA_JWT_SECRET) {
+    console.error("Missing SUPA_JWT_SECRET environment variable");
+    return new Response(
+      JSON.stringify({ error: "Server misconfiguration" }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
+
+  try {
+    // Verify the JWT token using HS256 algorithm
+    await verify(token, SUPA_JWT_SECRET, "HS256");
+  } catch (err) {
+    console.error("JWT verification failed:", err);
+    return new Response(
+      JSON.stringify({ error: "Invalid token" }),
+      { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
   // Validate content-type
   const contentType = req.headers.get("content-type") || "";
   if (!contentType.includes("application/json")) {
-    return new Response(JSON.stringify({ error: "Invalid content-type" }), {
-      status: 400,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Invalid content-type" }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
-  // Parse JSON
+  // Parse JSON body
   let json;
   try {
     json = await req.json();
-  } catch (err) {
-    console.error("JSON parse error:", err);
-    return new Response(JSON.stringify({ error: "Malformed JSON" }), {
-      status: 400,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+  } catch {
+    return new Response(
+      JSON.stringify({ error: "Malformed JSON" }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
   const { orderData } = json;
-
   if (!orderData || !orderData.email || !orderData.order_number) {
-    return new Response(JSON.stringify({ error: "Missing orderData fields" }), {
-      status: 400,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Missing orderData fields" }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
-  // Validate email format
-  if (!orderData.email.includes('@')) {
-    return new Response(JSON.stringify({ error: "Invalid email" }), {
-      status: 400,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+  if (!orderData.email.includes("@")) {
+    return new Response(
+      JSON.stringify({ error: "Invalid email" }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
   // Load Mailjet API credentials
@@ -80,10 +85,10 @@ serve(async (req) => {
 
   if (!MAILJET_API_KEY || !MAILJET_API_SECRET) {
     console.error("Missing Mailjet API credentials");
-    return new Response(JSON.stringify({ error: "Server misconfiguration" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Server misconfiguration" }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
   // Build email payload
@@ -110,7 +115,7 @@ serve(async (req) => {
     ]
   };
 
-  // Send email
+  // Send email via Mailjet API
   const mailjetResponse = await fetch("https://api.mailjet.com/v3.1/send", {
     method: "POST",
     headers: {
@@ -124,15 +129,14 @@ serve(async (req) => {
 
   if (!mailjetResponse.ok) {
     console.error("Mailjet error:", responseData);
-    return new Response(JSON.stringify({ error: "Email sending failed", details: responseData }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Email sending failed", details: responseData }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   }
 
-  // All good!
-  return new Response(JSON.stringify({ message: "Email sent successfully!" }), {
-    status: 200,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
-  });
+  return new Response(
+    JSON.stringify({ message: "Email sent successfully!" }),
+    { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+  );
 });
