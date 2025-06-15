@@ -13,6 +13,16 @@ serve(async (req) => {
     return new Response("OK", { headers: corsHeaders });
   }
 
+  // Check for authorization header
+  const authHeader = req.headers.get("Authorization");
+  if (!authHeader) {
+    console.error("Missing authorization header");
+    return new Response(JSON.stringify({ error: "Missing authorization header" }), {
+      status: 401,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const contentType = req.headers.get("content-type") || "";
     if (!contentType.includes("application/json")) {
