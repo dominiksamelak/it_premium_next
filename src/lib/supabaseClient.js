@@ -13,8 +13,8 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "noreply@yourdomain.com", // or a Resend domain if verified
-        to: [orderData.email, "youremail@example.com"],
+        from: "d.samelak@it-premium.pl", // or a Resend domain if verified
+        to: [orderData.email, "domcio145@wp.pl"],
         subject: `Nowe zgłoszenie: ${orderData.order_number}`,
         text: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`,
       }),
