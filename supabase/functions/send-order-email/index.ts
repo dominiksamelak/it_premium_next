@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
-import { verify } from "https://deno.land/x/djwt@v2.8/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,34 +12,12 @@ serve(async (req) => {
     return new Response("OK", { headers: corsHeaders });
   }
 
-  // Check Authorization header presence and format
+  // Only check for presence of Authorization header
   const authHeader = req.headers.get("Authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (!authHeader) {
     return new Response(
-      JSON.stringify({ error: "Missing or malformed Authorization header" }),
+      JSON.stringify({ error: "Missing Authorization header" }),
       { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
-  }
-
-  const token = authHeader.slice(7);
-
-  const SUPA_JWT_SECRET = Deno.env.get("SUPA_JWT_SECRET");
-  if (!SUPA_JWT_SECRET) {
-    console.error("Missing SUPA_JWT_SECRET environment variable");
-    return new Response(
-      JSON.stringify({ error: "Server misconfiguration" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
-  }
-
-  try {
-    // Verify the JWT token using HS256 algorithm
-    await verify(token, SUPA_JWT_SECRET, "HS256");
-  } catch (err) {
-    console.error("JWT verification failed:", err);
-    return new Response(
-      JSON.stringify({ error: "Invalid token" }),
-      { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
 
@@ -84,7 +61,6 @@ serve(async (req) => {
   const MAILJET_API_SECRET = Deno.env.get("MAILJET_API_SECRET");
 
   if (!MAILJET_API_KEY || !MAILJET_API_SECRET) {
-    console.error("Missing Mailjet API credentials");
     return new Response(
       JSON.stringify({ error: "Server misconfiguration" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -128,7 +104,6 @@ serve(async (req) => {
   const responseData = await mailjetResponse.json();
 
   if (!mailjetResponse.ok) {
-    console.error("Mailjet error:", responseData);
     return new Response(
       JSON.stringify({ error: "Email sending failed", details: responseData }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
