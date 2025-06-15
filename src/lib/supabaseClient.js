@@ -1,21 +1,34 @@
-import { createClient } from "@supabase/supabase-js";
+// supabase/functions/send-order-email/index.ts
+import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabaseFunctionsUrl = process.env.NEXT_PUBLIC_SUPABASE_FUNCTIONS_URL;
+serve(async (req) => {
+  try {
+    const { orderData } = await req.json();
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
-if (!supabaseUrl) {
-  throw new Error("Missing environment variable: NEXT_PUBLIC_SUPABASE_URL");
-}
-if (!supabaseAnonKey) {
-  throw new Error("Missing environment variable: NEXT_PUBLIC_SUPABASE_ANON_KEY");
-}
-if (!supabaseFunctionsUrl) {
-  throw new Error("Missing environment variable: NEXT_PUBLIC_SUPABASE_FUNCTIONS_URL");
-}
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "noreply@yourdomain.com", // or a Resend domain if verified
+        to: [orderData.email, "youremail@example.com"],
+        subject: `Nowe zgłoszenie: ${orderData.order_number}`,
+        text: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`,
+      }),
+    });
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  functions: {
-    url: supabaseFunctionsUrl,
-  },
+    if (!response.ok) {
+      const error = await response.text();
+      console.error("Email sending failed:", error);
+      return new Response("Email sending failed", { status: 500 });
+    }
+
+    return new Response("Email sent successfully!", { status: 200 });
+  } catch (err) {
+    console.error("Error processing request:", err);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 });
