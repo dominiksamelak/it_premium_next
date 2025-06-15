@@ -120,6 +120,9 @@ export default function ApplicationForm() {
               ...formData,
             },
           },
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
