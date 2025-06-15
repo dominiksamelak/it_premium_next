@@ -21,12 +21,17 @@ serve(async (req) => {
 
   // Check auth header
   const authHeader = req.headers.get("Authorization");
-  if (!authHeader || authHeader !== `Bearer ${STATIC_TOKEN}`) {
-    console.error("Invalid or missing authorization header");
-    return new Response(JSON.stringify({
-      error: "Invalid or missing authorization header"
-    }), {
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return new Response(JSON.stringify({ error: "Missing or malformed Authorization header" }), {
       status: 401,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  const token = authHeader.slice(7); // removes "Bearer "
+  if (token !== STATIC_TOKEN) {
+    return new Response(JSON.stringify({ error: "Invalid token" }), {
+      status: 403,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
