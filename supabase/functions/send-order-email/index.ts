@@ -67,6 +67,39 @@ serve(async (req) => {
     );
   }
 
+  // Format email body
+  const {
+    order_number,
+    name,
+    email,
+    phone,
+    street,
+    zipcode,
+    city,
+    equipment,
+    manufacturer,
+    model,
+    serialnumber,
+    details
+  } = orderData;
+
+  const formattedText = `Dziękujemy za zgłoszenie!
+
+Numer zlecenia: ${order_number}
+Imię i nazwisko: ${name || ""}
+Email: ${email}
+Telefon: ${phone || ""}
+Ulica: ${street || ""}
+Kod pocztowy: ${zipcode || ""}
+Miasto: ${city || ""}
+Typ sprzętu: ${equipment || ""}
+Producent: ${manufacturer || ""}
+Model: ${model || ""}
+Numer seryjny: ${serialnumber || ""}
+Opis usterki:
+${details || ""}
+`;
+
   // Build email payload
   const emailPayload = {
     Messages: [
@@ -86,7 +119,7 @@ serve(async (req) => {
           }
         ],
         Subject: `Nowe zgłoszenie: ${orderData.order_number}`,
-        TextPart: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`
+        TextPart: formattedText
       }
     ]
   };
