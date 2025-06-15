@@ -1,97 +1,59 @@
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import nodemailer from "npm:nodemailer@6.9.0";
+// supabase/functions/send-order-email/index.ts
+import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 
-Deno.serve(async (req) => {
-  // Handle CORS preflight
-  if (req.method === "OPTIONS") {
-    return new Response("ok", {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    });
-  }
-
-  const { orderData } = await req.json();
-
-  if (!orderData || !orderData.email || !orderData.order_number) {
-    return new Response(JSON.stringify({ error: "Missing required order data." }), {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      },
-      status: 400
-    });
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: Deno.env.get("SMTP_HOSTNAME"),
-    port: Number(Deno.env.get("SMTP_PORT")),
-    secure: true,
-    auth: {
-      user: Deno.env.get("SMTP_USERNAME"),
-      pass: Deno.env.get("SMTP_PASSWORD")
-    }
-  });
-
-  const mailOptions = {
-    from: `"IT-Premium" <${Deno.env.get("SMTP_USERNAME")}>`,
-    to: orderData.email,
-    bcc: Deno.env.get("SMTP_TO"),
-    subject: `Potwierdzenie zgłoszenia ${orderData.order_number}`,
-    text: `
-      Numer zgłoszenia: ${orderData.order_number}
-      Imię i nazwisko: ${orderData.name}
-      E-mail: ${orderData.email}
-      Telefon: ${orderData.phone}
-      Adres: ${orderData.street}, ${orderData.zipcode} ${orderData.city}
-      Sprzęt: ${orderData.equipment}
-      Producent: ${orderData.manufacturer}
-      Model: ${orderData.model}
-      Numer seryjny: ${orderData.serialnumber || "—"}
-      Opis usterki:
-      ${orderData.details}
-    `.trim(),
-    html: `
-      <p><strong>Numer zgłoszenia:</strong> ${orderData.order_number}</p>
-      <ul>
-        <li><strong>Imię i nazwisko:</strong> ${orderData.name}</li>
-        <li><strong>E-mail:</strong> ${orderData.email}</li>
-        <li><strong>Telefon:</strong> ${orderData.phone}</li>
-        <li><strong>Adres:</strong> ${orderData.street}, ${orderData.zipcode} ${orderData.city}</li>
-        <li><strong>Sprzęt:</strong> ${orderData.equipment}</li>
-        <li><strong>Producent:</strong> ${orderData.manufacturer}</li>
-        <li><strong>Model:</strong> ${orderData.model}</li>
-        <li><strong>Numer seryjny:</strong> ${orderData.serialnumber || "—"}</li>
-        <li><strong>Opis usterki:</strong><br/>${orderData.details.replace(/\n/g, "<br/>")}</li>
-      </ul>
-    `.trim()
-  };
-
+serve(async (req) => {
   try {
-    await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({ message: "Email sent successfully!" }), {
+    const bodyText = await req.text();
+
+    if (!bodyText) {
+      console.error("No request body received.");
+      return new Response("Bad Request: No body provided", { status: 400 });
+    }
+
+    let parsedBody;
+    try {
+      parsedBody = JSON.parse(bodyText);
+    } catch (jsonError) {
+      console.error("Invalid JSON received:", bodyText);
+      return new Response("Bad Request: Invalid JSON", { status: 400 });
+    }
+
+    const orderData = parsedBody?.orderData;
+
+    if (!orderData || !orderData.email || !orderData.order_number) {
+      console.error("Missing required order data:", orderData);
+      return new Response("Bad Request: Missing order data", { status: 400 });
+    }
+
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
+      return new Response("Server Error: Email service not configured", { status: 500 });
+    }
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
       headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
       },
-      status: 200
+      body: JSON.stringify({
+        from: "d.samelak@it-premium.pl",
+        to: [orderData.email, "domcio145@wp.pl"],
+        subject: `Nowe zgłoszenie: ${orderData.order_number}`,
+        text: `Dziękujemy za zgłoszenie!\n\n${JSON.stringify(orderData, null, 2)}`,
+      }),
     });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return new Response(JSON.stringify({ error: "Failed to send email." }), {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      },
-      status: 500
-    });
+
+    if (!emailResponse.ok) {
+      const errorText = await emailResponse.text();
+      console.error("Email sending failed:", errorText);
+      return new Response("Email sending failed", { status: 500 });
+    }
+
+    return new Response("Email sent successfully!", { status: 200 });
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    return new Response("Internal Server Error", { status: 500 });
   }
 });
