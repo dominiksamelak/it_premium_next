@@ -1,9 +1,10 @@
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*", // or your domain, e.g. "https://yourdomain.com"
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, apikey",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-auth, x-supabase-client, x-supabase-anon-key",
+  "Access-Control-Allow-Methods": "POST, OPTIONS, GET",
+  "Access-Control-Max-Age": "86400",
 };
 
 serve(async (req) => {
@@ -76,4 +77,3 @@ serve(async (req) => {
     });
   }
 });
-
