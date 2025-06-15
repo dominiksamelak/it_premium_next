@@ -106,7 +106,12 @@ export default function ApplicationForm() {
       if (error) throw error;
 
       // Send email using Supabase Edge Function
-      const { error: emailError } = await supabase.functions.invoke(
+      console.log('Sending email with data:', {
+        order_number: newOrderNumber,
+        ...formData,
+      });
+
+      const { data: emailData, error: emailError } = await supabase.functions.invoke(
         "send-order-email",
         {
           body: {
@@ -121,6 +126,8 @@ export default function ApplicationForm() {
       if (emailError) {
         console.error("Failed to send email:", emailError);
         // Continue with the form submission even if email fails
+      } else {
+        console.log("Email sent successfully:", emailData);
       }
 
       // Store the order data in localStorage
