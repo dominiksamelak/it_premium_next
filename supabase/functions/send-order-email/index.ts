@@ -122,7 +122,8 @@ Zespół IT-Premium`;
           }
         ],
         Subject: `Nowe zgłoszenie: ${orderData.order_number}`,
-        TextPart: formattedText
+        TextPart: formattedText,
+        HTMLPart: formattedText.replace(/\n/g, "<br>")
       }
     ]
   };
