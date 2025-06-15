@@ -98,7 +98,10 @@ Model: ${model || ""}
 Numer seryjny: ${serialnumber || ""}
 Opis usterki:
 ${details || ""}
-`;
+
+Po zapoznaniu się ze zgłoszeniem skontaktujemy się z Państwem.
+
+Zespół IT-Premium`;
 
   // Build email payload
   const emailPayload = {
