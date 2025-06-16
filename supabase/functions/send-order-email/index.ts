@@ -108,8 +108,8 @@ Zespół IT-Premium`;
     Messages: [
       {
         From: {
-          Email: "d.samelak@it-premium.pl",
-          Name: "IT-Premium"
+          Email: "dominiksamelak@gmail.com",
+          Name: "IT Premium"
         },
         To: [
           {
@@ -117,8 +117,8 @@ Zespół IT-Premium`;
             Name: orderData.name || ""
           },
           {
-            Email: "d.samelak@it-premium.pl",
-            Name: "IT-Premium"
+            Email: "domcio145@wp.pl",
+            Name: "IT Premium"
           }
         ],
         Subject: `Nowe zgłoszenie: ${orderData.order_number}`,
