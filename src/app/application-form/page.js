@@ -56,7 +56,7 @@ export default function ApplicationForm() {
     const paddedOrderCount = orderCount.toString().padStart(2, "0");
     const paddedMonth = currentMonth.toString().padStart(2, "0");
 
-    return `${paddedOrderCount}/${paddedMonth}/${currentYear}`;
+    return `S${paddedOrderCount}/${paddedMonth}/${currentYear}`;
   };
 
   const handleChange = (e) => {
@@ -106,27 +106,27 @@ export default function ApplicationForm() {
       if (error) throw error;
 
       // Send email using Supabase Edge Function
-      console.log('Sending email with data:', {
+      console.log("Sending email with data:", {
         order_number: newOrderNumber,
         ...formData,
       });
 
-      const { data: emailData, error: emailError } = await supabase.functions.invoke(
-        "send-order-email",
-        {
+      const { data: emailData, error: emailError } =
+        await supabase.functions.invoke("send-order-email", {
           body: {
             orderData: {
               order_number: newOrderNumber,
               ...formData,
             },
           },
-        }
-      );
+        });
 
       if (emailError) {
         console.error("Failed to send email:", emailError);
         // Show error to user but continue with form submission
-        alert("Zgłoszenie zostało przyjęte, ale wystąpił problem z wysłaniem potwierdzenia email. Prosimy o kontakt telefoniczny.");
+        alert(
+          "Zgłoszenie zostało przyjęte, ale wystąpił problem z wysłaniem potwierdzenia email. Prosimy o kontakt telefoniczny."
+        );
       } else {
         console.log("Email sent successfully:", emailData);
       }
