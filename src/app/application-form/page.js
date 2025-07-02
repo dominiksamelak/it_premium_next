@@ -30,6 +30,8 @@ export default function ApplicationForm() {
     details: "",
     acceptedTerms: false,
   });
+  const [loading, setLoading] = useState(false);
+  const [zipError, setZipError] = useState("");
 
   const generateOrderNumber = async () => {
     const now = new Date();
@@ -75,6 +77,12 @@ export default function ApplicationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Validate zip code: must match 2 digits, dash, 3 digits
+    if (!/^\d{2}-\d{3}$/.test(formData.zipcode)) {
+      setZipError("Kod pocztowy musi być w formacie 00-000.");
+      return;
+    }
+    setLoading(true);
     try {
       const newOrderNumber = await generateOrderNumber();
 
@@ -141,6 +149,8 @@ export default function ApplicationForm() {
     } catch (error) {
       console.error("Submission failed:", error);
       // You might want to show an error message to the user here
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -149,9 +159,32 @@ export default function ApplicationForm() {
     setFormData({ ...formData, phone: value });
   };
 
+  const handleZipcodeChange = (e) => {
+    // Remove all non-digit characters
+    let digits = e.target.value.replace(/\D/g, "");
+    // Limit to 5 digits
+    digits = digits.slice(0, 5);
+    // Format as 00-000
+    let formatted = digits;
+    if (digits.length > 2) {
+      formatted = digits.slice(0, 2) + '-' + digits.slice(2);
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      zipcode: formatted,
+    }));
+    setZipError("");
+  };
+
   return (
     <div>
-      <div className="form-container">
+      {loading && (
+        <div className="loading-overlay">
+          <div className="loading-spinner"></div>
+          <p>Przetwarzanie zgłoszenia...</p>
+        </div>
+      )}
+      <div className="form-container" style={{ filter: loading ? 'blur(2px)' : 'none', pointerEvents: loading ? 'none' : 'auto' }}>
         <h2>Formularz wysyłkowy</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -235,12 +268,16 @@ export default function ApplicationForm() {
                   name="zipcode"
                   placeholder="Kod pocztowy*"
                   value={formData.zipcode}
-                  onChange={handleChange}
+                  onChange={handleZipcodeChange}
+                  pattern="[0-9]{2}-[0-9]{3}"
+                  inputMode="numeric"
                   required
                 />
               </div>
             </div>
           </div>
+
+          {zipError && <p style={{ color: 'red', marginTop: 4 }}>{zipError}</p>}
 
           <div className="form-group">
             <div className="input-wrapper">
@@ -255,11 +292,13 @@ export default function ApplicationForm() {
                   Typ sprzętu*
                 </option>
                 <option value="Laptop">Laptop</option>
-                <option value="Komputer stacjonarny">
-                  Komputer stacjonarny
-                </option>
-                <option value="Nośnik danych">Nośnik danych</option>
+                <option value="PC">Komputer stacjonarny</option>
+                <option value="Konsola">Konsola</option>
                 <option value="Drukarka">Drukarka</option>
+                <option value="Telefon">Telefon</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Dysk twardy">Dysk twardy</option>
+                <option value="Nośnik danych">Nośnik danych</option>
                 <option value="Inny sprzęt">Inny sprzęt</option>
               </select>
             </div>

@@ -11,8 +11,9 @@
 .description-one,
 .description-two {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   margin: 0;
   padding-left: 2px;
@@ -22,22 +23,19 @@
   overflow: hidden;
 }
 
-.color-updown {
-  height: 400px;
-  min-width: 7px;
+.color-updown,
+.color-updown-two {
+  width: 6px;
+  min-width: 6px;
+  margin-right: 16px;
   background-image: linear-gradient(to top, #3d4656, #00adfc);
-  box-sizing: border-box;
+  flex-shrink: 0;
+  align-self: flex-start;
+  border-radius: 4px;
 }
 
 html.dark .color-updown {
   background-image: linear-gradient(to top, #ffffff, #00adfc);
-}
-
-.color-updown-two {
-  background-image: linear-gradient(to top, #00adfc, #3d4656);
-  height: 400px;
-  min-width: 7px !important;
-  z-index: 1111;
 }
 
 html.dark .color-updown-two {
@@ -135,7 +133,7 @@ html.dark .css-kzqzfd {
   font-weight: 600;
   border-radius: 25px;
   color: white;
-  width: 200px;
+  width: 220px;
   height: 50px;
   text-align: center;
   padding-top: 4px;
@@ -153,39 +151,113 @@ html.dark .application-form-mobile {
   color: white;
 }
 
+.description-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.description-one > .color-updown {
+  order: 0;
+}
+.description-one > .description-text-block {
+  order: 1;
+  flex: 1 1 0%;
+}
+.description-one > .desc-photo {
+  order: 2;
+  margin-left: 16px;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+.description-two > .desc-photo {
+  order: 0;
+  margin-right: 16px;
+  margin-left: 0;
+  margin-top: 0;
+}
+.description-two > .description-text-block {
+  order: 1;
+  flex: 1 1 0%;
+}
+.description-two > .color-updown-two {
+  order: 2;
+}
+
+.desc-photo-large {
+  width: 240px !important;
+  height: 240px !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.description-two-textline-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
 @media (width < 640px) {
-  .desc-photo {
+  .description-one {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+    gap: 12px;
+  }
+  .description-one > .desc-photo {
+    margin-left: 8px;
+    margin-right: 0;
     width: 159px !important;
     height: 159px !important;
-    margin: 0;
-    bottom: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
   }
-
-  .description-one,
-  .description-two {
-    justify-content: left !important;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: auto;
-  }
-  .description-one-container,
-  .description-two-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100vw !important;
+  .description-text-block {
+    max-width: 90%;
+    flex: 1 1 0;
     padding: 0 !important;
   }
-
-  .description-text-one,
-  .description-text-two,
-  .description-text-three {
-    font-size: 16px;
-    max-width: none !important;
-    width: 100% !important;
+  .description-two-textline-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: static;
+    gap: 12px;
+  }
+  .description-two-textline-wrapper > .desc-photo {
+    margin-right: 8px;
+    margin-left: 0;
+    width: 159px !important;
+    height: 159px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+  .description-two-textline-wrapper .description-text-block {
+    max-width: 90%;
+    flex: 1 1 0;
+    padding-right: 8px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  }
+  .color-updown-two {
+    position: static;
+    height: 159px;
+    width: 4px;
+    min-width: 4px;
+    margin: 0;
+    border-radius: 3px;
+    background-image: linear-gradient(to top, #3d4656, #00adfc);
+    display: block;
   }
 
   .google-reviews-desc {
@@ -209,14 +281,13 @@ html.dark .application-form-mobile {
     margin-top: 10px;
   }
 
-  .color-updown {
-    margin-right: 14px;
-    height: 480px !important;
-  }
-
+  .color-updown,
   .color-updown-two {
-    margin-left: 14px;
-    height: 250px !important;
+    width: 4px;
+    min-width: 4px;
+    margin-right: 8px;
+    background-image: linear-gradient(to top, #3d4656, #00adfc);
+    border-radius: 3px;
   }
 
   .google-reviews {
@@ -252,5 +323,106 @@ html.dark .application-form-mobile {
   .google-reviews .css-kzqzfd,
   .google-reviews .css-dyvl56 {
     margin-top: 206px;
+  }
+
+  html.dark .color-updown {
+    background-image: linear-gradient(to top, #ffffff, #00adfc);
+  }
+  html.dark .color-updown-two {
+    background-image: linear-gradient(to top, #00adfc, #ffffff);
+  }
+
+  .desc-photo-large {
+    width: 140px !important;
+    height: 140px !important;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .description-two {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .description-two-textline-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+  .description-two-text-block {
+    width: 100%;
+  }
+  .color-updown-two {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    min-width: 4px;
+    margin: 0;
+    border-radius: 3px;
+    background-image: linear-gradient(to top, #3d4656, #00adfc);
+  }
+
+  .desc-one-bottom-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+    width: 100%;
+  }
+  .desc-one-bottom-row .desc-photo {
+    margin: 0;
+    width: 159px !important;
+    height: 159px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+  .description-text-one,
+  .description-text-two {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .desc-two-bottom-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+    width: 100%;
+  }
+  .desc-two-bottom-row .desc-photo {
+    margin: 0;
+    width: 159px !important;
+    height: 159px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+  .desc-two-bottom-row .description-text-three {
+    flex: 1 1 0;
+    margin-left: 12px;
+  }
+  .desc-two-text-top {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .desc-two-text-bottom {
+    width: 100%;
+    margin-top: 12px;
+  }
+  .desc-two-text-bottom .description-text-two {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
   }
 }

@@ -236,3 +236,47 @@ textarea {
     width: 100%;
   }
 }
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #0070f3;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dark mode for loading overlay */
+.dark .loading-overlay {
+  background: rgba(20, 20, 20, 0.85);
+}
+
+.dark .loading-spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #fff;
+}
+
+.dark .loading-overlay p {
+  color: #fff;
+}

@@ -118,6 +118,11 @@ html.dark .application-form {
 }
 
 @media (width < 640px) {
+
+  .landing-photo-container {
+  margin-top: 50px;
+  max-height: calc(100vh - 50px);
+}
   .landing-photo {
     width: 100vw !important;
     height: 100vh !important;
