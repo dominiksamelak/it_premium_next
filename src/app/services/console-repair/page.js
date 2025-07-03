@@ -31,7 +31,7 @@ export default function OtherElectronics() {
         wyłącza się bez ostrzeżenia. Zyskaj dodatkowe życie dla swojego sprzętu
         – na każdą usługę dajemy aż <strong>12 miesięcy gwarancji</strong>.
       </span>
-      <PriceList />
+      <PriceList subpage="consolerepair" />
     </div>
   );
 }

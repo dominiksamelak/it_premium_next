@@ -67,6 +67,7 @@ body {
   display: block;
   position: relative; /* To appear above image */
   z-index: 1;
+  margin-bottom: 20px !important;
 }
 
 @media (width < 640px) {
