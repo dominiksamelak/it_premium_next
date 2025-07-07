@@ -25,8 +25,8 @@
 
 .color-updown,
 .color-updown-two {
-  width: 6px;
-  min-width: 6px;
+  width: 10px;
+  min-width: 10px;
   margin-right: 16px;
   background-image: linear-gradient(to top, #3d4656, #00adfc);
   flex-shrink: 0;
@@ -66,13 +66,23 @@ html.dark .color-updown-two {
   width: 100%;
 }
 
+.description-text-one,
+.description-text-two {
+  display: block;
+  width: 100%;
+}
+
+.description-text-two {
+  margin-top: 10px;
+}
+
 .google-reviews {
   margin-bottom: 20px;
 }
 
 .desc-photo {
   margin-left: 56px;
-  margin-right: 56px;
+  /* margin-right: 56px; */
   height: 288px !important;
   width: 288px !important;
 }
@@ -245,14 +255,14 @@ html.dark .application-form-mobile {
     max-width: 90%;
     flex: 1 1 0;
     padding-right: 8px;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .color-updown-two {
     position: static;
     height: 159px;
-    width: 4px;
+    width: 10px;
     min-width: 4px;
     margin: 0;
     border-radius: 3px;
@@ -283,9 +293,9 @@ html.dark .application-form-mobile {
 
   .color-updown,
   .color-updown-two {
-    width: 4px;
-    min-width: 4px;
-    margin-right: 8px;
+    width: 10px;
+    min-width: 10px;
+
     background-image: linear-gradient(to top, #3d4656, #00adfc);
     border-radius: 3px;
   }
@@ -365,6 +375,13 @@ html.dark .application-form-mobile {
     border-radius: 3px;
     background-image: linear-gradient(to top, #3d4656, #00adfc);
   }
+  .desc-one-text-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .desc-one-texts-row {
+    margin-right: 30px;
+  }
 
   .desc-one-bottom-row {
     display: flex;
@@ -376,7 +393,7 @@ html.dark .application-form-mobile {
     width: 100%;
   }
   .desc-one-bottom-row .desc-photo {
-    margin: 0;
+    margin-left: 12px;
     width: 159px !important;
     height: 159px !important;
     object-fit: cover;
@@ -424,5 +441,104 @@ html.dark .application-form-mobile {
     width: 100%;
     margin-top: 10px;
     text-align: center;
+  }
+}
+
+.desc-one-bottom-row .description-text-three {
+  flex: 1 1 0;
+  margin-right: 12px;
+}
+
+.desc-one-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.description-text-block {
+  flex: 2 1 0;
+}
+
+.desc-one-image {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.desc-one-texts-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.desc-one-texts-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+.color-updown {
+  width: 6px;
+  min-width: 6px;
+  height: 100%;
+  min-height: 40px;
+  margin-right: 32px;
+  background-image: linear-gradient(to top, #3d4656, #00adfc);
+  flex-shrink: 0;
+  align-self: flex-start;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .description,
+  .description-one,
+  .desc-one-content {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .description-text-block,
+  .desc-one-texts-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .desc-one-image {
+    display: none;
+    margin-top: 0;
+  }
+  .color-updown {
+    margin-right: 12px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .description-text-three {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .desc-three-text {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    word-break: break-word;
+  }
+  .description-text-three .desc-photo {
+    float: right;
+    width: 50vw !important;
+    max-width: 140px !important;
+    height: auto !important;
+    margin: 0 0 8px 16px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
   }
 }

@@ -22,11 +22,12 @@ export function DescriptionSection() {
   const descOneTextTopRef = useRef(null);
   const descOneRef = useRef(null);
   const descTwoRef = useRef(null);
+  const descOneTextsContentRef = useRef(null);
 
   useEffect(() => {
     function updateHeights() {
-      if (descOneRef.current && colorUpdownRef.current) {
-        const h = descOneRef.current.offsetHeight;
+      if (descOneTextsContentRef.current && colorUpdownRef.current) {
+        const h = descOneTextsContentRef.current.offsetHeight;
         colorUpdownRef.current.style.height = h * 1.1 + "px";
       }
       if (descTwoRef.current && colorUpdownTwoRef.current) {
@@ -43,51 +44,84 @@ export function DescriptionSection() {
     <div className="description">
       {isMobile ? (
         <Link href="/application-form" className="application-link-mobile">
-          <span className="application-form-mobile">Nadaj sprzęt do naprawy</span>
+          <span className="application-form-mobile">
+            Nadaj sprzęt do naprawy
+          </span>
         </Link>
       ) : (
         <div></div>
       )}
-      <div
-        className="description-one"
-        ref={descOneRef}
-      >
-        <span className="color-updown" ref={colorUpdownRef}></span>
-        <div className="description-text-block" ref={descTextOneRef}>
-          <div className="desc-one-text-top" ref={descOneTextTopRef}>
-            <span className="description-text-one">
-              Naprawiamy laptopy, komputery stacjonarne, wszystkie modele
-              telefonów komórkowych, drukarki oraz elektronikę użytkową. Szybko
-              postawimy Twoje urządzenie na nogi. {" "}
-            </span>
-            <span className="description-text-two">
-              Odzyskujemy dane za pomocą najnowocześniejszych technologii. To
-              znacznie zwiększa szansę na to, że przywrócimy pliki, nawet gdy w
-              pierwszej chwili wydaje Ci się to niemożliwe.
-            </span>
+      <div className="description-one" ref={descOneRef}>
+        <div className="desc-one-content">
+          <div className="description-text-block" ref={descTextOneRef}>
+            <div className="desc-one-texts-row">
+              <span className="color-updown" ref={colorUpdownRef}></span>
+              <div
+                className="desc-one-texts-content"
+                ref={descOneTextsContentRef}
+              >
+                <div className="desc-one-text-top" ref={descOneTextTopRef}>
+                  <span className="description-text-one">
+                    Naprawiamy laptopy, komputery stacjonarne, wszystkie modele
+                    telefonów komórkowych, drukarki oraz elektronikę użytkową.
+                    Szybko postawimy Twoje urządzenie na nogi.{" "}
+                  </span>
+                  <span className="description-text-two">
+                    Odzyskujemy dane za pomocą najnowocześniejszych technologii.
+                    To znacznie zwiększa szansę na to, że przywrócimy pliki,
+                    nawet gdy w pierwszej chwili wydaje Ci się to niemożliwe.
+                  </span>
+                </div>
+                <span className="description-text-three">
+                  {isMobile ? (
+                    <>
+                      Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy
+                      dokumentację do audytów, zabezpieczamy dane i dbamy o
+                      sprawne funkcjonowanie wszystkich urządzeń
+                      elektronicznych, aby technologia wspierała rozwój Twojego
+                      biznesu.
+                      <Image
+                        src={descPhotoOne}
+                        className="desc-photo desc-photo-large"
+                        alt="photo"
+                        width={140}
+                        height={140}
+                        style={{
+                          marginLeft: 16,
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                          display: "block",
+                        }}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy
+                      dokumentację do audytów, zabezpieczamy dane i dbamy o
+                      sprawne funkcjonowanie wszystkich urządzeń
+                      elektronicznych, aby technologia wspierała rozwój Twojego
+                      biznesu.
+                    </>
+                  )}
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="desc-one-bottom-row">
-            <span className="description-text-three">
-              Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy
-              dokumentację do audytów, zabezpieczamy dane i dbamy o sprawne
-              funkcjonowanie wszystkich urządzeń elektronicznych, aby
-              technologia wspierała rozwój Twojego biznesu.
-            </span>
-            <Image
-              src={descPhotoOne}
-              className="desc-photo desc-photo-large"
-              alt="photo"
-              layout="responsive"
-              priority
-            />
-          </div>
+          {!isMobile && (
+            <div className="desc-one-image">
+              <Image
+                src={descPhotoOne}
+                className="desc-photo desc-photo-large"
+                alt="photo"
+                layout="responsive"
+                priority
+              />
+            </div>
+          )}
         </div>
       </div>
 
-      <div
-        className="description-two"
-        ref={descTwoRef}
-      >
+      <div className="description-two" ref={descTwoRef}>
         <div className="description-two-textline-wrapper">
           <div className="desc-two-bottom-row">
             <Image
