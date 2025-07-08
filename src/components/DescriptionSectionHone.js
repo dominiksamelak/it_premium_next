@@ -27,12 +27,40 @@ export function DescriptionSection() {
   useEffect(() => {
     function updateHeights() {
       if (descOneTextsContentRef.current && colorUpdownRef.current) {
-        const h = descOneTextsContentRef.current.offsetHeight;
-        colorUpdownRef.current.style.height = h * 1.1 + "px";
+        if (window.innerWidth <= 640) {
+          // Mobile: color-updown height = 1.05x desc-one-texts-content
+          const h = descOneTextsContentRef.current.offsetHeight;
+          colorUpdownRef.current.style.height = h * 1.05 + "px";
+        } else {
+          // Desktop: color-updown height = 1.05x desc-one-texts-content
+          const h = descOneTextsContentRef.current.offsetHeight;
+          colorUpdownRef.current.style.height = h * 1.05 + "px";
+        }
+      } else if (colorUpdownRef.current) {
+        colorUpdownRef.current.style.height = "";
       }
+
       if (descTwoRef.current && colorUpdownTwoRef.current) {
-        const h = descTwoRef.current.offsetHeight;
-        colorUpdownTwoRef.current.style.height = h * 1.1 + "px";
+        if (window.innerWidth <= 640) {
+          // Mobile: color-updown-two height = 1.05x desc-two-texts-content
+          const descTwoTextsContent = descTwoRef.current.querySelector(
+            ".desc-two-texts-content"
+          );
+          if (descTwoTextsContent) {
+            const h = descTwoTextsContent.offsetHeight;
+            colorUpdownTwoRef.current.style.height = h * 1.05 + "px";
+          }
+        } else {
+          // Desktop: color-updown-two height = 1.05x desc-two-image
+          const descTwoImage =
+            descTwoRef.current.querySelector(".desc-two-image");
+          if (descTwoImage) {
+            const h = descTwoImage.offsetHeight;
+            colorUpdownTwoRef.current.style.height = h * 1.05 + "px";
+          }
+        }
+      } else if (colorUpdownTwoRef.current) {
+        colorUpdownTwoRef.current.style.height = "";
       }
     }
     updateHeights();
@@ -74,26 +102,41 @@ export function DescriptionSection() {
                 </div>
                 <span className="description-text-three">
                   {isMobile ? (
-                    <>
-                      Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy
-                      dokumentację do audytów, zabezpieczamy dane i dbamy o
-                      sprawne funkcjonowanie wszystkich urządzeń
-                      elektronicznych, aby technologia wspierała rozwój Twojego
-                      biznesu.
-                      <Image
-                        src={descPhotoOne}
-                        className="desc-photo desc-photo-large"
-                        alt="photo"
-                        width={140}
-                        height={140}
-                        style={{
-                          marginLeft: 16,
-                          borderRadius: "50%",
-                          objectFit: "cover",
-                          display: "block",
-                        }}
-                      />
-                    </>
+                    <div className="mobile-text-image-layout">
+                      <div className="mobile-text-content">
+                        <div className="mobile-text-above">
+                          Opiekujemy się infrastrukturą IT w firmach.
+                          Przygotowujemy dokumentację do audytów, zabezpieczamy
+                          dane i dbamy o sprawne funkcjonowanie wszystkich
+                          urządzeń elektronicznych, aby technologia wspierała
+                          rozwój Twojego biznesu.
+                        </div>
+                        <div className="mobile-text-next-to">
+                          <div className="mobile-text-side">
+                            <p>
+                              Oferujemy kompleksowe wsparcie techniczne i
+                              konsultacje.
+                            </p>
+                            <p>
+                              Nasz zespół ekspertów jest zawsze gotowy do
+                              pomocy.
+                            </p>
+                          </div>
+                          <Image
+                            src={descPhotoOne}
+                            className="desc-photo desc-photo-large"
+                            alt="photo"
+                            width={140}
+                            height={140}
+                            style={{
+                              borderRadius: "50%",
+                              objectFit: "cover",
+                              display: "block",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <>
                       Opiekujemy się infrastrukturą IT w firmach. Przygotowujemy
@@ -122,27 +165,31 @@ export function DescriptionSection() {
       </div>
 
       <div className="description-two" ref={descTwoRef}>
-        <div className="description-two-textline-wrapper">
-          <div className="desc-two-bottom-row">
-            <Image
-              src={descPhotoTwo}
-              className="desc-photo desc-photo-large"
-              alt="photo"
-              layout="responsive"
-              priority
-            />
-            <span className="description-text-three">
-              Sprawdź, jak radzimy sobie z wyzwaniami, jakie stawiają przed nami
-              klienci!
-            </span>
-          </div>
-          <span className="color-updown-two" ref={colorUpdownTwoRef}></span>
+        <div className="desc-two-image">
+          <Image
+            src={descPhotoTwo}
+            className="desc-photo desc-photo-large"
+            alt="photo"
+            layout="responsive"
+            priority
+          />
         </div>
-        <div className="desc-two-text-bottom">
+        <div className="desc-two-texts-content">
+          <span className="description-text-one">
+            Sprawdź, jak radzimy sobie z wyzwaniami, jakie stawiają przed nami
+            klienci!
+          </span>
           <span className="description-text-two">
             I co sprawia, że średnia naszych ocen to 5 gwiazdek. 😉
           </span>
+          <div className="google-reviews-badge">
+            <ReactGoogleReviews
+              layout="badge"
+              featurableId="f9a57238-df62-4c52-8448-6d9130fdedd3"
+            />
+          </div>
         </div>
+        <span className="color-updown-two" ref={colorUpdownTwoRef}></span>
       </div>
       <div className="google-reviews-desc-mobile">
         <ReactGoogleReviews

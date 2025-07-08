@@ -46,16 +46,14 @@ export function Navbar({ isVisible }) {
         <div className="mobile-navbar">
           <Link href="/home">
             <Image src={logo2} alt="logo" className="logo2" />
-          </Link>
-
-          <Image src={mobileITP} alt="itp" className="logo2-name" />
-          <Link href="/home">
             <Image
               src={logoMobileDark}
               alt="logo"
               className="logo-mobile-nav-dark"
             />
           </Link>
+
+          <Image src={mobileITP} alt="itp" className="logo2-name" />
 
           <Image
             src={mobileITPDark}
